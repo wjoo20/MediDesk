@@ -5,6 +5,8 @@
  */
 package hospital.views;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author PC
