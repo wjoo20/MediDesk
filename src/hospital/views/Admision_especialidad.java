@@ -6,6 +6,7 @@
 package hospital.views;
 
 import java.awt.Image;
+import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -22,9 +23,10 @@ public class Admision_especialidad extends javax.swing.JFrame {
     public Admision_especialidad() {
         initComponents();
         this.setLocationRelativeTo(null);
-        ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
-        Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
+        ImageIcon logo = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
+        Icon img = new ImageIcon(logo.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
     }
 
     /**
