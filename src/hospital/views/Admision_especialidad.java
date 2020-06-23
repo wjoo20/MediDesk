@@ -20,9 +20,7 @@ public class Admision_especialidad extends javax.swing.JFrame {
      */
     public Admision_especialidad() {
         initComponents();
-        ImageIcon smile = new ImageIcon(getClass().getResource("logo-64.png"));
-        Icon img = new ImageIcon(smile.getImage().getScaledInstance(jLabel9.getWidth(), jLabel9.getHeight(),Image.SCALE_DEFAULT));
-        label.setIcon(img);
+
     }
 
     /**
