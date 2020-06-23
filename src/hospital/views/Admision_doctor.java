@@ -23,6 +23,9 @@ public class Admision_doctor extends javax.swing.JFrame {
         initComponents();
         //Centrar ventana
         this.setLocationRelativeTo(null);
+        ImageIcon smile = new ImageIcon(getClass().getResource("logo-64.png"));
+        Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
+        lblLogo.setIcon(img);
         /*
         //Ajustar imagen al label
         ImageIcon imagen = new ImageIcon(getClass().getResource("/hospital.views.images/logo-64.png"));
@@ -53,6 +56,8 @@ public class Admision_doctor extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -191,6 +196,16 @@ public class Admision_doctor extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
+        lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel4.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("MediDesk");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         pack();
@@ -288,6 +303,7 @@ public class Admision_doctor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -300,5 +316,6 @@ public class Admision_doctor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel lblLogo;
     // End of variables declaration//GEN-END:variables
 }
