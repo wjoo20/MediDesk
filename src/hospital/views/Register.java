@@ -119,7 +119,7 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("TELÉFONO");
+        jLabel7.setText("TELÉFONO:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(0, 51, 51));
@@ -127,24 +127,31 @@ public class Register extends javax.swing.JFrame {
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
         btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRegistrarMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, 30));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("CONFIRMAR CONTRASEÑA");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, 30));
+        jLabel10.setText("CONFIRMAR CONTRASEÑA:");
+        jLabel10.setToolTipText("");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, 30));
 
         jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("E-MAIL");
+        jLabel8.setText("E-MAIL:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 50, 30));
 
         jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("CONTRASEÑA");
+        jLabel9.setText("CONTRASEÑA:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, 30));
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 410, 30));
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
@@ -196,6 +203,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 170, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -204,6 +212,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
+        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel12MouseClicked(evt);
@@ -216,6 +225,7 @@ public class Register extends javax.swing.JFrame {
         btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
@@ -223,6 +233,12 @@ public class Register extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/cancel-16(rojo).PNG"))); // NOI18N
         btnCancelar.setText("CANCELAR");
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelarMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, 30));
         jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 410, 30));
 
@@ -245,6 +261,18 @@ public class Register extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+        Admision_inicio r = new Admision_inicio();
+        r.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnRegistrarMouseClicked
+
+    private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnCancelarMouseClicked
 
     /**
      * @param args the command line arguments
