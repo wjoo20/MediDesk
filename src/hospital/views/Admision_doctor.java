@@ -23,11 +23,12 @@ public class Admision_doctor extends javax.swing.JFrame {
         initComponents();
         //Centrar ventana
         this.setLocationRelativeTo(null);
+        /*
         //Ajustar imagen al label
         ImageIcon imagen = new ImageIcon(getClass().getResource("/hospital.views.images/logo-64.png"));
         Icon fondo = new ImageIcon(imagen.getImage().getScaledInstance(lblFondoLogo.getWidth(), lblFondoLogo.getHeight(),Image.SCALE_DEFAULT));
         lblFondoLogo.setIcon(fondo);
-        this.repaint();
+        this.repaint();*/
     }
 
     /**
@@ -52,7 +53,6 @@ public class Admision_doctor extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        lblFondoLogo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -194,7 +194,6 @@ public class Admision_doctor extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
-        jPanel4.add(lblFondoLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 50, 40));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
@@ -305,6 +304,5 @@ public class Admision_doctor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblFondoLogo;
     // End of variables declaration//GEN-END:variables
 }
