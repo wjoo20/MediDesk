@@ -59,6 +59,7 @@ public class Admision_inicio extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        lblLogo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -300,6 +301,11 @@ public class Admision_inicio extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
 
+        lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel4.add(lblLogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         pack();
@@ -493,5 +499,6 @@ public class Admision_inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblLogo1;
     // End of variables declaration//GEN-END:variables
 }
