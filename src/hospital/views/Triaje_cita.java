@@ -169,15 +169,17 @@ public class Triaje_cita extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVer.setBackground(new java.awt.Color(102, 102, 102));
+        btnVer.setBackground(new java.awt.Color(51, 51, 51));
+        btnVer.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        btnVer.setForeground(new java.awt.Color(255, 255, 255));
         btnVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
-        btnVer.setText("Ver");
+        btnVer.setText("VER");
         btnVer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVerMouseClicked(evt);
             }
         });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, -1, -1));
+        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, -1, -1));
 
         jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTable1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
