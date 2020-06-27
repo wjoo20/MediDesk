@@ -165,7 +165,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 130, 160));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, 130, 160));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -214,7 +214,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Admision_inicio r = new Admision_inicio();
+        Triaje_inicio r = new Triaje_inicio();
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -242,8 +242,8 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Admision_paciente ap = new Admision_paciente();
-        ap.setVisible(true);
+        Triaje_tablaTriaje tt = new Triaje_tablaTriaje();
+        tt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 
@@ -264,14 +264,14 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Triaje_cita ac = new Triaje_cita();
-        ac.setVisible(true);
+        Triaje_cita tc = new Triaje_cita();
+        tc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Admision_paciente ap = new Admision_paciente();
-        ap.setVisible(true);
+        Triaje_tablaTriaje tt = new Triaje_tablaTriaje();
+        tt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
