@@ -3,18 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Admision_inicio.java</file>
-            <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/bo/UsuarioBO.java</file>
-            <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/dao/UsuarioDAO.java</file>
-            <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Login.java</file>
-=======
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_formularioTriaje.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_inicio.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_cita.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_verPaciente.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Register.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Login.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_tablaTriaje.java</file>
->>>>>>> 7f5189e9d651715b08d2f06639cf41de6d6b9c85
         </group>
     </open-files>
 </project-private>
