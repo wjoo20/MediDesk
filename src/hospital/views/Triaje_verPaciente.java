@@ -366,7 +366,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Admision_paciente ap = new Admision_paciente();
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje();
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
