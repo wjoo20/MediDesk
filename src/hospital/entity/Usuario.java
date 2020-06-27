@@ -15,6 +15,10 @@ public class Usuario {
     private String clave;
     private char tipo;
 
+    public Usuario(){
+        
+    }
+    
     public Usuario(int idUsuario, String correo, String clave, char tipo) {
         this.idUsuario = idUsuario;
         this.correo = correo;

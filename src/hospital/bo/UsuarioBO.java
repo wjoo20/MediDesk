@@ -36,4 +36,26 @@ public class UsuarioBO {
         }
         return mensaje;
     }
+    
+    public int getIdUser(String user){
+        Connection conn = Conexion.getConnection();
+        int id = udao.getIdUser(conn,user);
+        try {           
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());      
+        }
+        return id;
+    }
+    
+    public char getTipoUser(String user){
+        Connection conn = Conexion.getConnection();
+        char tipo = udao.getTipoUser(conn,user);
+        try {           
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());      
+        }
+        return tipo;
+    }
 }

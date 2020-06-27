@@ -36,8 +36,48 @@ public class UsuarioDAO {
             rs.close();
             pst.close();
         } catch (SQLException e) {
-            System.out.println("Error en usuario DAO: " + e.getMessage());
+            System.out.println("Error en login DAO: " + e.getMessage());
         }
         return pass;
+    }
+    
+    public int getIdUser(Connection con, String user){
+        int id = 0;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, user);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                id = rs.getInt("US_IDUSUARIO");
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en getIdUser DAO: " + e.getMessage());
+        }
+        return id;
+    }
+    
+    public char getTipoUser(Connection con, String user){
+        char tipo = ' ';
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT US_TIPO FROM USUARIO WHERE US_CORREO = ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, user);
+            rs = pst.executeQuery();
+            if(rs.next()){
+                tipo = rs.getString("US_TIPO").charAt(0);
+            }
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            System.out.println("Error en getIdUser DAO: " + e.getMessage());
+        }
+        return tipo;
     }
 }

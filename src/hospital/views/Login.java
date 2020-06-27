@@ -6,6 +6,7 @@
 package hospital.views;
 
 import hospital.bo.UsuarioBO;
+import hospital.entity.Usuario;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -35,7 +36,17 @@ public class Login extends javax.swing.JFrame {
             return false;
         }     
     }
-
+    
+    public int getIdUser(String user){
+        
+        return ubo.getIdUser(user);
+    }
+    
+    public char getTipoUser(String user){
+        
+        return ubo.getTipoUser(user);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,13 +190,32 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
           if(login()){
-              Register r = new Register();
-              r.setVisible(true);
-              this.setVisible(false);
+              Usuario user = new Usuario();
+              user.setIdUsuario(getIdUser(juser.getText()));
+              user.setCorreo(juser.getText());
+              user.setClave(String.valueOf(jpassword.getPassword()));
+              user.setTipo(getTipoUser(juser.getText()));
+              if(user.getTipo( )== 'R'){
+                  Register r = new Register();
+                  r.setVisible(true);
+                  this.setVisible(false);
+              }
+              else if(user.getTipo( )== 'A'){
+                  Admision_inicio r = new Admision_inicio();
+                  r.setVisible(true);
+                  this.setVisible(false);
+              }
+              else if(user.getTipo( )== 'M'){
+                  Medico_inicio r = new Medico_inicio();
+                  r.setVisible(true);
+                  this.setVisible(false);
+              }
+              else if(user.getTipo( )== 'E'){
+                 Triaje_inicio r = new Triaje_inicio();
+                  r.setVisible(true);
+                  this.setVisible(false);
+              }
           }
-//        Admision_inicio ai = new Admision_inicio();
-//        ai.setVisible(true);
-//        this.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     /**
