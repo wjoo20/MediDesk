@@ -197,6 +197,7 @@ public class Login extends javax.swing.JFrame {
               user.setTipo(getTipoUser(juser.getText()));
               if(user.getTipo( )== 'R'){
                   Register r = new Register();
+                  dispose();
                   r.setVisible(true);
                   this.setVisible(false);
               }
