@@ -1,1 +1,20 @@
+/nbproject/private/
+/build/
+/nbbuild/
 /dist/
+/nbdist/
+/nbactions.xml
+/nb-configuration.xml
+
+# Class Files #
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+/borrar.txt
+nbproject/
+nbproject/private/private.properties
+*.xml
+ nbproject/private/private.xml
