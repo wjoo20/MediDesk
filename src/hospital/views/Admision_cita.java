@@ -39,14 +39,14 @@ public class Admision_cita extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -123,46 +123,6 @@ public class Admision_cita extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/doctor-16(blanco).png"))); // NOI18N
-        jLabel12.setText("Médicos");
-        jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel12MouseMoved(evt);
-            }
-        });
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/especialidades-16(blanco).png"))); // NOI18N
-        jLabel13.setText("Especialidades");
-        jLabel13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel13.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel13MouseMoved(evt);
-            }
-        });
-        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel13MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel13MouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -180,6 +140,8 @@ public class Admision_cita extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
@@ -191,14 +153,30 @@ public class Admision_cita extends javax.swing.JFrame {
         jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 770, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, 590, 120));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 20, 30));
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 270, 30));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 70, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jButton3.setText("Generar Cita");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 150, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -291,34 +269,6 @@ public class Admision_cita extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
     }//GEN-LAST:event_jLabel14MouseExited
 
-    private void jLabel12MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseMoved
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
-    }//GEN-LAST:event_jLabel12MouseMoved
-
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        Admision_doctor ad = new Admision_doctor();
-        ad.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
-    }//GEN-LAST:event_jLabel12MouseExited
-
-    private void jLabel13MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseMoved
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
-    }//GEN-LAST:event_jLabel13MouseMoved
-
-    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        Admision_especialidad ae = new Admision_especialidad();
-        ae.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel13MouseClicked
-
-    private void jLabel13MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseExited
-        jLabel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
-    }//GEN-LAST:event_jLabel13MouseExited
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
@@ -328,7 +278,7 @@ public class Admision_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        this.setState(Admision_doctor.ICONIFIED);
+        this.setState(Admision_cita.ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
@@ -336,6 +286,16 @@ public class Admision_cita extends javax.swing.JFrame {
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        Admision_generar_cita r = new Admision_generar_cita();
+        r.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,10 +336,10 @@ public class Admision_cita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

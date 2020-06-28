@@ -281,31 +281,24 @@ public class Register extends javax.swing.JFrame {
         txtApellidos.setBorder(null);
         jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 410, 30));
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 410, 10));
 
-        jSeparator2.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 410, 10));
 
-        jSeparator3.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, 410, 10));
 
-        jSeparator4.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 130, 10));
 
-        jSeparator5.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 170, 10));
 
-        jSeparator6.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, 10));
 
-        jSeparator7.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 170, 10));
 
