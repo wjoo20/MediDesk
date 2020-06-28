@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Admision_cita.java</file>
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/dao/UsuarioDAO.java</file>
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Medico_inicio.java</file>
@@ -18,6 +19,12 @@
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Triaje_inicio.java</file>
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Medico_cita.java</file>
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/db/Conexion.java</file>
+=======
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Admision_inicio.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Admision_paciente.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Triaje_cita.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia.java</file>
+>>>>>>> 1e459d0c4f1c77e1a8d9b6732c3461d9fb6d483a
         </group>
     </open-files>
 </project-private>
