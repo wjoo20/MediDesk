@@ -190,26 +190,37 @@ public class Login extends javax.swing.JFrame {
               user.setCorreo(juser.getText());
               user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
-              if(user.getTipo( )== 'R'){
-                  Register r = new Register();
-                  dispose();
-                  r.setVisible(true);
-                  this.setVisible(false);
-              }
-              else if(user.getTipo( )== 'A'){
-                  Admision_inicio r = new Admision_inicio();
-                  r.setVisible(true);
-                  this.setVisible(false);
-              }
-              else if(user.getTipo( )== 'M'){
-                  Medico_inicio r = new Medico_inicio();
-                  r.setVisible(true);
-                  this.setVisible(false);
-              }
-              else if(user.getTipo( )== 'E'){
-                 Triaje_inicio r = new Triaje_inicio();
-                  r.setVisible(true);
-                  this.setVisible(false);
+              switch (user.getTipo( )) {
+                  case 'R':
+                      {
+                          Register r = new Register();
+                          r.setVisible(true);
+                          this.setVisible(false);
+                          break;
+                      }
+                  case 'A':
+                      {
+                          Admision_inicio r = new Admision_inicio();
+                          r.setVisible(true);
+                          this.setVisible(false);
+                          break;
+                      }
+                  case 'M':
+                      {
+                          Medico_inicio r = new Medico_inicio();
+                          r.setVisible(true);
+                          this.setVisible(false);
+                          break;
+                      }
+                  case 'E':
+                      {
+                          Triaje_inicio r = new Triaje_inicio();
+                          r.setVisible(true);
+                          this.setVisible(false);
+                          break;
+                      }
+                  default:
+                      break;
               }
               else if(user.getTipo( )== 'F'){
                  Farmacia farma = new Farmacia();
