@@ -6,6 +6,8 @@
 package hospital.views;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -52,7 +54,7 @@ public class Admision_inicio extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        Minimizar = new javax.swing.JLabel();
         lblLogo1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -203,15 +205,15 @@ public class Admision_inicio extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
+                MinimizarMouseClicked(evt);
             }
         });
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
+        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
 
         lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
         lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
@@ -297,10 +299,34 @@ public class Admision_inicio extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel14MouseMoved
 
+<<<<<<< HEAD
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel18MouseClicked
+=======
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_jLabel11MouseExited
 
+    private void jLabel11MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseMoved
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
+    }//GEN-LAST:event_jLabel11MouseMoved
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel12MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseMoved
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
+    }//GEN-LAST:event_jLabel12MouseMoved
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+>>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
+
+                setExtendedState(ICONIFIED );
+
+    }//GEN-LAST:event_MinimizarMouseClicked
+                
     /**
      * @param args the command line arguments
      */
@@ -338,6 +364,7 @@ public class Admision_inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Minimizar;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -345,7 +372,12 @@ public class Admision_inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+<<<<<<< HEAD
     private javax.swing.JLabel jLabel18;
+=======
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+>>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

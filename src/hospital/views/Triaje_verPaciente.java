@@ -44,9 +44,9 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        Minimizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -161,16 +161,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel10.setText("MediDesk");
         jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-        jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
-
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
         jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,6 +180,16 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
 
+        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizarMouseClicked(evt);
+            }
+        });
+        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
+
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -205,7 +205,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 130, 20));
 
         jLabel3.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel3.setBorder(null);
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 210, 20));
 
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
@@ -219,7 +218,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setBorder(null);
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, 20));
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
@@ -232,7 +230,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 20));
 
         jLabel8.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel8.setBorder(null);
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, 20));
 
         jSeparator3.setBackground(new java.awt.Color(204, 204, 204));
@@ -245,7 +242,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 90, 20));
 
         jLabel12.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel12.setBorder(null);
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, 20));
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 204));
@@ -258,7 +254,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 80, 20));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel15.setBorder(null);
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, 20));
 
         jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
@@ -271,7 +266,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 20));
 
         jLabel20.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel20.setBorder(null);
         jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, 20));
 
         jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
@@ -284,7 +278,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 100, 20));
 
         jLabel22.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel22.setBorder(null);
         jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 210, 20));
 
         jSeparator7.setBackground(new java.awt.Color(204, 204, 204));
@@ -297,7 +290,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 100, 20));
 
         jLabel24.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel24.setBorder(null);
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
 
         jSeparator8.setBackground(new java.awt.Color(204, 204, 204));
@@ -310,7 +302,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 100, 20));
 
         jLabel26.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel26.setBorder(null);
         jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, 20));
 
         jSeparator9.setBackground(new java.awt.Color(204, 204, 204));
@@ -375,10 +366,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
     }//GEN-LAST:event_jLabel14MouseExited
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        this.setState(Admision_doctor.ICONIFIED);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
@@ -399,6 +386,11 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -436,6 +428,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Minimizar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -444,7 +437,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;

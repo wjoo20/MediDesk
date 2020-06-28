@@ -51,8 +51,8 @@ public class Admision_cita extends javax.swing.JFrame {
         lblLogo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
+        Minimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -202,16 +202,6 @@ public class Admision_cita extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        jLabel15.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel15MouseClicked(evt);
-            }
-        });
-        jPanel4.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
-
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -221,6 +211,16 @@ public class Admision_cita extends javax.swing.JFrame {
             }
         });
         jPanel4.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
+
+        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizarMouseClicked(evt);
+            }
+        });
+        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
@@ -277,16 +277,20 @@ public class Admision_cita extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel17MouseClicked
 
+<<<<<<< HEAD
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         this.setState(Admision_cita.ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
+=======
+>>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         Admision_inicio r = new Admision_inicio();
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
 
+<<<<<<< HEAD
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Admision_generar_cita r = new Admision_generar_cita();
         r.setVisible(true);
@@ -296,6 +300,12 @@ public class Admision_cita extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+=======
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
+>>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
 
     /**
      * @param args the command line arguments
@@ -336,12 +346,15 @@ public class Admision_cita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+<<<<<<< HEAD
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
+=======
+    private javax.swing.JLabel Minimizar;
+>>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
