@@ -90,7 +90,6 @@ public class Login extends javax.swing.JFrame {
         juser.setBackground(new java.awt.Color(51, 51, 51));
         juser.setFont(new java.awt.Font("Maiandra GD", 0, 14)); // NOI18N
         juser.setForeground(new java.awt.Color(204, 204, 204));
-        juser.setText("Ingrese usuario");
         juser.setBorder(null);
         juser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +107,6 @@ public class Login extends javax.swing.JFrame {
 
         jpassword.setBackground(new java.awt.Color(51, 51, 51));
         jpassword.setForeground(new java.awt.Color(204, 204, 204));
-        jpassword.setText("jPasswordField1");
         jpassword.setBorder(null);
         jPanel3.add(jpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 170, 30));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 230, 20));
@@ -211,6 +209,11 @@ public class Login extends javax.swing.JFrame {
               else if(user.getTipo( )== 'E'){
                  Triaje_inicio r = new Triaje_inicio();
                   r.setVisible(true);
+                  this.setVisible(false);
+              }
+              else if(user.getTipo( )== 'F'){
+                 Farmacia farma = new Farmacia();
+                  farma.setVisible(true);
                   this.setVisible(false);
               }
           }
