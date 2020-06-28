@@ -141,7 +141,7 @@ public class Register extends javax.swing.JFrame {
 
         btnRegistrar.setBackground(new java.awt.Color(0, 51, 51));
         btnRegistrar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrar.setForeground(new java.awt.Color(102, 102, 102));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -174,67 +174,79 @@ public class Register extends javax.swing.JFrame {
         txtEmail.setBackground(new java.awt.Color(28, 28, 28));
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
+        txtEmail.setOpaque(false);
         jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 410, 30));
 
         txtContraseña.setBackground(new java.awt.Color(28, 28, 28));
         txtContraseña.setForeground(new java.awt.Color(255, 255, 255));
         txtContraseña.setBorder(null);
+        txtContraseña.setOpaque(false);
         jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
         rbtAdministrador.setBackground(new java.awt.Color(51, 51, 51));
         rbtAdministrador.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
         rbtAdministrador.setForeground(new java.awt.Color(255, 255, 255));
         rbtAdministrador.setText("ADMINISTRADOR");
+        rbtAdministrador.setContentAreaFilled(false);
         jPanel2.add(rbtAdministrador, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 120, 30));
 
         rbtMedico.setBackground(new java.awt.Color(51, 51, 51));
         rbtMedico.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
         rbtMedico.setForeground(new java.awt.Color(255, 255, 255));
         rbtMedico.setText("MÉDICO");
+        rbtMedico.setContentAreaFilled(false);
         jPanel2.add(rbtMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, 30));
 
         rbtEnfermera.setBackground(new java.awt.Color(51, 51, 51));
         rbtEnfermera.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
         rbtEnfermera.setForeground(new java.awt.Color(255, 255, 255));
         rbtEnfermera.setText("ENFERMERA");
+        rbtEnfermera.setContentAreaFilled(false);
         jPanel2.add(rbtEnfermera, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, 30));
 
         rbtFarmaceutico.setBackground(new java.awt.Color(51, 51, 51));
         rbtFarmaceutico.setFont(new java.awt.Font("Maiandra GD", 0, 10)); // NOI18N
         rbtFarmaceutico.setForeground(new java.awt.Color(255, 255, 255));
         rbtFarmaceutico.setText("FARMACÉUTICO");
+        rbtFarmaceutico.setContentAreaFilled(false);
         jPanel2.add(rbtFarmaceutico, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
 
         rbtMasculino.setBackground(new java.awt.Color(51, 51, 51));
         rbtMasculino.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         rbtMasculino.setForeground(new java.awt.Color(255, 255, 255));
         rbtMasculino.setText("MASCULINO");
+        rbtMasculino.setContentAreaFilled(false);
         jPanel2.add(rbtMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, 30));
 
         rbtFemenino.setBackground(new java.awt.Color(51, 51, 51));
         rbtFemenino.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         rbtFemenino.setForeground(new java.awt.Color(255, 255, 255));
         rbtFemenino.setText("FEMENINO");
+        rbtFemenino.setContentAreaFilled(false);
         jPanel2.add(rbtFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, 30));
 
         txtNombres.setBackground(new java.awt.Color(28, 28, 28));
         txtNombres.setForeground(new java.awt.Color(255, 255, 255));
         txtNombres.setBorder(null);
+        txtNombres.setOpaque(false);
         jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 410, 30));
 
         txtDni.setBackground(new java.awt.Color(28, 28, 28));
         txtDni.setForeground(new java.awt.Color(255, 255, 255));
         txtDni.setBorder(null);
+        txtDni.setOpaque(false);
         jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, 30));
 
         txtConfirmarContraseña.setBackground(new java.awt.Color(28, 28, 28));
         txtConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
         txtConfirmarContraseña.setBorder(null);
+        txtConfirmarContraseña.setOpaque(false);
         jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
 
         txtTelefono.setBackground(new java.awt.Color(28, 28, 28));
         txtTelefono.setForeground(new java.awt.Color(255, 255, 255));
         txtTelefono.setBorder(null);
+        txtTelefono.setOpaque(false);
         jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 170, 30));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
@@ -257,7 +269,7 @@ public class Register extends javax.swing.JFrame {
 
         btnLimpiar.setBackground(new java.awt.Color(0, 51, 51));
         btnLimpiar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
+        btnLimpiar.setForeground(new java.awt.Color(102, 102, 102));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -265,7 +277,7 @@ public class Register extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCancelar.setForeground(new java.awt.Color(102, 102, 102));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/cancel-16(rojo).PNG"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -279,6 +291,7 @@ public class Register extends javax.swing.JFrame {
         txtApellidos.setBackground(new java.awt.Color(28, 28, 28));
         txtApellidos.setForeground(new java.awt.Color(255, 255, 255));
         txtApellidos.setBorder(null);
+        txtApellidos.setOpaque(false);
         jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 410, 30));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
