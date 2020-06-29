@@ -3,15 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Login.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Admision_cita.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Triaje_formularioTriaje.java</file>
-=======
->>>>>>> 0cd893d0f56b19aec000be0c4805b2500cc6b87d
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Medico_cita.java</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/UsuarioDAO.java</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Register.java</file>
@@ -27,13 +18,6 @@
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Login.java</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/.gitignore</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia.java</file>
-<<<<<<< HEAD
->>>>>>> 1e459d0c4f1c77e1a8d9b6732c3461d9fb6d483a
->>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
->>>>>>> origin/master
->>>>>>> a6ceda1eb87a774ffb003fad28af675c48d1f608
-=======
->>>>>>> 0cd893d0f56b19aec000be0c4805b2500cc6b87d
         </group>
     </open-files>
 </project-private>
