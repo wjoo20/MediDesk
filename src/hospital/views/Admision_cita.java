@@ -277,20 +277,18 @@ public class Admision_cita extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel17MouseClicked
 
-<<<<<<< HEAD
     private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
         this.setState(Admision_cita.ICONIFIED);
     }//GEN-LAST:event_jLabel15MouseClicked
 
-=======
->>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
+
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         Admision_inicio r = new Admision_inicio();
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
 
-<<<<<<< HEAD
+
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
         Admision_generar_cita r = new Admision_generar_cita();
         r.setVisible(true);
@@ -300,12 +298,12 @@ public class Admision_cita extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
-=======
+
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
 
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
->>>>>>> c317b328bf1a6fa9bbdc92254b0c1434be10b6ec
+
 
     /**
      * @param args the command line arguments
