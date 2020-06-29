@@ -16,6 +16,7 @@ public class Admision_generar_cita extends javax.swing.JFrame {
      */
     public Admision_generar_cita() {
         initComponents();
+           this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,7 +56,7 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
-        btnRegistrar.setText("REGISTRAR");
+        btnRegistrar.setText("GENERAR");
         btnRegistrar.setActionCommand("GENERAR");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,7 +121,7 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
-        Admision_paciente lo = new Admision_paciente();
+        Admision_cita lo = new Admision_cita();
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarMouseClicked
