@@ -219,14 +219,18 @@ public class Login extends javax.swing.JFrame {
                           this.setVisible(false);
                           break;
                       }
+                  case 'F':
+                  {
+                          Farmacia farma = new Farmacia();
+                            farma.setVisible(true);
+                             this.setVisible(false);
+                             break;
+                  }
                   default:
                       break;
               }
-              else if(user.getTipo( )== 'F'){
-                 Farmacia farma = new Farmacia();
-                  farma.setVisible(true);
-                  this.setVisible(false);
-              }
+              
+
           }
     }//GEN-LAST:event_jLabel10MouseClicked
 
