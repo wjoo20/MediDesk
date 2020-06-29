@@ -284,6 +284,11 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 210, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
@@ -350,12 +355,19 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null,"Triaje realizado con éxito.");
+        Triaje_tablaTriaje r = new Triaje_tablaTriaje();
+        r.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
 
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
