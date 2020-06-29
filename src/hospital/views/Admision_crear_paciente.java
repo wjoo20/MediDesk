@@ -5,7 +5,6 @@
  */
 package hospital.views;
 
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,9 +18,10 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     public Admision_crear_paciente() {
        
       initComponents();
-        this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-    
+       
+         this.setLocationRelativeTo(null);
+     
+        
     }
 
     /**
@@ -66,7 +66,6 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 460));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(950, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 36)); // NOI18N
