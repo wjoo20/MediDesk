@@ -43,25 +43,19 @@ public class Admision_inicio extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         fondo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        Minimizar = new javax.swing.JLabel();
         lblLogo1 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -112,44 +106,6 @@ public class Admision_inicio extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 70, -1));
 
-        jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/doctor-16(blanco).png"))); // NOI18N
-        jLabel11.setText("Médicos");
-        jLabel11.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel11MouseMoved(evt);
-            }
-        });
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel11MouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/especialidades-16(blanco).png"))); // NOI18N
-        jLabel12.setText("Especialidades");
-        jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jLabel12MouseMoved(evt);
-            }
-        });
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jLabel12MouseExited(evt);
-            }
-        });
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/paciente-16(blanco).png"))); // NOI18N
@@ -184,7 +140,7 @@ public class Admision_inicio extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 130, 160));
+        fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 130, 160));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,29 +152,7 @@ public class Admision_inicio extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        fondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/stethoscope.png"))); // NOI18N
-        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-        fondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/edicolo2).png"))); // NOI18N
-        jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
-        fondo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 210, -1, -1));
+        fondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 240, 220));
@@ -229,29 +163,7 @@ public class Admision_inicio extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 160, 120, 50));
-
-        jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(40, 240, 220));
-        jLabel2.setText("Médicos");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
-            }
-        });
-        fondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 90, 50));
-
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(40, 240, 220));
-        jLabel8.setText("Especialidades ");
-        jLabel8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
-            }
-        });
-        fondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 160, 50));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 120, 50));
 
         jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(40, 240, 220));
@@ -262,7 +174,7 @@ public class Admision_inicio extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
-        fondo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 90, 50));
+        fondo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 90, 50));
 
         jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -293,20 +205,19 @@ public class Admision_inicio extends javax.swing.JFrame {
         });
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
-        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MinimizarMouseClicked(evt);
-            }
-        });
-        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
-
         lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
         lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
         lblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel4.add(lblLogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, -1));
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
@@ -324,18 +235,6 @@ public class Admision_inicio extends javax.swing.JFrame {
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        Admision_doctor ad = new Admision_doctor();
-        ad.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel7MouseClicked
-
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        Admision_especialidad ae = new Admision_especialidad();
-        ae.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         Admision_inicio r = new Admision_inicio();
@@ -355,41 +254,17 @@ public class Admision_inicio extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Admision_doctor ad = new Admision_doctor();
-        ad.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        Admision_especialidad ae = new Admision_especialidad();
-        ae.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel12MouseClicked
-
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
         Admision_cita ac = new Admision_cita();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        Admision_doctor ad = new Admision_doctor();
-        ad.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel2MouseClicked
-
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         Admision_paciente ap = new Admision_paciente();
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
-
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        Admision_especialidad ae = new Admision_especialidad();
-        ae.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         int dialog = JOptionPane.YES_NO_OPTION;
@@ -423,6 +298,10 @@ public class Admision_inicio extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel14MouseMoved
 
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel18MouseClicked
+
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
         jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
     }//GEN-LAST:event_jLabel11MouseExited
@@ -432,18 +311,16 @@ public class Admision_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+
     }//GEN-LAST:event_jLabel12MouseExited
 
     private void jLabel12MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseMoved
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
+    
     }//GEN-LAST:event_jLabel12MouseMoved
 
-    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
-
-                setExtendedState(ICONIFIED );
-
-    }//GEN-LAST:event_MinimizarMouseClicked
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        this.setState(Login.ICONIFIED);
+    }//GEN-LAST:event_jLabel11MouseClicked
                 
     /**
      * @param args the command line arguments
@@ -482,23 +359,17 @@ public class Admision_inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Minimizar;
     private javax.swing.JPanel fondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

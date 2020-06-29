@@ -1,4 +1,4 @@
-/nbproject/private/
+/nbproject*
 /build/
 /nbbuild/
 /dist/
@@ -17,4 +17,4 @@
 nbproject/
 nbproject/private/private.properties
 *.xml
- nbproject/private/private.xml
+nbproject/private/private.xml
