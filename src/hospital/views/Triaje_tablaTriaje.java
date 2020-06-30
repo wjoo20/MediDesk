@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author user
+ * @author Fiorella
  */
 public class Triaje_tablaTriaje extends javax.swing.JFrame {
 

@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
- * @author user
+ * @author Fiorella
  */
 public class Triaje_cita extends javax.swing.JFrame {
 
