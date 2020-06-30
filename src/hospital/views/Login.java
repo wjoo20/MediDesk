@@ -190,6 +190,7 @@ public class Login extends javax.swing.JFrame {
               user.setCorreo(juser.getText());
               user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
+              System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
               switch (user.getTipo( )) {
                   case 'R':
                       {
@@ -220,29 +221,15 @@ public class Login extends javax.swing.JFrame {
                           break;
                       }
                   case 'F':
-<<<<<<< HEAD
                       {
-                          Triaje_inicio r = new Triaje_inicio();
-                          r.setVisible(true);
+                          Farmacia farma = new Farmacia();
+                          farma.setVisible(true);
                           this.setVisible(false);
                           break;
                       }
                   default:
                       break;
-              }           
-=======
-                  {
-                          Farmacia farma = new Farmacia();
-                            farma.setVisible(true);
-                             this.setVisible(false);
-                             break;
-                  }
-                  default:
-                      break;
-              }
-              
-
->>>>>>> 23dfaaa657ba2020854ac2762543d3e41e4f85d5
+              }                        
           }
     }//GEN-LAST:event_jLabel10MouseClicked
 
