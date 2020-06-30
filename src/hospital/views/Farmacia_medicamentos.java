@@ -44,15 +44,17 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        lblLogo3 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
         lblLogo1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -83,11 +85,6 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         jLabel19.setText("MediDesk");
         jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
-        lblLogo3.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        lblLogo3.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel5.add(lblLogo3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
-
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
         jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -117,16 +114,16 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         });
         jPanel5.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
 
+        lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel5.add(lblLogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel3.add(lblLogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,7 +142,7 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,7 +162,7 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,7 +182,28 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
+
+        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("USUARIO");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+
+        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/exit-32(blanco).png"))); // NOI18N
+        jLabel7.setText("Cerrar Sesión");
+        jLabel7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -313,6 +331,12 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
 
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -350,6 +374,7 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -357,6 +382,8 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -366,6 +393,5 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
-    private javax.swing.JLabel lblLogo3;
     // End of variables declaration//GEN-END:variables
 }

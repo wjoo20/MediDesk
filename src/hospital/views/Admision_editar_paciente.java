@@ -12,12 +12,12 @@ import javax.swing.JOptionPane;
  *
  * @author daniel
  */
-public class Admision_crear_paciente extends javax.swing.JFrame {
+public class Admision_editar_paciente extends javax.swing.JFrame {
 
     /**
      * Creates new form Admision_crear_paciente
      */
-    public Admision_crear_paciente() {
+    public Admision_editar_paciente() {
        
       initComponents();
        
@@ -170,8 +170,8 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("REGISTRO DE PACIENTES");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+        jLabel1.setText("EDITAR PACIENTE");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         rbtMasculino.setBackground(new java.awt.Color(51, 51, 51));
         rbtMasculino.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
@@ -250,7 +250,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_generar_cita r = new Admision_generar_cita();
+        Admision_paciente r = new Admision_paciente();
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarMouseClicked
@@ -294,20 +294,21 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admision_crear_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admision_editar_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admision_crear_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admision_editar_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admision_crear_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admision_editar_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admision_crear_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Admision_editar_paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_crear_paciente().setVisible(true);
+                new Admision_editar_paciente().setVisible(true);
             }
         });
     }

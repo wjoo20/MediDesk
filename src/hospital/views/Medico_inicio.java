@@ -44,6 +44,8 @@ public class Medico_inicio extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         fondo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -85,7 +87,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -105,7 +107,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 70, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,10 +126,28 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 90));
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
+
+        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel8.setText("USUARIO");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+
+        jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/exit-32(blanco).png"))); // NOI18N
+        jLabel11.setText("Cerrar Sesión");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -144,7 +164,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel5MouseClicked(evt);
             }
         });
-        fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 130, 160));
+        fondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 130, 130));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -156,7 +176,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel6MouseClicked(evt);
             }
         });
-        fondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 140, -1));
+        fondo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, 130, -1));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 240, 220));
@@ -167,7 +187,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel1MouseClicked(evt);
             }
         });
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 240, 120, 50));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 90, -1));
 
         jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(40, 240, 220));
@@ -178,7 +198,7 @@ public class Medico_inicio extends javax.swing.JFrame {
                 jLabel13MouseClicked(evt);
             }
         });
-        fondo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 90, 50));
+        fondo.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 50, -1));
 
         jLabel9.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -306,6 +326,12 @@ public class Medico_inicio extends javax.swing.JFrame {
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
 
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -354,6 +380,7 @@ public class Medico_inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
@@ -361,6 +388,7 @@ public class Medico_inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
