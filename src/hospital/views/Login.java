@@ -220,6 +220,7 @@ public class Login extends javax.swing.JFrame {
                           break;
                       }
                   case 'F':
+<<<<<<< HEAD
                       {
                           Triaje_inicio r = new Triaje_inicio();
                           r.setVisible(true);
@@ -229,6 +230,19 @@ public class Login extends javax.swing.JFrame {
                   default:
                       break;
               }           
+=======
+                  {
+                          Farmacia farma = new Farmacia();
+                            farma.setVisible(true);
+                             this.setVisible(false);
+                             break;
+                  }
+                  default:
+                      break;
+              }
+              
+
+>>>>>>> 23dfaaa657ba2020854ac2762543d3e41e4f85d5
           }
     }//GEN-LAST:event_jLabel10MouseClicked
 
