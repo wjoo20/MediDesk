@@ -266,7 +266,7 @@ public class Medico_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Admision_paciente ap = new Admision_paciente();
+        Medico_paciente ap = new Medico_paciente();
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked

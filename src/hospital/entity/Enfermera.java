@@ -12,7 +12,7 @@ package hospital.entity;
 public class Enfermera extends Usuario {
     
     private int idEnfermera;
-    private String dni;
+    private int dni;
     private String nombres;
     private String apellidos;
     private char genero;
@@ -21,8 +21,9 @@ public class Enfermera extends Usuario {
     public Enfermera() {
         
     }
- 
-    public Enfermera(int idEnfermera, String dni, String nombres, String apellidos, char genero, int edad) {
+
+    public Enfermera(int idEnfermera, int dni, String nombres, String apellidos, char genero, int edad, int idUsuario, String correo, String clave, char tipo) {
+        super(idUsuario, correo, clave, tipo);
         this.idEnfermera = idEnfermera;
         this.dni = dni;
         this.nombres = nombres;
@@ -39,11 +40,11 @@ public class Enfermera extends Usuario {
         this.idEnfermera = idEnfermera;
     }
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 

@@ -5,6 +5,11 @@
  */
 package hospital.views;
 
+import hospital.bo.RegistroBO;
+import hospital.entity.Administrador;
+import hospital.entity.Enfermera;
+import hospital.entity.Medico;
+import hospital.entity.Usuario;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -17,6 +22,8 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    RegistroBO rbo = new RegistroBO();
+    
     public Register() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -25,17 +32,13 @@ public class Register extends javax.swing.JFrame {
         txtNombres.setBackground(new java.awt.Color(0,0,0,1));
         txtApellidos.setBackground(new java.awt.Color(0,0,0,1));
         txtDni.setBackground(new java.awt.Color(0,0,0,1));
-        txtTelefono.setBackground(new java.awt.Color(0,0,0,1));
         txtEmail.setBackground(new java.awt.Color(0,0,0,1));
-        txtContraseña.setBackground(new java.awt.Color(0,0,0,1));
+        txtEdad.setBackground(new java.awt.Color(0,0,0,1));
         txtConfirmarContraseña.setBackground(new java.awt.Color(0,0,0,1));
-        lblEdad.setVisible(false);
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
-        txtEdad.setVisible(false);
         cbEspecialidad.setVisible(false);
         txtCmp.setVisible(false);
-        jsEdad.setVisible(false);
         jsCmp.setVisible(false);
     }
 
@@ -59,13 +62,12 @@ public class Register extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lblEspecialidad = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
         rbtAdministrador = new javax.swing.JRadioButton();
         rbtMedico = new javax.swing.JRadioButton();
         rbtEnfermera = new javax.swing.JRadioButton();
@@ -75,7 +77,6 @@ public class Register extends javax.swing.JFrame {
         txtNombres = new javax.swing.JTextField();
         txtDni = new javax.swing.JTextField();
         txtConfirmarContraseña = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -85,7 +86,6 @@ public class Register extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
-        jSeparator6 = new javax.swing.JSeparator();
         jSeparator7 = new javax.swing.JSeparator();
         Minimizar = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -93,9 +93,9 @@ public class Register extends javax.swing.JFrame {
         jsCmp = new javax.swing.JSeparator();
         jsEdad = new javax.swing.JSeparator();
         lblEdad = new javax.swing.JLabel();
-        txtEdad = new javax.swing.JTextField();
         lblCmp = new javax.swing.JLabel();
         cbEspecialidad = new javax.swing.JComboBox<>();
+        txtContraseña = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
@@ -144,19 +144,13 @@ public class Register extends javax.swing.JFrame {
         lblEspecialidad.setForeground(new java.awt.Color(255, 255, 255));
         lblEspecialidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEspecialidad.setText("ESPECIALIDAD:");
-        jPanel2.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 30));
+        jPanel2.add(lblEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 30));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("GÉNERO:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, -1, 30));
-
-        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("TELÉFONO:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
 
         btnRegistrar.setBackground(new java.awt.Color(0, 51, 51));
         btnRegistrar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
@@ -176,7 +170,7 @@ public class Register extends javax.swing.JFrame {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("CONFIRMAR CONTRASEÑA:");
         jLabel10.setToolTipText("");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, 40));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, 50));
 
         jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -188,7 +182,7 @@ public class Register extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("CONTRASEÑA:");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, -1, 40));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 50));
 
         txtEmail.setBackground(new java.awt.Color(28, 28, 28));
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
@@ -196,11 +190,11 @@ public class Register extends javax.swing.JFrame {
         txtEmail.setOpaque(false);
         jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 410, 30));
 
-        txtContraseña.setBackground(new java.awt.Color(28, 28, 28));
-        txtContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        txtContraseña.setBorder(null);
-        txtContraseña.setOpaque(false);
-        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
+        txtEdad.setBackground(new java.awt.Color(28, 28, 28));
+        txtEdad.setForeground(new java.awt.Color(255, 255, 255));
+        txtEdad.setBorder(null);
+        txtEdad.setOpaque(false);
+        jPanel2.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, 30));
 
         rbtAdministrador.setBackground(new java.awt.Color(51, 51, 51));
         groupNivel.add(rbtAdministrador);
@@ -299,12 +293,6 @@ public class Register extends javax.swing.JFrame {
         txtConfirmarContraseña.setOpaque(false);
         jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
 
-        txtTelefono.setBackground(new java.awt.Color(28, 28, 28));
-        txtTelefono.setForeground(new java.awt.Color(255, 255, 255));
-        txtTelefono.setBorder(null);
-        txtTelefono.setOpaque(false);
-        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, 170, 30));
-
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,6 +308,11 @@ public class Register extends javax.swing.JFrame {
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
@@ -356,9 +349,6 @@ public class Register extends javax.swing.JFrame {
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 380, 170, 10));
 
-        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 10));
-
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 340, 170, 10));
 
@@ -382,42 +372,42 @@ public class Register extends javax.swing.JFrame {
         txtCmp.setForeground(new java.awt.Color(255, 255, 255));
         txtCmp.setBorder(null);
         txtCmp.setOpaque(false);
-        jPanel2.add(txtCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 350, 170, 30));
+        jPanel2.add(txtCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 170, 30));
 
         jsCmp.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jsCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 170, 10));
+        jPanel2.add(jsCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 170, 10));
 
         jsEdad.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel2.add(jsEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 300, 170, 10));
+        jPanel2.add(jsEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, 10));
 
         lblEdad.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         lblEdad.setForeground(new java.awt.Color(255, 255, 255));
         lblEdad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEdad.setText("EDAD:");
-        jPanel2.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 270, -1, 30));
-
-        txtEdad.setBackground(new java.awt.Color(28, 28, 28));
-        txtEdad.setForeground(new java.awt.Color(255, 255, 255));
-        txtEdad.setBorder(null);
-        txtEdad.setOpaque(false);
-        jPanel2.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, 170, 30));
+        jPanel2.add(lblEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, 30));
 
         lblCmp.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         lblCmp.setForeground(new java.awt.Color(255, 255, 255));
         lblCmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblCmp.setText("CMP:");
-        jPanel2.add(lblCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 350, -1, 30));
+        jPanel2.add(lblCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 310, -1, 30));
 
         cbEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cbEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
-        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dermatología", "Cardiología", "Neumología", "", "", "", "", "" }));
         cbEspecialidad.setBorder(null);
         cbEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbEspecialidadActionPerformed(evt);
             }
         });
-        jPanel2.add(cbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 120, 30));
+        jPanel2.add(cbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 120, 30));
+
+        txtContraseña.setBackground(new java.awt.Color(28, 28, 28));
+        txtContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        txtContraseña.setBorder(null);
+        txtContraseña.setOpaque(false);
+        jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/Deep Space(650x460).png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
@@ -439,9 +429,103 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_inicio r = new Admision_inicio();
-        r.setVisible(true);
-        this.setVisible(false);
+        if(txtNombres.getText().isEmpty() || txtApellidos.getText().isEmpty()
+                || txtDni.getText().isEmpty() || txtEdad.getText().isEmpty()
+                || txtEmail.getText().isEmpty() || txtContraseña.getText().isEmpty()
+                || txtConfirmarContraseña.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }else{
+            
+            char tipo;
+            char genero;
+            if (rbtMasculino.isSelected()){
+                genero = 'M';
+            }else{
+                genero = 'F';
+            }
+            if (rbtAdministrador.isSelected()){
+                tipo = 'A';
+                Usuario user = createUser(tipo);
+                       
+                Administrador adm  = new Administrador();
+                adm.setIdAdministrador(31);
+                adm.setDni(Integer.parseInt(txtDni.getText()));
+                adm.setNombres(txtNombres.getText());
+                adm.setApellidos(txtApellidos.getText());
+                adm.setGenero(genero);
+                adm.setEdad(Integer.parseInt(txtEdad.getText()));
+                adm.setIdUsuario(user.getIdUsuario());
+                adm.setCorreo(user.getCorreo());
+                adm.setClave(user.getClave());
+                adm.setTipo(user.getTipo());
+                
+                String mensaje = rbo.regAdm(adm);
+                limpiar();
+                JOptionPane.showMessageDialog(null, mensaje);
+            }
+            if(rbtMedico.isSelected()){
+                tipo = 'M';
+                Usuario user = createUser(tipo);
+                int id = this.getEsp(String.valueOf(cbEspecialidad.getSelectedItem()));       
+                Medico med  = new Medico();
+                med.setIdMedico(31);
+                med.setDni(Integer.parseInt(txtDni.getText()));
+                med.setNombres(txtNombres.getText());
+                med.setApellidos(txtApellidos.getText());
+                med.setGenero(genero);
+                med.setEdad(Integer.parseInt(txtEdad.getText()));
+                med.setIdUsuario(user.getIdUsuario());
+                med.setCorreo(user.getCorreo());
+                med.setClave(user.getClave());
+                med.setTipo(user.getTipo());
+                med.setCmp(Integer.parseInt(txtCmp.getText()));
+                med.setIdEspecialidad(id);
+                
+                String mensaje = rbo.regMed(med);
+                limpiar();
+                JOptionPane.showMessageDialog(null, mensaje);
+            }
+            if(rbtEnfermera.isSelected()){
+                tipo = 'E';
+                Usuario user = createUser(tipo);
+                       
+                Enfermera enf  = new Enfermera();
+                enf.setIdEnfermera(31);
+                enf.setDni(Integer.parseInt(txtDni.getText()));
+                enf.setNombres(txtNombres.getText());
+                enf.setApellidos(txtApellidos.getText());
+                enf.setGenero(genero);
+                enf.setEdad(Integer.parseInt(txtEdad.getText()));
+                enf.setIdUsuario(user.getIdUsuario());
+                enf.setCorreo(user.getCorreo());
+                enf.setClave(user.getClave());
+                enf.setTipo(user.getTipo());
+                
+                String mensaje = rbo.regEnf(enf);
+                limpiar();
+                JOptionPane.showMessageDialog(null, mensaje);
+            }
+            if(rbtFarmaceutico.isSelected()){
+                tipo = 'F';
+                Usuario user = createUser(tipo);
+                       
+                Farmaceutico farm  = new Farmaceutico();
+                farm.setIdFarmaceutico(31);
+                farm.setDni(Integer.parseInt(txtDni.getText()));
+                farm.setNombres(txtNombres.getText());
+                farm.setApellidos(txtApellidos.getText());
+                farm.setGenero(genero);
+                farm.setEdad(Integer.parseInt(txtEdad.getText()));
+                farm.setIdUsuario(user.getIdUsuario());
+                farm.setCorreo(user.getCorreo());
+                farm.setClave(user.getClave());
+                farm.setTipo(user.getTipo());
+                
+                String mensaje = rbo.regFarm(farm);
+                limpiar();
+                JOptionPane.showMessageDialog(null, mensaje);
+            }                      
+        }
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
@@ -464,16 +548,10 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtMedicoActionPerformed
 
     private void rbtMedicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtMedicoMouseClicked
-        lblEdad.setVisible(true);
         lblEspecialidad.setVisible(true);
         lblCmp.setVisible(true);
-        txtEdad.setVisible(true);
-        txtEdad.setBackground(new java.awt.Color(28, 28, 28));
-        txtEdad.setOpaque(false);
         cbEspecialidad.setVisible(true);
         txtCmp.setVisible(true);
-        txtCmp.setBackground(new java.awt.Color(28, 28, 28));
-        jsEdad.setVisible(true);
         jsCmp.setVisible(true);
     }//GEN-LAST:event_rbtMedicoMouseClicked
 
@@ -486,38 +564,72 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_rbtMedicoMouseExited
 
     private void rbtAdministradorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtAdministradorMouseClicked
-        lblEdad.setVisible(false);
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
-        txtEdad.setVisible(false);
         cbEspecialidad.setVisible(false);
         txtCmp.setVisible(false);
-        jsEdad.setVisible(false);
         jsCmp.setVisible(false);
     }//GEN-LAST:event_rbtAdministradorMouseClicked
 
     private void rbtFarmaceuticoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtFarmaceuticoMouseClicked
-        lblEdad.setVisible(false);
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
-        txtEdad.setVisible(false);
         cbEspecialidad.setVisible(false);
         txtCmp.setVisible(false);
-        jsEdad.setVisible(false);
         jsCmp.setVisible(false);
     }//GEN-LAST:event_rbtFarmaceuticoMouseClicked
 
     private void rbtEnfermeraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rbtEnfermeraMouseClicked
-        lblEdad.setVisible(false);
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
-        txtEdad.setVisible(false);
         cbEspecialidad.setVisible(false);
         txtCmp.setVisible(false);
-        jsEdad.setVisible(false);
         jsCmp.setVisible(false);
     }//GEN-LAST:event_rbtEnfermeraMouseClicked
 
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        limpiar();
+    }//GEN-LAST:event_btnLimpiarMouseClicked
+    
+    public Usuario createUser(char tipo){
+        Usuario user = new Usuario();
+        user.setIdUsuario(11);
+        user.setCorreo(txtEmail.getText());
+        user.setClave(txtConfirmarContraseña.getText());
+        user.setTipo(tipo);
+        rbo.regUser(user);
+        return user;
+    }
+    
+    public void limpiar(){
+        txtNombres.setText("");
+        txtApellidos.setText("");
+        txtDni.setText("");
+        txtEdad.setText("");
+        txtEmail.setText("");
+        txtContraseña.setText("");
+        txtConfirmarContraseña.setText("");
+        txtCmp.setText("");
+        cbEspecialidad.setSelectedItem("Seleccionar");
+        groupGenero.clearSelection();
+        groupNivel.clearSelection();
+    }
+    
+    public int getEsp(String espe){
+        int id;
+        if (espe.equals("Dermatología")){
+            id = 1;
+            return id;
+        }
+        else if (espe.equals("Cardiología")){
+            id = 2;
+            return id;
+        }  
+        else{
+            id = 3;
+            return id;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -573,7 +685,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -583,7 +694,6 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jsCmp;
     private javax.swing.JSeparator jsEdad;
@@ -604,6 +714,5 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

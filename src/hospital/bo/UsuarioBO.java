@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class UsuarioBO {
     private String mensaje = "";
     private UsuarioDAO udao = new UsuarioDAO();
-    
+        
     public String login(String p, String user){
         Connection conn = Conexion.getConnection();
         String pass = udao.login(conn,user);

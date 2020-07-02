@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.entity.Usuario;
 import javax.swing.JOptionPane;
 
 
@@ -17,11 +18,13 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     /**
      * Creates new form Admision_crear_paciente
      */
-    public Admision_crear_paciente() {
+    private static Usuario user;
+    public Admision_crear_paciente(Usuario user) {
        
       initComponents();
        
          this.setLocationRelativeTo(null);
+         this.user = user;
      
         
     }
@@ -250,7 +253,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_generar_cita r = new Admision_generar_cita();
+        Admision_generar_cita r = new Admision_generar_cita(user);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarMouseClicked
@@ -272,7 +275,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
-        Admision_paciente lo = new Admision_paciente();
+        Admision_paciente lo = new Admision_paciente(user);
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarMouseClicked
@@ -307,7 +310,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_crear_paciente().setVisible(true);
+                new Admision_crear_paciente(user).setVisible(true);
             }
         });
     }

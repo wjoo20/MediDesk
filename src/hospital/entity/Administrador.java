@@ -20,7 +20,8 @@ public class Administrador extends Usuario{
     public Administrador() {
     }
 
-    public Administrador(int idAdministrador, int dni, String nombres, String apellidos, char genero, int edad){
+    public Administrador(int idAdministrador, int dni, String nombres, String apellidos, char genero, int edad, int idUsuario, String correo, String clave, char tipo) {
+        super(idUsuario, correo, clave, tipo);
         this.idAdministrador = idAdministrador;
         this.dni = dni;
         this.nombres = nombres;

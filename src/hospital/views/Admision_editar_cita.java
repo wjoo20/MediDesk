@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.entity.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,9 +17,11 @@ public class Admision_editar_cita extends javax.swing.JFrame {
     /**
      * Creates new form Admision_generar_cita
      */
-    public Admision_editar_cita() {
+    private static Usuario user;
+    public Admision_editar_cita(Usuario user) {
         initComponents();
            this.setLocationRelativeTo(null);
+           this.user = user;
     }
 
     /**
@@ -171,7 +174,7 @@ public class Admision_editar_cita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
-        Admision_cita lo = new Admision_cita();
+        Admision_cita lo = new Admision_cita(user);
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarMouseClicked
@@ -193,7 +196,7 @@ public class Admision_editar_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_inicio r = new Admision_inicio();
+        Admision_inicio r = new Admision_inicio(user);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarMouseClicked
@@ -229,7 +232,7 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_editar_cita().setVisible(true);
+                new Admision_editar_cita(user).setVisible(true);
             }
         });
     }
