@@ -7,6 +7,7 @@ package hospital.dao;
 
 import hospital.entity.Administrador;
 import hospital.entity.Enfermera;
+import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
 import java.sql.Connection;
@@ -85,7 +86,7 @@ public class RegistroDAO {
         return mensaje;
     }
     
-    public String regFarm(Connection con, String farm){
+    public String regFarm(Connection con, Farmaceutico farm){
         PreparedStatement pst = null;
         String sql = "INSERT INTO FARMACEUTICO (FARM_IDFARMACEUTICO, FARM_DNI, FARM_NOMBRES, FARM_APELLIDOS, FARM_GENERO, FARM_EDAD, USUARIO_US_IDUSUARIO) "
                 + "VALUES(?,?,?,?,?,?,?)";

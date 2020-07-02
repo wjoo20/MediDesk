@@ -8,6 +8,7 @@ package hospital.views;
 import hospital.bo.RegistroBO;
 import hospital.entity.Administrador;
 import hospital.entity.Enfermera;
+import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
 import javax.swing.ImageIcon;

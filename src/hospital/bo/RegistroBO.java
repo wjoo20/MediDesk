@@ -9,6 +9,7 @@ import hospital.dao.RegistroDAO;
 import hospital.db.Conexion;
 import hospital.entity.Administrador;
 import hospital.entity.Enfermera;
+import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
 import java.sql.Connection;

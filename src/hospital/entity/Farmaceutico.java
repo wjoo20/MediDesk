@@ -21,7 +21,8 @@ public class Farmaceutico extends Usuario {
         
     }
 
-    public Farmaceutico(int idfarmaceutico, int dni, String nombres, String apellidos, char genero, int edad) {
+    public Farmaceutico(int idfarmaceutico, int dni, String nombres, String apellidos, char genero, int edad, int idUsuario, String correo, String clave, char tipo) {
+        super(idUsuario, correo, clave, tipo);
         this.idfarmaceutico = idfarmaceutico;
         this.dni = dni;
         this.nombres = nombres;
@@ -30,11 +31,11 @@ public class Farmaceutico extends Usuario {
         this.edad = edad;
     }
 
-    public int getIdfarmaceutico() {
+    public int getIdFarmaceutico() {
         return idfarmaceutico;
     }
 
-    public void setIdfarmaceutico(int idfarmaceutico) {
+    public void setIdFarmaceutico(int idfarmaceutico) {
         this.idfarmaceutico = idfarmaceutico;
     }
 
