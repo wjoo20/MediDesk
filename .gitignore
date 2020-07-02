@@ -1,20 +1,11 @@
-/nbproject*
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/nbactions.xml
-/nb-configuration.xml
+# netbeans specific #
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+borrar.txt
 
-# Class Files #
-*.class
 
-# Package Files #
-*.jar
-*.war
-*.ear
-/borrar.txt
-nbproject/
-nbproject/private/private.properties
-*.xml
-nbproject/private/private.xml
