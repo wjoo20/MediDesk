@@ -285,7 +285,7 @@ public class Farmacia extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Admision_paciente ap = new Admision_paciente();
+        Farmacia_Pacientes ap = new Farmacia_Pacientes();
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked

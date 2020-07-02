@@ -17,17 +17,22 @@ public class Medico extends Usuario {
     private String apellidos;
     private char genero;
     private int edad;
+    private int cmp;
+    private int idEspecialidad;
 
     public Medico() {
     }
 
-    public Medico(int idMedico, int dni, String nombres, String apellidos, char genero, int edad) {
+    public Medico(int idMedico, int dni, String nombres, String apellidos, char genero, int edad, int cmp, int idEspecialidad, int idUsuario, String correo, String clave, char tipo) {
+        super(idUsuario, correo, clave, tipo);
         this.idMedico = idMedico;
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.genero = genero;
         this.edad = edad;
+        this.cmp = cmp;
+        this.idEspecialidad = idEspecialidad;
     }
 
     public int getIdMedico() {
@@ -77,9 +82,21 @@ public class Medico extends Usuario {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    
-    
-    
-    
-    
+
+    public int getCmp() {
+        return cmp;
+    }
+
+    public void setCmp(int cmp) {
+        this.cmp = cmp;
+    }
+
+    public int getIdEspecialidad() {
+        return idEspecialidad;
+    }
+
+    public void setIdEspecialidad(int idEspecialidad) {
+        this.idEspecialidad = idEspecialidad;
+    }
+        
 }

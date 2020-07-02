@@ -201,7 +201,7 @@ public class Login extends javax.swing.JFrame {
                       }
                   case 'A':
                       {
-                          Admision_inicio r = new Admision_inicio();
+                          Admision_inicio r = new Admision_inicio(user);
                           r.setVisible(true);
                           this.setVisible(false);
                           break;
