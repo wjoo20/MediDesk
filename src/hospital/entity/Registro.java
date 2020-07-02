@@ -7,23 +7,17 @@ package hospital.entity;
 
 /**
  *
- * @author Fiorella
+ * @author PC
  */
-public class Enfermera extends Usuario {
-    
-    private int idEnfermera;
-    private String dni;
+public class Registro extends Usuario {
+    private int dni;
     private String nombres;
     private String apellidos;
     private char genero;
     private int edad;
 
-    public Enfermera() {
-        
-    }
- 
-    public Enfermera(int idEnfermera, String dni, String nombres, String apellidos, char genero, int edad) {
-        this.idEnfermera = idEnfermera;
+    public Registro(int dni, String nombres, String apellidos, char genero, int edad, int idUsuario, String correo, String clave, char tipo) {
+        super(idUsuario, correo, clave, tipo);
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -31,19 +25,11 @@ public class Enfermera extends Usuario {
         this.edad = edad;
     }
 
-    public int getIdEnfermera() {
-        return idEnfermera;
-    }
-
-    public void setIdEnfermera(int idEnfermera) {
-        this.idEnfermera = idEnfermera;
-    }
-
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
 
@@ -78,7 +64,6 @@ public class Enfermera extends Usuario {
     public void setEdad(int edad) {
         this.edad = edad;
     }
-    
     
     
 }
