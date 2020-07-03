@@ -30,7 +30,7 @@ public class Farmaceutico extends Usuario {
         this.edad = edad;
     }
 
-    public int getIdfarmaceutico() {
+    public int getIdFarmaceutico() {
         return idfarmaceutico;
     }
 

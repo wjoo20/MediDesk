@@ -8,6 +8,7 @@ package hospital.views;
 import hospital.bo.RegistroBO;
 import hospital.entity.Administrador;
 import hospital.entity.Enfermera;
+import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
 import javax.swing.ImageIcon;
@@ -510,7 +511,7 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Farmaceutico farm  = new Farmaceutico();
-                farm.setIdFarmaceutico(31);
+                farm.setIdfarmaceutico(31);
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
                 farm.setApellidos(txtApellidos.getText());

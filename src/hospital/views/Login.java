@@ -20,7 +20,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
-    private UsuarioBO ubo = new UsuarioBO();
+    private final UsuarioBO ubo = new UsuarioBO();
     
     public Login() {
         initComponents();

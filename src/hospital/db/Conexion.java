@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospital.db;
 
 import java.sql.Connection;
@@ -10,13 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author PC
- */
+
 public class Conexion {
     private static Connection conn = null;
-    private static String login = "PROYECTO";
+    private static final String login = "SYSTEM";
     private static String clave = "123456";
     private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
     
@@ -39,13 +31,13 @@ public class Conexion {
     public void desconexion(){
         try {
             conn.close();
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al desconectar " + e.getMessage());
         }
     }
     
     public static void main(String[] args) {
-        Conexion c = new Conexion();
-        c.getConnection();
+
+        Conexion.getConnection();
     }
 }
