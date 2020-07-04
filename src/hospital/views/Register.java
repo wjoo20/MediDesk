@@ -35,7 +35,7 @@ public class Register extends javax.swing.JFrame {
         txtDni.setBackground(new java.awt.Color(0,0,0,1));
         txtEmail.setBackground(new java.awt.Color(0,0,0,1));
         txtEdad.setBackground(new java.awt.Color(0,0,0,1));
-        txtConfirmarContraseña.setBackground(new java.awt.Color(0,0,0,1));
+        txtContraseña.setBackground(new java.awt.Color(0,0,0,1));
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
         cbEspecialidad.setVisible(false);
@@ -77,7 +77,6 @@ public class Register extends javax.swing.JFrame {
         rbtFemenino = new javax.swing.JRadioButton();
         txtNombres = new javax.swing.JTextField();
         txtDni = new javax.swing.JTextField();
-        txtConfirmarContraseña = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         btnLimpiar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -96,7 +95,8 @@ public class Register extends javax.swing.JFrame {
         lblEdad = new javax.swing.JLabel();
         lblCmp = new javax.swing.JLabel();
         cbEspecialidad = new javax.swing.JComboBox<>();
-        txtContraseña = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JPasswordField();
+        txtConfirmarContraseña = new javax.swing.JPasswordField();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
@@ -288,12 +288,6 @@ public class Register extends javax.swing.JFrame {
         txtDni.setOpaque(false);
         jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 130, 30));
 
-        txtConfirmarContraseña.setBackground(new java.awt.Color(28, 28, 28));
-        txtConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
-        txtConfirmarContraseña.setBorder(null);
-        txtConfirmarContraseña.setOpaque(false);
-        jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
-
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
         jLabel12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -395,7 +389,7 @@ public class Register extends javax.swing.JFrame {
 
         cbEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cbEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
-        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Dermatología", "Cardiología", "Neumología", "", "", "", "", "" }));
+        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " ", " ", " ", " " }));
         cbEspecialidad.setBorder(null);
         cbEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -407,8 +401,12 @@ public class Register extends javax.swing.JFrame {
         txtContraseña.setBackground(new java.awt.Color(28, 28, 28));
         txtContraseña.setForeground(new java.awt.Color(255, 255, 255));
         txtContraseña.setBorder(null);
-        txtContraseña.setOpaque(false);
         jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
+
+        txtConfirmarContraseña.setBackground(new java.awt.Color(28, 28, 28));
+        txtConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
+        txtConfirmarContraseña.setBorder(null);
+        jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/Deep Space(650x460).png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
@@ -428,12 +426,12 @@ public class Register extends javax.swing.JFrame {
             System.exit(0);
         }
     }//GEN-LAST:event_jLabel12MouseClicked
-
+    
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
         if(txtNombres.getText().isEmpty() || txtApellidos.getText().isEmpty()
                 || txtDni.getText().isEmpty() || txtEdad.getText().isEmpty()
-                || txtEmail.getText().isEmpty() || txtContraseña.getText().isEmpty()
-                || txtConfirmarContraseña.getText().isEmpty()){
+                || txtEmail.getText().isEmpty() || String.valueOf(txtContraseña.getPassword()).isEmpty()
+                || String.valueOf(txtConfirmarContraseña.getPassword()).isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }else{
             
@@ -447,9 +445,8 @@ public class Register extends javax.swing.JFrame {
             if (rbtAdministrador.isSelected()){
                 tipo = 'A';
                 Usuario user = createUser(tipo);
-                       
+                System.out.println("Usuario: "+user.getIdUsuario()+user.getCorreo()+user.getClave()+user.getTipo());       
                 Administrador adm  = new Administrador();
-                adm.setIdAdministrador(31);
                 adm.setDni(Integer.parseInt(txtDni.getText()));
                 adm.setNombres(txtNombres.getText());
                 adm.setApellidos(txtApellidos.getText());
@@ -458,18 +455,22 @@ public class Register extends javax.swing.JFrame {
                 adm.setIdUsuario(user.getIdUsuario());
                 adm.setCorreo(user.getCorreo());
                 adm.setClave(user.getClave());
-                adm.setTipo(user.getTipo());
-                
-                String mensaje = rbo.regAdm(adm);
+                adm.setTipo(user.getTipo());               
+                String mensaje = rbo.regAdm(adm);                
+                adm.setIdAdministrador(getIdAdm(adm));
+                System.out.println("US(adm): "+"IdUser: "+adm.getIdUsuario()+"IdCorreo: "+adm.getCorreo()+"IdClave: "+adm.getClave()+
+                        "IdTipo: "+adm.getTipo());
+                System.out.println("ADM: "+adm.getIdAdministrador()+adm.getDni()+adm.getNombres()+adm.getApellidos()
+                        +adm.getGenero()+adm.getEdad());
                 limpiar();
                 JOptionPane.showMessageDialog(null, mensaje);
             }
             if(rbtMedico.isSelected()){
+                System.out.println(String.valueOf(cbEspecialidad.getSelectedItem()));
                 tipo = 'M';
                 Usuario user = createUser(tipo);
-                int id = this.getEsp(String.valueOf(cbEspecialidad.getSelectedItem()));       
-                Medico med  = new Medico();
-                med.setIdMedico(31);
+                int id = this.getIdEsp(String.valueOf(cbEspecialidad.getSelectedItem()));       
+                Medico med = new Medico();
                 med.setDni(Integer.parseInt(txtDni.getText()));
                 med.setNombres(txtNombres.getText());
                 med.setApellidos(txtApellidos.getText());
@@ -483,6 +484,8 @@ public class Register extends javax.swing.JFrame {
                 med.setIdEspecialidad(id);
                 
                 String mensaje = rbo.regMed(med);
+                
+                med.setIdMedico(getIdMed(med));
                 limpiar();
                 JOptionPane.showMessageDialog(null, mensaje);
             }
@@ -491,7 +494,6 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Enfermera enf  = new Enfermera();
-                enf.setIdEnfermera(31);
                 enf.setDni(Integer.parseInt(txtDni.getText()));
                 enf.setNombres(txtNombres.getText());
                 enf.setApellidos(txtApellidos.getText());
@@ -503,6 +505,7 @@ public class Register extends javax.swing.JFrame {
                 enf.setTipo(user.getTipo());
                 
                 String mensaje = rbo.regEnf(enf);
+                enf.setIdEnfermera(getIdEnf(enf));
                 limpiar();
                 JOptionPane.showMessageDialog(null, mensaje);
             }
@@ -511,7 +514,6 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Farmaceutico farm  = new Farmaceutico();
-                farm.setIdFarmaceutico(31);
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
                 farm.setApellidos(txtApellidos.getText());
@@ -523,6 +525,7 @@ public class Register extends javax.swing.JFrame {
                 farm.setTipo(user.getTipo());
                 
                 String mensaje = rbo.regFarm(farm);
+                farm.setIdFarmaceutico(getIdFarm(farm));
                 limpiar();
                 JOptionPane.showMessageDialog(null, mensaje);
             }                      
@@ -593,13 +596,27 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarMouseClicked
     
     public Usuario createUser(char tipo){
+        Login lo = new Login();
         Usuario user = new Usuario();
-        user.setIdUsuario(11);
         user.setCorreo(txtEmail.getText());
-        user.setClave(txtConfirmarContraseña.getText());
+        user.setClave(txtContraseña.getText());
         user.setTipo(tipo);
         rbo.regUser(user);
+        user.setIdUsuario(lo.getIdUser(user));
         return user;
+    }
+    
+    public int getIdAdm(Administrador adm){
+        return rbo.getIdAdm(adm);
+    }
+    public int getIdMed(Medico med){
+        return rbo.getIdMed(med);
+    }
+    public int getIdEnf(Enfermera enf){
+        return rbo.getIdEnf(enf);
+    }
+    public int getIdFarm(Farmaceutico farm){
+        return rbo.getIdFarm(farm);
     }
     
     public void limpiar(){
@@ -616,20 +633,8 @@ public class Register extends javax.swing.JFrame {
         groupNivel.clearSelection();
     }
     
-    public int getEsp(String espe){
-        int id;
-        if (espe.equals("Dermatología")){
-            id = 1;
-            return id;
-        }
-        else if (espe.equals("Cardiología")){
-            id = 2;
-            return id;
-        }  
-        else{
-            id = 3;
-            return id;
-        }
+    public int getIdEsp(String espe){
+        return rbo.getIdEsp(espe);
     }
     /**
      * @param args the command line arguments
@@ -709,8 +714,8 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtMedico;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCmp;
-    private javax.swing.JTextField txtConfirmarContraseña;
-    private javax.swing.JTextField txtContraseña;
+    private javax.swing.JPasswordField txtConfirmarContraseña;
+    private javax.swing.JPasswordField txtContraseña;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtEmail;

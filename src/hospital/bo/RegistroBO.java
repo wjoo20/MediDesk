@@ -110,4 +110,57 @@ public class RegistroBO {
         }
         return mensaje;
     }
+    
+    public int getIdAdm(Administrador adm){
+        Connection conn = Conexion.getConnection();
+        int id = rdao.getIdAdm(conn,adm);
+        try {           
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());      
+        }
+        return id;
+    }
+    
+    public int getIdEsp(String espe){
+        Connection conn = Conexion.getConnection();
+        int id = rdao.getIdEsp(conn,espe);
+        try {           
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());      
+        }
+        return id;
+    }
+    
+    public int getIdMed(Medico med){
+        Connection conn = Conexion.getConnection();
+        int id = rdao.getIdMed(conn,med);
+        try {           
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());      
+        }
+        return id;
+    }
+    public int getIdEnf(Enfermera enf){
+        Connection conn = Conexion.getConnection();
+        int id = rdao.getIdEnf(conn,enf);
+        try {           
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());      
+        }
+        return id;
+    }
+    public int getIdFarm(Farmaceutico farm){
+        Connection conn = Conexion.getConnection();
+        int id = rdao.getIdFarm(conn,farm);
+        try {           
+            conn.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());      
+        }
+        return id;
+    }
 }
