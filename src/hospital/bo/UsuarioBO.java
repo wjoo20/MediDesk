@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 
 public class UsuarioBO {
-    private String mensaje = "";
+    private String mensaje;
     private final UsuarioDAO udao = new UsuarioDAO();
         
     public String login(String p, String user){

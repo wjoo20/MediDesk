@@ -27,7 +27,7 @@ public class UsuarioDAO {
     }
     
     public int getIdUser(Connection con, String user){
-        int id = 0;
+        int id=0;
     String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
         try {
             pst = con.prepareStatement(sql);
@@ -42,6 +42,7 @@ public class UsuarioDAO {
             System.out.println("Error en getIdUser DAO: " + e.getMessage());
         }
         return id;
+
     }
     
     public char getTipoUser(Connection con, String user){

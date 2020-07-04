@@ -30,11 +30,8 @@ public class Login extends javax.swing.JFrame {
     
     public boolean login(){
         JOptionPane.showMessageDialog(null, ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()));
-        if(ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()) == "Contraseña correcta"){
-            return true;
-        }else{
-            return false;
-        }     
+        return ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta");
+   
     }
     
     public int getIdUser(String user){
@@ -188,9 +185,8 @@ public class Login extends javax.swing.JFrame {
               Usuario user = new Usuario();
               user.setIdUsuario(getIdUser(juser.getText()));
               user.setCorreo(juser.getText());
-              user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
-              System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
+              //System.out.println(user.getIdUsuario() + user.getCorreo() + user.getTipo()); para probar los usuarios
               switch (user.getTipo( )) {
                   case 'R':
                       {
@@ -266,10 +262,8 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 

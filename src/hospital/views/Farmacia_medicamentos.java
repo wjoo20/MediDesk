@@ -5,17 +5,28 @@
  */
 package hospital.views;
 
+import hospital.db.Conexion;
+
 import java.awt.Image;
+import java.sql.Connection;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author PROPIETARIO
  */
-public class Farmacia_medicamentos extends javax.swing.JFrame {
-
+public final class Farmacia_medicamentos extends javax.swing.JFrame {
+        Connection conn = Conexion.getConnection();
     /**
      * Creates new form Farmacia_medicamentos
      */
@@ -25,11 +36,74 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
+        Mostrar_Medicamentos();
+
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
 
     }
+        
+        
+         PreparedStatement pst;
+         ResultSet rs ; 
+    void Mostrar_Medicamentos(){
+        DefaultTableModel tabla =new DefaultTableModel();
+       tabla.addColumn("Codigo");
+       tabla.addColumn("Nombre");
+       tabla.addColumn("Unidades");
+       tablemedicamentos.setModel(tabla);
+        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTOS";
+        String datos[] =new String [3];
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
 
+
+            
+            while (rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);     
+                datos[2] = rs.getString(3);
+                
+                tabla.addRow(datos);
+            }
+             tablemedicamentos.setModel(tabla);
+             pst.close();
+             rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
+
+void Buscar_Medicamentos(String buscar){
+        DefaultTableModel tabla =new DefaultTableModel();
+       tabla.addColumn("Codigo");
+       tabla.addColumn("Nombre");
+       tabla.addColumn("Unidades");
+       tablemedicamentos.setModel(tabla);
+        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTOS where me_nombre LIKE '%"+buscar+"%'";
+        String datos[] =new String [3];
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+
+            
+            while (rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);     
+                datos[2] = rs.getString(3);
+                
+                tabla.addRow(datos);
+            }
+             tablemedicamentos.setModel(tabla);
+               pst.close();
+             rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,7 +113,7 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        txt_buscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -56,7 +130,7 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablemedicamentos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
 
@@ -65,9 +139,14 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 270, 30));
+        txt_buscar.setBackground(new java.awt.Color(255, 255, 255));
+        txt_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_buscarKeyReleased(evt);
+            }
+        });
+        getContentPane().add(txt_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 270, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, 20, 30));
@@ -207,9 +286,9 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablemedicamentos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tablemedicamentos.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+        tablemedicamentos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -251,12 +330,12 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
                 "Codigo", "Nombre", "Administracion", "Stock"
             }
         ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jScrollPane1.setViewportView(jTable1);
+        tablemedicamentos.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablemedicamentos.setGridColor(new java.awt.Color(255, 255, 255));
+        tablemedicamentos.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        jScrollPane1.setViewportView(tablemedicamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 770, 300));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 770, 280));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -337,6 +416,10 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
+        Buscar_Medicamentos(txt_buscar.getText());
+    }//GEN-LAST:event_txt_buscarKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -365,10 +448,8 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Farmacia_medicamentos().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Farmacia_medicamentos().setVisible(true);
         });
     }
 
@@ -389,9 +470,9 @@ public class Farmacia_medicamentos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JTable tablemedicamentos;
+    private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
 }
