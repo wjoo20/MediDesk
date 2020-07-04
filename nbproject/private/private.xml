@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/UsuarioBO.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/RegistroDAO.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/entity/Usuario.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/UsuarioDAO.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Register.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia_Pacientes.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Admision_generar_cita.java</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/db/Conexion.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/entity/Farmaceutico.java</file>
             <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Login.java</file>
-            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/RegistroBO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia_medicamentos.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Admision_cita.java</file>
         </group>
     </open-files>
 </project-private>

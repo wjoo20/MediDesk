@@ -7,6 +7,8 @@ package hospital.views;
 
 import hospital.bo.UsuarioBO;
 import hospital.entity.Usuario;
+import java.awt.Color;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -64,6 +66,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        showpass2 = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
@@ -128,7 +131,23 @@ public class Login extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
+
+        showpass2.setBackground(new java.awt.Color(51, 51, 51));
+        showpass2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        showpass2.setForeground(new java.awt.Color(255, 255, 255));
+        showpass2.setText("Showpass");
+        showpass2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showpass2MouseClicked(evt);
+            }
+        });
+        showpass2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpass2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(showpass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 460));
 
@@ -234,6 +253,18 @@ public class Login extends javax.swing.JFrame {
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
 
+    private void showpass2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpass2MouseClicked
+            if (showpass2.isSelected()) {
+                     jpassword.setEchoChar((char)0); //password = showpass2
+            } else {
+                     jpassword.setEchoChar('•');
+             }
+    }//GEN-LAST:event_showpass2MouseClicked
+
+    private void showpass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpass2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showpass2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -284,5 +315,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField jpassword;
     private javax.swing.JTextField juser;
+    private javax.swing.JCheckBox showpass2;
     // End of variables declaration//GEN-END:variables
 }

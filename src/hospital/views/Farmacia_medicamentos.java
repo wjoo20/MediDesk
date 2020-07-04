@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,7 +52,7 @@ public final class Farmacia_medicamentos extends javax.swing.JFrame {
        tabla.addColumn("Nombre");
        tabla.addColumn("Unidades");
        tablemedicamentos.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTOS";
+        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM medicamentos";
         String datos[] =new String [3];
         try {
             pst = conn.prepareStatement(sql);
@@ -86,9 +87,6 @@ void Buscar_Medicamentos(String buscar){
         try {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
-
-
-            
             while (rs.next()){
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);     
@@ -104,6 +102,10 @@ void Buscar_Medicamentos(String buscar){
         }
 
 }
+    public void actualizarPantalla(){
+        SwingUtilities.updateComponentTreeUI(this);
+        this.validateTree();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -335,7 +337,7 @@ void Buscar_Medicamentos(String buscar){
         tablemedicamentos.setSelectionBackground(new java.awt.Color(102, 102, 102));
         jScrollPane1.setViewportView(tablemedicamentos);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 770, 280));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 770, 240));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

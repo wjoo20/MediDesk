@@ -618,17 +618,16 @@ public class Register extends javax.swing.JFrame {
     
     public int getEsp(String espe){
         int id;
-        if (espe.equals("Dermatología")){
-            id = 1;
-            return id;
-        }
-        else if (espe.equals("Cardiología")){
-            id = 2;
-            return id;
-        }  
-        else{
-            id = 3;
-            return id;
+        switch (espe) {
+            case "Dermatología":
+                id = 1;
+                return id;
+            case "Cardiología":
+                id = 2;
+                return id;
+            default:
+                id = 3;
+                return id;
         }
     }
     /**
@@ -660,10 +659,8 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Register().setVisible(true);
         });
     }
 
