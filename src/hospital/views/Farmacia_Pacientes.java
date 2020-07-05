@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.entity.Farmaceutico;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,7 +20,8 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     /**
      * Creates new form Farmacia_Pacientes
      */
-    public Farmacia_Pacientes() {
+    private static Farmaceutico farm;
+    public Farmacia_Pacientes(Farmaceutico farm) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -27,6 +29,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        this.farm = farm;
     }
 
     /**
@@ -293,7 +296,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        Farmacia farma = new Farmacia();
+        Farmacia farma = new Farmacia(farm);
         farma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
@@ -311,7 +314,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Farmacia_Pacientes fp = new Farmacia_Pacientes();
+        Farmacia_Pacientes fp = new Farmacia_Pacientes(farm);
         fp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -325,7 +328,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Farmacia_medicamentos fm = new Farmacia_medicamentos();
+        Farmacia_medicamentos fm = new Farmacia_medicamentos(farm);
         fm.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -339,7 +342,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseMoved
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Farmacia farma = new Farmacia();
+        Farmacia farma = new Farmacia(farm);
         farma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -393,7 +396,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Farmacia_Pacientes().setVisible(true);
+                new Farmacia_Pacientes(farm).setVisible(true);
             }
         });
     }
