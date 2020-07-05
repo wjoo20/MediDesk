@@ -13,10 +13,10 @@ import java.sql.SQLException;
 
 public class UsuarioBO {
     private String mensaje;
-    private final UsuarioDAO udao = new UsuarioDAO();
+    private UsuarioDAO udao = new UsuarioDAO();
         
     public String login(String p, String user){
-         Connection conn = Conexion.getConnection();//Conexion a la base de datos
+        Connection conn = Conexion.getConnection();//Conexion a la base de datos
         String pass = udao.login(conn,user);
         try {
             if(pass == null){

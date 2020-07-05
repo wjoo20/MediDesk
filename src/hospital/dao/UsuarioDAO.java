@@ -11,10 +11,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UsuarioDAO {
-    PreparedStatement pst;
-    ResultSet rs ;
+   
     public String login(Connection con, String user){
         String pass = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         String sql = "SELECT US_CLAVE FROM USUARIO WHERE US_CORREO = ?";
         try {
             pst = con.prepareStatement(sql);
@@ -29,17 +30,16 @@ public class UsuarioDAO {
             System.out.println("Error en login DAO: " + e.getMessage());
         }
         return pass;
-    }
-    
+    }    
 
-
-    public int getIdUser(Connection con, String user){
-        int id=0;
-    String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
-
+    public int getIdUser(Connection con, Usuario user){
+        int id = 0;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, user);
+            pst.setString(1, user.getCorreo());
             rs = pst.executeQuery();
             if(rs.next()){
                 id = rs.getInt("US_IDUSUARIO");
@@ -50,11 +50,12 @@ public class UsuarioDAO {
             System.out.println("Error en getIdUser DAO: " + e.getMessage());
         }
         return id;
-
     }
     
     public char getTipoUser(Connection con, String user){
         char tipo = ' ';
+        PreparedStatement pst = null;
+        ResultSet rs = null;
         String sql = "SELECT US_TIPO FROM USUARIO WHERE US_CORREO = ?";
         try {
             pst = con.prepareStatement(sql);
@@ -75,7 +76,7 @@ public class UsuarioDAO {
         Administrador adm = new Administrador();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM ADMINISTRADOR NATURAL JOIN USUARIO WHERE US_IDUSUARIO = ?";
+        String sql = "SELECT * FROM ADMINISTRADOR A JOIN USUARIO U ON (A.USUARIO_US_IDUSUARIO=U.US_IDUSUARIO) WHERE USUARIO_US_IDUSUARIO = ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getIdUsuario());
@@ -104,7 +105,7 @@ public class UsuarioDAO {
         Medico med = new Medico();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM MEDICO NATURAL JOIN USUARIO WHERE US_IDUSUARIO = ?";
+        String sql = "SELECT * FROM MEDICO M JOIN USUARIO U ON (M.USUARIO_US_IDUSUARIO=U.US_IDUSUARIO) WHERE USUARIO_US_IDUSUARIO = ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getIdUsuario());
@@ -135,7 +136,7 @@ public class UsuarioDAO {
         Enfermera enf = new Enfermera();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM ENFERMERA NATURAL JOIN USUARIO WHERE US_IDUSUARIO = ?";
+        String sql = "SELECT * FROM ENFERMERA E JOIN USUARIO U ON (E.USUARIO_US_IDUSUARIO=U.US_IDUSUARIO) WHERE USUARIO_US_IDUSUARIO = ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getIdUsuario());
@@ -164,7 +165,7 @@ public class UsuarioDAO {
         Farmaceutico farm = new Farmaceutico();
         PreparedStatement pst = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM FARMACEUTICO NATURAL JOIN USUARIO WHERE US_IDUSUARIO = ?";
+        String sql = "SELECT * FROM FARMACEUTICO F JOIN USUARIO U ON (F.USUARIO_US_IDUSUARIO=U.US_IDUSUARIO) WHERE USUARIO_US_IDUSUARIO = ?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, user.getIdUsuario());
@@ -187,9 +188,5 @@ public class UsuarioDAO {
             System.out.println("Error en createFarm DAO: " + e.getMessage());
         }
         return farm;
-    }
-
-    public int getIdUser(Connection conn, Usuario user) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

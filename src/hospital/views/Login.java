@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
-    private final UsuarioBO ubo = new UsuarioBO();
+    private UsuarioBO ubo = new UsuarioBO();
     
     public Login() {
         initComponents();
@@ -36,7 +36,11 @@ public class Login extends javax.swing.JFrame {
     
     public boolean login(){
         JOptionPane.showMessageDialog(null, ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()));
-        return ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta");
+        if(ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta")){
+            return true;
+        }else{
+            return false;
+        }
    
     }
     
@@ -221,19 +225,12 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
           if(login()){
-
               Usuario user = new Usuario();             
               user.setCorreo(juser.getText());             
-              
+              user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
               user.setIdUsuario(getIdUser(user));
- 
-
-
-
-
-
-
+              System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
               switch (user.getTipo( )) {
                   case 'R':
                       {
@@ -244,7 +241,11 @@ public class Login extends javax.swing.JFrame {
                       }
                   case 'A':
                       {
-                          Administrador adm = createAdm(user);                         
+                          Administrador adm = createAdm(user);
+                          System.out.println("US(adm): "+"IdUser: "+adm.getIdUsuario()+"IdCorreo: "+adm.getCorreo()+"IdClave: "+adm.getClave()+
+                        "IdTipo: "+adm.getTipo());
+                System.out.println("ADM: "+adm.getIdAdministrador()+adm.getDni()+adm.getNombres()+adm.getApellidos()
+                        +adm.getGenero()+adm.getEdad());
                           Admision_inicio r = new Admision_inicio(adm);
                           r.setVisible(true);
                           this.setVisible(false);
@@ -261,6 +262,10 @@ public class Login extends javax.swing.JFrame {
                   case 'E':
                       {
                           Enfermera enf = createEnf(user);
+                          System.out.println("US(adm): "+"IdUser: "+enf.getIdUsuario()+"IdCorreo: "+enf.getCorreo()+"IdClave: "+enf.getClave()+
+                        "IdTipo: "+enf.getTipo());
+                System.out.println("ENF: "+enf.getIdEnfermera()+enf.getDni()+enf.getNombres()+enf.getApellidos()
+                        +enf.getGenero()+enf.getEdad());
                           Triaje_inicio r = new Triaje_inicio(enf);
                           r.setVisible(true);
                           this.setVisible(false);

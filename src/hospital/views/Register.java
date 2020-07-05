@@ -516,9 +516,6 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Farmaceutico farm  = new Farmaceutico();
-
-                farm.setIdFarmaceutico(31);
-
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
                 farm.setApellidos(txtApellidos.getText());
@@ -672,8 +669,10 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new Register().setVisible(true);
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Register().setVisible(true);
+            }
         });
     }
 

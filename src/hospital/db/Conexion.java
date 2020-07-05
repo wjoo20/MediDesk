@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
     private static Connection conn = null;
-    private static final String login = "Proyecto";
+    private static String login = "PROYECTO";
     private static String clave = "123456";
     private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
     
@@ -37,7 +37,7 @@ public class Conexion {
     }
     
     public static void main(String[] args) {
-
-        Conexion.getConnection();
+        Conexion c = new Conexion();
+        c.getConnection();
     }
 }
