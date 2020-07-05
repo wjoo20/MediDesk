@@ -44,7 +44,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
           PreparedStatement pst;
          ResultSet rs ;    
     
-    void Mostrar_Medicamentos(){
+    void Mostrar_Pacientes(){
         DefaultTableModel tabla =new DefaultTableModel();
        tabla.addColumn("DNI");
        tabla.addColumn("Nombres");
