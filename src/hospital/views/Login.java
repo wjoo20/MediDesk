@@ -24,7 +24,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     
-    private UsuarioBO ubo = new UsuarioBO();
+    private final UsuarioBO ubo = new UsuarioBO();
     
     public Login() {
         initComponents();
@@ -34,11 +34,8 @@ public class Login extends javax.swing.JFrame {
     
     public boolean login(){
         JOptionPane.showMessageDialog(null, ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()));
-        if(ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()) == "Contraseña correcta"){
-            return true;
-        }else{
-            return false;
-        }     
+        return ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta");
+   
     }
     
     public int getIdUser(Usuario user){
@@ -87,6 +84,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        showpass2 = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
@@ -151,7 +149,23 @@ public class Login extends javax.swing.JFrame {
                 jLabel10MouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 390, -1, -1));
+
+        showpass2.setBackground(new java.awt.Color(51, 51, 51));
+        showpass2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        showpass2.setForeground(new java.awt.Color(255, 255, 255));
+        showpass2.setText("Showpass");
+        showpass2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                showpass2MouseClicked(evt);
+            }
+        });
+        showpass2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showpass2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(showpass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, 30));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 460));
 
@@ -205,12 +219,20 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
           if(login()){
+
               Usuario user = new Usuario();             
               user.setCorreo(juser.getText());             
               user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
               user.setIdUsuario(getIdUser(user));
               System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
+
+              //Usuario user = new Usuario();
+              //user.setIdUsuario(getIdUser(juser.getText()));
+              //user.setCorreo(juser.getText());
+              //user.setTipo(getTipoUser(juser.getText()));
+              //System.out.println(user.getIdUsuario() + user.getCorreo() + user.getTipo()); para probar los usuarios
+
               switch (user.getTipo( )) {
                   case 'R':
                       {
@@ -262,6 +284,18 @@ public class Login extends javax.swing.JFrame {
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
 
+    private void showpass2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_showpass2MouseClicked
+            if (showpass2.isSelected()) {
+                     jpassword.setEchoChar((char)0); //password = showpass2
+            } else {
+                     jpassword.setEchoChar('•');
+             }
+    }//GEN-LAST:event_showpass2MouseClicked
+
+    private void showpass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpass2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_showpass2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -290,10 +324,8 @@ public class Login extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Login().setVisible(true);
         });
     }
 
@@ -314,5 +346,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JPasswordField jpassword;
     private javax.swing.JTextField juser;
+    private javax.swing.JCheckBox showpass2;
     // End of variables declaration//GEN-END:variables
 }

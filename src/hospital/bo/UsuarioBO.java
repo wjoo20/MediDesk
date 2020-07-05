@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospital.bo;
 
 import hospital.dao.UsuarioDAO;
@@ -15,16 +10,13 @@ import hospital.entity.Usuario;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- *
- * @author PC
- */
+
 public class UsuarioBO {
-    private String mensaje = "";
-    private UsuarioDAO udao = new UsuarioDAO();
+    private String mensaje;
+    private final UsuarioDAO udao = new UsuarioDAO();
         
     public String login(String p, String user){
-        Connection conn = Conexion.getConnection();
+        Connection conn = Conexion.getConnection(); //Conexion a la base de datos
         String pass = udao.login(conn,user);
         try {
             if(pass == null){

@@ -516,6 +516,9 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Farmaceutico farm  = new Farmaceutico();
+
+                //farm.setIdfarmaceutico(31);
+
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
                 farm.setApellidos(txtApellidos.getText());
@@ -635,8 +638,24 @@ public class Register extends javax.swing.JFrame {
         groupNivel.clearSelection();
     }
     
+
     public int getIdEsp(String espe){
         return rbo.getIdEsp(espe);
+
+    /*public int getEsp(String espe){
+        int id;
+        switch (espe) {
+            case "Dermatología":
+                id = 1;
+                return id;
+            case "Cardiología":
+                id = 2;
+                return id;
+            default:
+                id = 3;
+                return id;
+        }
+*/
     }
     /**
      * @param args the command line arguments
@@ -667,10 +686,8 @@ public class Register extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Register().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Register().setVisible(true);
         });
     }
 

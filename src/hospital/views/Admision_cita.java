@@ -26,8 +26,13 @@ public class Admision_cita extends javax.swing.JFrame {
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+
         this.adm = adm;
         lblUsuario.setText(adm.getCorreo());
+
+        //Admision_cita.user = user;
+        //lblUsuario.setText(user.getCorreo());
+
     }
 
     /**
@@ -419,10 +424,9 @@ public class Admision_cita extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Admision_cita(adm).setVisible(true);
-            }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            new Admision_cita(adm).setVisible(true);
         });
     }
 
