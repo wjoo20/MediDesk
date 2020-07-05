@@ -401,11 +401,13 @@ public class Register extends javax.swing.JFrame {
         txtContraseña.setBackground(new java.awt.Color(28, 28, 28));
         txtContraseña.setForeground(new java.awt.Color(255, 255, 255));
         txtContraseña.setBorder(null);
+        txtContraseña.setOpaque(false);
         jPanel2.add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 310, 170, 30));
 
         txtConfirmarContraseña.setBackground(new java.awt.Color(28, 28, 28));
         txtConfirmarContraseña.setForeground(new java.awt.Color(255, 255, 255));
         txtConfirmarContraseña.setBorder(null);
+        txtConfirmarContraseña.setOpaque(false);
         jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/Deep Space(650x460).png"))); // NOI18N

@@ -5,6 +5,8 @@
  */
 package hospital.views;
 
+
+import hospital.bo.CitaBO;
 import hospital.entity.Enfermera;
 import java.awt.Image;
 import javax.swing.Icon;
@@ -19,15 +21,20 @@ public class Triaje_cita extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_cita
      */
-    private static Enfermera enf;
+    private CitaBO cbo = new CitaBO();
+        private static Enfermera enf;
     public Triaje_cita(Enfermera enf) {
         initComponents();        
           this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());   
         this.enf = enf;
+    }
+    
+    public void listarCita(String especialidad) {
+        cbo.listarCita(tbCita, especialidad);    
     }
 
     /**
@@ -53,12 +60,13 @@ public class Triaje_cita extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        btnVer = new javax.swing.JButton();
+        btnVerPaciente = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tbCita = new javax.swing.JTable();
+        cboEspecialidad = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
+        btnVerCitas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -198,54 +206,74 @@ public class Triaje_cita extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVer.setBackground(new java.awt.Color(51, 51, 51));
-        btnVer.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnVer.setForeground(new java.awt.Color(255, 255, 255));
-        btnVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
-        btnVer.setText("VER");
-        btnVer.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnVerPaciente.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerPaciente.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnVerPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
+        btnVerPaciente.setText("VER PACIENTE");
+        btnVerPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnVerMouseClicked(evt);
+                btnVerPacienteMouseClicked(evt);
             }
         });
-        jPanel1.add(btnVer, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 100, -1));
+        jPanel1.add(btnVerPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 140, -1));
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbCita.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbCita.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        tbCita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "ID", "Nombres", "Apellidos", "DNI", "Medico", "Tipo", "Estado"
+
             }
         ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbCita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tbCita.setGridColor(new java.awt.Color(255, 255, 255));
+        tbCita.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tbCita.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tbCitaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbCita);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 760, 90));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
-        jComboBox1.setBorder(null);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 230, 30));
+        cboEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        cboEspecialidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
+        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cboEspecialidad.setBorder(null);
+        cboEspecialidad.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cboEspecialidadItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, -1));
+
+        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, 30));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel1.setText("Citas");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 30));
+
+        btnVerCitas.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerCitas.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnVerCitas.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
+        btnVerCitas.setText("VER CITAS");
+        btnVerCitas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVerCitasMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnVerCitas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 110, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -308,17 +336,18 @@ public class Triaje_cita extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+    private void tbCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCitaMouseClicked
         
-    }//GEN-LAST:event_jTable1MouseClicked
+        
+        
+    }//GEN-LAST:event_tbCitaMouseClicked
 
-    private void btnVerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerMouseClicked
+    private void btnVerPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerPacienteMouseClicked
         // TODO add your handling code here:
         Triaje_verPaciente r = new Triaje_verPaciente(enf);
         r.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnVerMouseClicked
+    }//GEN-LAST:event_btnVerPacienteMouseClicked
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
 
@@ -331,6 +360,18 @@ public class Triaje_cita extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel12MouseClicked
 
+    private void btnVerCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerCitasMouseClicked
+        //metodo listar cita
+        String especialidad = String.valueOf(cboEspecialidad.getSelectedItem());
+        listarCita(especialidad);
+        
+    }//GEN-LAST:event_btnVerCitasMouseClicked
+
+    private void cboEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboEspecialidadItemStateChanged
+        
+    }//GEN-LAST:event_cboEspecialidadItemStateChanged
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -368,8 +409,9 @@ public class Triaje_cita extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton btnVer;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton btnVerCitas;
+    private javax.swing.JButton btnVerPaciente;
+    private javax.swing.JComboBox<String> cboEspecialidad;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -385,7 +427,7 @@ public class Triaje_cita extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JTable tbCita;
     // End of variables declaration//GEN-END:variables
 }
