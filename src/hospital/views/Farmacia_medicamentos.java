@@ -7,17 +7,19 @@ package hospital.views;
 
 
 import hospital.entity.Farmaceutico;
+<<<<<<< HEAD
 
 import hospital.db.Conexion;
 
 
+=======
+import hospital.db.Conexion;
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 import java.awt.Image;
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;

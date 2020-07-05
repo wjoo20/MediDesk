@@ -222,9 +222,10 @@ public class Login extends javax.swing.JFrame {
 
               Usuario user = new Usuario();             
               user.setCorreo(juser.getText());             
-              user.setClave(String.valueOf(jpassword.getPassword()));
+              
               user.setTipo(getTipoUser(juser.getText()));
               user.setIdUsuario(getIdUser(user));
+<<<<<<< HEAD
               System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
 
               //Usuario user = new Usuario();
@@ -232,6 +233,14 @@ public class Login extends javax.swing.JFrame {
               //user.setCorreo(juser.getText());
               //user.setTipo(getTipoUser(juser.getText()));
               //System.out.println(user.getIdUsuario() + user.getCorreo() + user.getTipo()); para probar los usuarios
+=======
+ 
+
+
+
+
+
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 
               switch (user.getTipo( )) {
                   case 'R':

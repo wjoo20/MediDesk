@@ -31,6 +31,7 @@ public class UsuarioDAO {
         return pass;
     }
     
+<<<<<<< HEAD
     public int getIdUser(Connection con, Usuario user){
         int id = 0;
         PreparedStatement pst = null;
@@ -40,10 +41,17 @@ public class UsuarioDAO {
     //public int getIdUser(Connection con, String user){
        // int id=0;
     //String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+=======
+
+
+    public int getIdUser(Connection con, String user){
+        int id=0;
+    String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, user.getCorreo());
+            pst.setString(1, user);
             rs = pst.executeQuery();
             if(rs.next()){
                 id = rs.getInt("US_IDUSUARIO");
@@ -191,5 +199,9 @@ public class UsuarioDAO {
             System.out.println("Error en createFarm DAO: " + e.getMessage());
         }
         return farm;
+    }
+
+    public int getIdUser(Connection conn, Usuario user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

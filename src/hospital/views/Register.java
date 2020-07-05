@@ -517,7 +517,11 @@ public class Register extends javax.swing.JFrame {
                        
                 Farmaceutico farm  = new Farmaceutico();
 
+<<<<<<< HEAD
                 //farm.setIdfarmaceutico(31);
+=======
+                farm.setIdFarmaceutico(31);
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
@@ -642,6 +646,7 @@ public class Register extends javax.swing.JFrame {
     public int getIdEsp(String espe){
         return rbo.getIdEsp(espe);
 
+<<<<<<< HEAD
     /*public int getEsp(String espe){
         int id;
         switch (espe) {
@@ -656,6 +661,8 @@ public class Register extends javax.swing.JFrame {
                 return id;
         }
 */
+=======
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
     }
     /**
      * @param args the command line arguments
