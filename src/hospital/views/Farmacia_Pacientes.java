@@ -7,8 +7,15 @@ package hospital.views;
 
 
 import hospital.entity.Farmaceutico;
+<<<<<<< HEAD
+
 import hospital.db.Conexion;
 import java.awt.Color;
+
+=======
+import hospital.db.Conexion;
+import java.awt.Color;
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 import java.awt.Image;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

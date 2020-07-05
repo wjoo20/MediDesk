@@ -7,7 +7,13 @@ package hospital.views;
 
 
 import hospital.bo.CitaBO;
+<<<<<<< HEAD
+
 import hospital.entity.Enfermera;
+
+=======
+import hospital.entity.Enfermera;
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,20 +27,34 @@ public class Triaje_cita extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_cita
      */
+<<<<<<< HEAD
+
+    private static Enfermera enf;
+    public Triaje_cita(Enfermera enf) {
+
+=======
     private CitaBO cbo = new CitaBO();
         private static Enfermera enf;
     public Triaje_cita(Enfermera enf) {
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
         initComponents();        
           this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
+<<<<<<< HEAD
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+
+        this.enf = enf;
+
+=======
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());   
         this.enf = enf;
     }
     
     public void listarCita(String especialidad) {
         cbo.listarCita(tbCita, especialidad);    
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
     }
 
     /**

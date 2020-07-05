@@ -27,9 +27,18 @@ public class Admision_cita extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
 
+<<<<<<< HEAD
+        this.adm = adm;
+        lblUsuario.setText(adm.getCorreo());
+
+        //Admision_cita.user = user;
+        //lblUsuario.setText(user.getCorreo());
+
+=======
         Admision_cita.adm = adm;
         lblUsuario.setText(adm.getCorreo());
 
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
     }
 
     /**

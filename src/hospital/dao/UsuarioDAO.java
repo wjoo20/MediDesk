@@ -30,7 +30,29 @@ public class UsuarioDAO {
             System.out.println("Error en login DAO: " + e.getMessage());
         }
         return pass;
+<<<<<<< HEAD
     }    
+=======
+    }
+    
+<<<<<<< HEAD
+    public int getIdUser(Connection con, Usuario user){
+        int id = 0;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+
+    //public int getIdUser(Connection con, String user){
+       // int id=0;
+    //String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+=======
+
+
+    public int getIdUser(Connection con, String user){
+        int id=0;
+    String sql = "SELECT US_IDUSUARIO FROM USUARIO WHERE US_CORREO = ?";
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
+>>>>>>> f594854c30a64f6c852fc3c7206558f70a5244ec
 
     public int getIdUser(Connection con, Usuario user){
         int id = 0;

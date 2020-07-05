@@ -516,6 +516,16 @@ public class Register extends javax.swing.JFrame {
                 Usuario user = createUser(tipo);
                        
                 Farmaceutico farm  = new Farmaceutico();
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+                //farm.setIdfarmaceutico(31);
+=======
+                farm.setIdFarmaceutico(31);
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
+
+>>>>>>> f594854c30a64f6c852fc3c7206558f70a5244ec
                 farm.setDni(Integer.parseInt(txtDni.getText()));
                 farm.setNombres(txtNombres.getText());
                 farm.setApellidos(txtApellidos.getText());
@@ -639,6 +649,23 @@ public class Register extends javax.swing.JFrame {
     public int getIdEsp(String espe){
         return rbo.getIdEsp(espe);
 
+<<<<<<< HEAD
+    /*public int getEsp(String espe){
+        int id;
+        switch (espe) {
+            case "Dermatología":
+                id = 1;
+                return id;
+            case "Cardiología":
+                id = 2;
+                return id;
+            default:
+                id = 3;
+                return id;
+        }
+*/
+=======
+>>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
     }
     /**
      * @param args the command line arguments
