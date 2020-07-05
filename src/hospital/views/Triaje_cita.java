@@ -5,11 +5,9 @@
  */
 package hospital.views;
 
-<<<<<<< HEAD
+
 import hospital.bo.CitaBO;
-=======
 import hospital.entity.Enfermera;
->>>>>>> 7e50e2df839ef40491720d5e5314f1935cb85824
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -23,29 +21,20 @@ public class Triaje_cita extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_cita
      */
-<<<<<<< HEAD
     private CitaBO cbo = new CitaBO();
-    
-    public Triaje_cita() {
-=======
-    private static Enfermera enf;
+        private static Enfermera enf;
     public Triaje_cita(Enfermera enf) {
->>>>>>> 7e50e2df839ef40491720d5e5314f1935cb85824
         initComponents();        
           this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-<<<<<<< HEAD
-        
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());   
+        this.enf = enf;
     }
     
     public void listarCita(String especialidad) {
-        cbo.listarCita(tbCita, especialidad);
-=======
-        this.enf = enf;
->>>>>>> 7e50e2df839ef40491720d5e5314f1935cb85824
+        cbo.listarCita(tbCita, especialidad);    
     }
 
     /**
@@ -254,7 +243,6 @@ public class Triaje_cita extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 760, 90));
 
-<<<<<<< HEAD
         cboEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cboEspecialidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
@@ -270,15 +258,6 @@ public class Triaje_cita extends javax.swing.JFrame {
         jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, 30));
-=======
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
-        jComboBox1.setBorder(null);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 230, 30));
->>>>>>> 7e50e2df839ef40491720d5e5314f1935cb85824
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel1.setText("Citas");
