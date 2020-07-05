@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.entity.Enfermera;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,13 +20,15 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_verPaciente
      */
-    public Triaje_verPaciente() {
+    private static Enfermera enf;
+    public Triaje_verPaciente(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        this.enf = enf;
     }
 
     /**
@@ -53,33 +56,33 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel9 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
         jLabel13 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
         jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        txtDni = new javax.swing.JTextField();
+        txtNombres = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtGenero = new javax.swing.JTextField();
+        txtEdad = new javax.swing.JTextField();
+        txtTriaje = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -228,9 +231,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel2.setText("Triaje");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 230, 130, 20));
 
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 210, 20));
-
         jSeparator1.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator1.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 250, 210, 10));
@@ -239,10 +239,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/dni_black_(16).png"))); // NOI18N
         jLabel5.setText("DNI");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 60, 20));
-
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, 20));
 
         jSeparator2.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator2.setForeground(new java.awt.Color(204, 204, 204));
@@ -253,9 +249,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel7.setText("Nombres");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 20));
 
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, 20));
-
         jSeparator3.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator3.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 210, 10));
@@ -264,9 +257,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/cough_black_(16).png"))); // NOI18N
         jLabel9.setText("Apellidos");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 90, 20));
-
-        jLabel12.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, 20));
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator4.setForeground(new java.awt.Color(204, 204, 204));
@@ -277,9 +267,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel13.setText("Correo");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 80, 20));
 
-        jLabel15.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, 20));
-
         jSeparator5.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator5.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, 210, 10));
@@ -288,9 +275,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/phone_black_(16).png"))); // NOI18N
         jLabel19.setText("Teléfono");
         jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 90, 20));
-
-        jLabel20.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, 20));
 
         jSeparator6.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator6.setForeground(new java.awt.Color(204, 204, 204));
@@ -301,9 +285,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel21.setText("Dirección");
         jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 100, 20));
 
-        jLabel22.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 210, 20));
-
         jSeparator7.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator7.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 210, 10));
@@ -313,9 +294,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel23.setText("Género");
         jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 150, 100, 20));
 
-        jLabel24.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, 20));
-
         jSeparator8.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator8.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 170, 210, 10));
@@ -324,9 +302,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/years_black_(16).png"))); // NOI18N
         jLabel25.setText("Edad");
         jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, 100, 20));
-
-        jLabel26.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
-        jPanel1.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, 20));
 
         jSeparator9.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator9.setForeground(new java.awt.Color(204, 204, 204));
@@ -344,6 +319,60 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 210, -1));
 
+        txtDni.setEditable(false);
+        txtDni.setBackground(new java.awt.Color(255, 255, 255));
+        txtDni.setForeground(new java.awt.Color(0, 0, 0));
+        txtDni.setBorder(null);
+        jPanel1.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, -1));
+
+        txtNombres.setEditable(false);
+        txtNombres.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombres.setForeground(new java.awt.Color(0, 0, 0));
+        txtNombres.setBorder(null);
+        jPanel1.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, -1));
+
+        txtApellidos.setEditable(false);
+        txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellidos.setForeground(new java.awt.Color(0, 0, 0));
+        txtApellidos.setBorder(null);
+        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, -1));
+
+        txtCorreo.setEditable(false);
+        txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setForeground(new java.awt.Color(0, 0, 0));
+        txtCorreo.setBorder(null);
+        jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, -1));
+
+        txtTelefono.setEditable(false);
+        txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setForeground(new java.awt.Color(0, 0, 0));
+        txtTelefono.setBorder(null);
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, -1));
+
+        txtDireccion.setEditable(false);
+        txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
+        txtDireccion.setBorder(null);
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 210, -1));
+
+        txtGenero.setEditable(false);
+        txtGenero.setBackground(new java.awt.Color(255, 255, 255));
+        txtGenero.setForeground(new java.awt.Color(0, 0, 0));
+        txtGenero.setBorder(null);
+        jPanel1.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, -1));
+
+        txtEdad.setEditable(false);
+        txtEdad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdad.setForeground(new java.awt.Color(0, 0, 0));
+        txtEdad.setBorder(null);
+        jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
+
+        txtTriaje.setEditable(false);
+        txtTriaje.setBackground(new java.awt.Color(255, 255, 255));
+        txtTriaje.setForeground(new java.awt.Color(0, 0, 0));
+        txtTriaje.setBorder(null);
+        jPanel1.add(txtTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 210, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
         pack();
@@ -354,7 +383,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Triaje_inicio r = new Triaje_inicio();
+        Triaje_inicio r = new Triaje_inicio(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -368,7 +397,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita();
+        Triaje_cita ac = new Triaje_cita(enf);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -382,7 +411,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje();
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -400,14 +429,14 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_cita r = new Triaje_cita();
+        Triaje_cita r = new Triaje_cita(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje();
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -453,7 +482,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_verPaciente().setVisible(true);
+                new Triaje_verPaciente(enf).setVisible(true);
             }
         });
     }
@@ -464,30 +493,21 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -502,5 +522,14 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtCorreo;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtEdad;
+    private javax.swing.JTextField txtGenero;
+    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JTextField txtTriaje;
     // End of variables declaration//GEN-END:variables
 }

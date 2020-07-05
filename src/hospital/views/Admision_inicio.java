@@ -5,7 +5,7 @@
  */
 package hospital.views;
 
-import hospital.entity.Usuario;
+import hospital.entity.Administrador;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,8 +19,8 @@ import javax.swing.JOptionPane;
  */
 public class Admision_inicio extends javax.swing.JFrame {
 
-    private static Usuario user; 
-    public Admision_inicio(Usuario user) {
+    private static Administrador adm; 
+    public Admision_inicio(Administrador adm) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -28,8 +28,8 @@ public class Admision_inicio extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-        this.user = user;
-        lblUsuario.setText(user.getCorreo());
+        this.adm = adm;
+        lblUsuario.setText(adm.getCorreo());
     }
 
     /**
@@ -250,43 +250,43 @@ public class Admision_inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Admision_cita ac = new Admision_cita(user);
+        Admision_cita ac = new Admision_cita(adm);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Admision_paciente ap = new Admision_paciente(user);
+        Admision_paciente ap = new Admision_paciente(adm);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Admision_inicio r = new Admision_inicio(user);
+        Admision_inicio r = new Admision_inicio(adm);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        Admision_cita ac = new Admision_cita(user);
+        Admision_cita ac = new Admision_cita(adm);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Admision_paciente ap = new Admision_paciente(user);
+        Admision_paciente ap = new Admision_paciente(adm);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        Admision_cita ac = new Admision_cita(user);
+        Admision_cita ac = new Admision_cita(adm);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Admision_paciente ap = new Admision_paciente(user);
+        Admision_paciente ap = new Admision_paciente(adm);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -384,7 +384,7 @@ public class Admision_inicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_inicio(user).setVisible(true);
+                new Admision_inicio(adm).setVisible(true);
             }
         });
     }

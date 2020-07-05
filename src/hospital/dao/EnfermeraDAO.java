@@ -3,20 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hospital.entity;
+package hospital.dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 /**
  *
  * @author Fiorella
  */
-public class Triaje extends Paciente {
-    private int idTriaje;
-    
-
-    
-    
-    
-    
+public class EnfermeraDAO {
     
     
 }

@@ -7,6 +7,7 @@ package hospital.views;
  */
 
 
+import hospital.entity.Medico;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,7 +22,8 @@ public class Medico_paciente extends javax.swing.JFrame {
     /**
      * Creates new form Admision
      */
-    public Medico_paciente() {
+    private static Medico med;
+    public Medico_paciente(Medico med) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -29,6 +31,7 @@ public class Medico_paciente extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        this.med = med;
     }
 
     /**
@@ -328,19 +331,19 @@ public class Medico_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Medico_inicio r = new Medico_inicio();
+        Medico_inicio r = new Medico_inicio(med);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        Medico_cita ac = new Medico_cita();
+        Medico_cita ac = new Medico_cita(med);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Medico_paciente ap = new Medico_paciente();
+        Medico_paciente ap = new Medico_paciente(med);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -423,7 +426,7 @@ public class Medico_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Medico_inicio m = new Medico_inicio();
+        Medico_inicio m = new Medico_inicio(med);
         m.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
@@ -471,7 +474,7 @@ public class Medico_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Medico_paciente().setVisible(true);
+                new Medico_paciente(med).setVisible(true);
             }
         });
     }

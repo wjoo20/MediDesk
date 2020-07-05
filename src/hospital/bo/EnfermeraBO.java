@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hospital.entity;
+package hospital.bo;
 
 /**
  *
  * @author Fiorella
  */
-public class Triaje extends Paciente {
-    private int idTriaje;
-    
-
-    
-    
-    
-    
-    
+public class EnfermeraBO {
     
 }
