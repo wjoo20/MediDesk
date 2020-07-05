@@ -11,6 +11,8 @@ import hospital.entity.Enfermera;
 import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
+import java.awt.Color;
+import java.util.HashSet;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -228,27 +230,7 @@ public class Login extends javax.swing.JFrame {
               user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
               user.setIdUsuario(getIdUser(user));
-<<<<<<< HEAD
               System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
-=======
-<<<<<<< HEAD
-              System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
-
-              //Usuario user = new Usuario();
-              //user.setIdUsuario(getIdUser(juser.getText()));
-              //user.setCorreo(juser.getText());
-              //user.setTipo(getTipoUser(juser.getText()));
-              //System.out.println(user.getIdUsuario() + user.getCorreo() + user.getTipo()); para probar los usuarios
-=======
- 
-
-
-
-
-
->>>>>>> 32fb7247a0bb71de3b01d30d789ffef1f2ddeffd
-
->>>>>>> f594854c30a64f6c852fc3c7206558f70a5244ec
               switch (user.getTipo( )) {
                   case 'R':
                       {
