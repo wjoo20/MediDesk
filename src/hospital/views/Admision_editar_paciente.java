@@ -5,7 +5,7 @@
  */
 package hospital.views;
 
-import hospital.entity.Usuario;
+import hospital.entity.Administrador;
 import javax.swing.JOptionPane;
 
 
@@ -20,13 +20,13 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     /**
      * Creates new form Admision_crear_paciente
      */
-    private static Usuario user;
-    public Admision_editar_paciente(Usuario user) {
+    private static Administrador adm;
+    public Admision_editar_paciente(Administrador adm) {
        
       initComponents();
        
          this.setLocationRelativeTo(null);
-         this.user = user;
+         this.adm = adm;
      
         
     }
@@ -255,7 +255,7 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_paciente r = new Admision_paciente(user);
+        Admision_paciente r = new Admision_paciente(adm);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarMouseClicked
@@ -277,7 +277,7 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
-        Admision_paciente lo = new Admision_paciente(user);
+        Admision_paciente lo = new Admision_paciente(adm);
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCancelarMouseClicked
@@ -313,7 +313,7 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_editar_paciente(user).setVisible(true);
+                new Admision_editar_paciente(adm).setVisible(true);
             }
         });
     }

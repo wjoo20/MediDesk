@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.entity.Enfermera;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -19,13 +20,15 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_verPaciente
      */
-    public Triaje_verPaciente() {
+    private static Enfermera enf;
+    public Triaje_verPaciente(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        this.enf = enf;
     }
 
     /**
@@ -380,7 +383,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Triaje_inicio r = new Triaje_inicio();
+        Triaje_inicio r = new Triaje_inicio(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -394,7 +397,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita();
+        Triaje_cita ac = new Triaje_cita(enf);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -408,7 +411,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje();
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -426,14 +429,14 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_cita r = new Triaje_cita();
+        Triaje_cita r = new Triaje_cita(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje();
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -479,7 +482,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_verPaciente().setVisible(true);
+                new Triaje_verPaciente(enf).setVisible(true);
             }
         });
     }

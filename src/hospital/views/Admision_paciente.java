@@ -5,7 +5,7 @@
  */
 package hospital.views;
 
-import hospital.entity.Usuario;
+import hospital.entity.Administrador;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -20,17 +20,17 @@ public class Admision_paciente extends javax.swing.JFrame {
     /**
      * Creates new form Admision
      */
-    private static Usuario user;
+    private static Administrador adm;
     
-    public Admision_paciente(Usuario user) {
+    public Admision_paciente(Administrador adm) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-        this.user = user;
-        lblUsuario.setText(user.getCorreo());
+        this.adm = adm;
+        lblUsuario.setText(adm.getCorreo());
     }
 
     /**
@@ -319,7 +319,7 @@ public class Admision_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Admision_inicio r = new Admision_inicio(user);
+        Admision_inicio r = new Admision_inicio(adm);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel4MouseClicked
@@ -333,7 +333,7 @@ public class Admision_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Admision_cita ac = new Admision_cita(user);
+        Admision_cita ac = new Admision_cita(adm);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -347,7 +347,7 @@ public class Admision_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Admision_paciente ap = new Admision_paciente(user);
+        Admision_paciente ap = new Admision_paciente(adm);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -357,14 +357,14 @@ public class Admision_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseExited
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        Admision_inicio r = new Admision_inicio(user);
+        Admision_inicio r = new Admision_inicio(adm);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel16MouseClicked
 
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        Admision_crear_paciente r = new Admision_crear_paciente(user);
+        Admision_crear_paciente r = new Admision_crear_paciente(adm);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3MouseClicked
@@ -378,7 +378,7 @@ public class Admision_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-       Admision_editar_paciente r = new Admision_editar_paciente(user);
+       Admision_editar_paciente r = new Admision_editar_paciente(adm);
         r.setVisible(true);
         this.setVisible(false);  // TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseClicked
@@ -439,7 +439,7 @@ public class Admision_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_paciente(user).setVisible(true);
+                new Admision_paciente(adm).setVisible(true);
             }
         });
     }

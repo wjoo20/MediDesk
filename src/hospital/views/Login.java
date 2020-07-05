@@ -6,6 +6,10 @@
 package hospital.views;
 
 import hospital.bo.UsuarioBO;
+import hospital.entity.Administrador;
+import hospital.entity.Enfermera;
+import hospital.entity.Farmaceutico;
+import hospital.entity.Medico;
 import hospital.entity.Usuario;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -37,7 +41,7 @@ public class Login extends javax.swing.JFrame {
         }     
     }
     
-    public int getIdUser(String user){
+    public int getIdUser(Usuario user){
         
         return ubo.getIdUser(user);
     }
@@ -45,6 +49,22 @@ public class Login extends javax.swing.JFrame {
     public char getTipoUser(String user){
         
         return ubo.getTipoUser(user);
+    }
+    
+    public Administrador createAdm(Usuario user){
+        return ubo.createAdm(user);
+    }
+    
+    public Medico createMed(Usuario user){
+        return ubo.createMed(user);
+    }
+    
+    public Enfermera createEnf(Usuario user){
+        return ubo.createEnf(user);
+    }
+    
+    public Farmaceutico createFarm(Usuario user){
+        return ubo.createFarm(user);
     }
     
     /**
@@ -185,11 +205,11 @@ public class Login extends javax.swing.JFrame {
 
     private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
           if(login()){
-              Usuario user = new Usuario();
-              user.setIdUsuario(getIdUser(juser.getText()));
-              user.setCorreo(juser.getText());
+              Usuario user = new Usuario();             
+              user.setCorreo(juser.getText());             
               user.setClave(String.valueOf(jpassword.getPassword()));
               user.setTipo(getTipoUser(juser.getText()));
+              user.setIdUsuario(getIdUser(user));
               System.out.println(user.getIdUsuario() + user.getCorreo() + user.getClave() + user.getTipo());
               switch (user.getTipo( )) {
                   case 'R':
@@ -201,28 +221,32 @@ public class Login extends javax.swing.JFrame {
                       }
                   case 'A':
                       {
-                          Admision_inicio r = new Admision_inicio(user);
+                          Administrador adm = createAdm(user);                         
+                          Admision_inicio r = new Admision_inicio(adm);
                           r.setVisible(true);
                           this.setVisible(false);
                           break;
                       }
                   case 'M':
                       {
-                          Medico_inicio r = new Medico_inicio();
+                          Medico med = createMed(user);
+                          Medico_inicio r = new Medico_inicio(med);
                           r.setVisible(true);
                           this.setVisible(false);
                           break;
                       }
                   case 'E':
                       {
-                          Triaje_inicio r = new Triaje_inicio();
+                          Enfermera enf = createEnf(user);
+                          Triaje_inicio r = new Triaje_inicio(enf);
                           r.setVisible(true);
                           this.setVisible(false);
                           break;
                       }
                   case 'F':
                       {
-                          Farmacia farma = new Farmacia();
+                          Farmaceutico farm = createFarm(user);
+                          Farmacia farma = new Farmacia(farm);
                           farma.setVisible(true);
                           this.setVisible(false);
                           break;

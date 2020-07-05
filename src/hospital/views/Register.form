@@ -495,25 +495,6 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtConfirmarContrase&#xf1;a">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="1c" green="1c" red="1c" type="rgb"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-            <Property name="opaque" type="boolean" value="false"/>
-          </Properties>
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="220" y="350" width="170" height="30"/>
-            </Constraint>
-          </Constraints>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel12">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -801,16 +782,33 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="9">
+              <StringArray count="26">
                 <StringItem index="0" value="Seleccionar"/>
-                <StringItem index="1" value="Dermatolog&#xed;a"/>
-                <StringItem index="2" value="Cardiolog&#xed;a"/>
-                <StringItem index="3" value="Neumolog&#xed;a"/>
-                <StringItem index="4" value=""/>
-                <StringItem index="5" value=""/>
-                <StringItem index="6" value=""/>
-                <StringItem index="7" value=""/>
-                <StringItem index="8" value=""/>
+                <StringItem index="1" value="Cardiolog&#xed;a"/>
+                <StringItem index="2" value="Dermatolog&#xed;a"/>
+                <StringItem index="3" value="Endocrinolog&#xed;a"/>
+                <StringItem index="4" value="Gastroenterolog&#xed;a"/>
+                <StringItem index="5" value="Geriatr&#xed;a"/>
+                <StringItem index="6" value="Ginecolog&#xed;a"/>
+                <StringItem index="7" value="Nefrolog&#xed;a"/>
+                <StringItem index="8" value="Neumolog&#xed;a"/>
+                <StringItem index="9" value="Neurocirug&#xed;a"/>
+                <StringItem index="10" value="Nutrici&#xf3;n"/>
+                <StringItem index="11" value="Obstetric&#xed;a"/>
+                <StringItem index="12" value="Odontolog&#xed;a"/>
+                <StringItem index="13" value="Oftalmolog&#xed;a"/>
+                <StringItem index="14" value="Oncolog&#xed;a"/>
+                <StringItem index="15" value="Otorrinolaringolog&#xed;a"/>
+                <StringItem index="16" value="Pediatr&#xed;a"/>
+                <StringItem index="17" value="Psicolog&#xed;a"/>
+                <StringItem index="18" value="Psiquiatr&#xed;a"/>
+                <StringItem index="19" value="Reumatolog&#xed;a"/>
+                <StringItem index="20" value="Urolog&#xed;a"/>
+                <StringItem index="21" value=" "/>
+                <StringItem index="22" value=" "/>
+                <StringItem index="23" value=" "/>
+                <StringItem index="24" value=" "/>
+                <StringItem index="25" value=" "/>
               </StringArray>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -829,7 +827,7 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtContrase&#xf1;a">
+        <Component class="javax.swing.JPasswordField" name="txtContrase&#xf1;a">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="1c" green="1c" red="1c" type="rgb"/>
@@ -845,6 +843,25 @@
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
               <AbsoluteConstraints x="220" y="310" width="170" height="30"/>
+            </Constraint>
+          </Constraints>
+        </Component>
+        <Component class="javax.swing.JPasswordField" name="txtConfirmarContrase&#xf1;a">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="1c" green="1c" red="1c" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="null"/>
+            </Property>
+            <Property name="opaque" type="boolean" value="false"/>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="220" y="350" width="170" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
