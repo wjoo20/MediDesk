@@ -14,7 +14,7 @@ public class Paciente{
     private String nombres;
     private String apellidos;
     private String correo;
-    private String telefono;
+    private int telefono;
     private String direccion;
     private char genero;
     private int edad;
@@ -22,6 +22,7 @@ public class Paciente{
     private double peso;
     private double temperatura;
     private double presion;
+    private String triaje;
     private int idTriaje;
     private int idHistoria;
     private int idAdministrador;
@@ -29,7 +30,7 @@ public class Paciente{
     public Paciente() {
     }
 
-    public Paciente(int dni, String nombres, String apellidos, String correo, String telefono, String direccion, char genero, int edad, double talla, double peso, double temperatura, double presion, int idTriaje, int idHistoria, int idAdministrador) {
+    public Paciente(int dni, String nombres, String apellidos, String correo, int telefono, String direccion, char genero, int edad, double talla, double peso, double temperatura, double presion,String triaje, int idTriaje, int idHistoria, int idAdministrador) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -42,6 +43,7 @@ public class Paciente{
         this.peso = peso;
         this.temperatura = temperatura;
         this.presion = presion;
+        this.triaje = triaje;
         this.idTriaje = idTriaje;
         this.idHistoria = idHistoria;
         this.idAdministrador = idAdministrador;
@@ -63,7 +65,7 @@ public class Paciente{
         return correo;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
@@ -123,7 +125,7 @@ public class Paciente{
         this.correo = correo;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
@@ -165,6 +167,14 @@ public class Paciente{
 
     public void setIdAdministrador(int idAdministrador) {
         this.idAdministrador = idAdministrador;
+    }
+
+    public String getTriaje() {
+        return triaje;
+    }
+
+    public void setTriaje(String triaje) {
+        this.triaje = triaje;
     }
     
     

@@ -5,7 +5,11 @@
  */
 package hospital.views;
 
+import hospital.bo.Admision_citaBO;
 import hospital.entity.Administrador;
+import hospital.entity.Cita;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,7 +17,7 @@ import javax.swing.JOptionPane;
  * @author daniel
  */
 public class Admision_generar_cita extends javax.swing.JFrame {
-
+Admision_citaBO Adcibo = new Admision_citaBO();
     /**
      * Creates new form Admision_generar_cita
      */
@@ -42,14 +46,14 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        txtNombres = new javax.swing.JTextField();
+        txtDni = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cbEspecialidad = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        dFecha = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        cbMedico = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 460));
@@ -130,10 +134,10 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 350, 10));
 
-        txtNombres.setBackground(new java.awt.Color(28, 28, 28));
-        txtNombres.setForeground(new java.awt.Color(255, 255, 255));
-        txtNombres.setBorder(null);
-        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 350, 30));
+        txtDni.setBackground(new java.awt.Color(28, 28, 28));
+        txtDni.setForeground(new java.awt.Color(255, 255, 255));
+        txtDni.setBorder(null);
+        jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 350, 30));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -147,16 +151,16 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         jLabel5.setText("ESPECIALIDAD:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, 30));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
-        jComboBox2.setBorder(null);
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 340, -1));
+        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cbEspecialidad.setBorder(null);
+        jPanel2.add(cbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 340, -1));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MEDICO:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 30));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 150, -1));
+        jPanel2.add(dFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,9 +168,9 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         jLabel7.setText("FECHA:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, 30));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Medico", "Medico1", "Medico2", "Medico3", "Medico4", "Medico5" }));
-        jComboBox3.setBorder(null);
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 340, -1));
+        cbMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Medico", "Medico1", "Medico2", "Medico3", "Medico4", "Medico5" }));
+        cbMedico.setBorder(null);
+        jPanel2.add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 340, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 650, 460));
 
@@ -196,9 +200,31 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
-        Admision_inicio r = new Admision_inicio(adm);
+         if(txtDni.getText().isEmpty() 
+ 
+               ){
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }else{
+          String formato = dFecha.getDateFormatString();
+Date date = dFecha.getDate();
+SimpleDateFormat sdf = new SimpleDateFormat(formato);
+        String factual = String.valueOf(sdf.format(date));
+
+           String id = String.valueOf(cbEspecialidad.getSelectedItem()); 
+                
+                Cita cit  = new Cita();
+            cit.setDni_paciente(Integer.parseInt(txtDni.getText()));
+            cit.setTipo("N");
+            cit.setEstado("N");
+            cit.setFecha(factual);
+                    
+                String mensaje = Adcibo.agregarCita(cit);
+                  //limpiar();
+                    JOptionPane.showMessageDialog(null, mensaje);
+         Admision_inicio r = new Admision_inicio(adm);
         r.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);                          
+  }
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     /**
@@ -240,9 +266,9 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnRegistrar;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JComboBox<String> cbEspecialidad;
+    private javax.swing.JComboBox<String> cbMedico;
+    private com.toedter.calendar.JDateChooser dFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -253,6 +279,6 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtDni;
     // End of variables declaration//GEN-END:variables
 }
