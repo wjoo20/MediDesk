@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package hospital.bo;
 
 import hospital.dao.UsuarioDAO;
@@ -15,16 +10,13 @@ import hospital.entity.Usuario;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-/**
- *
- * @author PC
- */
+
 public class UsuarioBO {
-    private String mensaje = "";
-    private UsuarioDAO udao = new UsuarioDAO();
-        
-    public String login(String p, String user){
+    private String mensaje;
+    private final UsuarioDAO udao = new UsuarioDAO();
         Connection conn = Conexion.getConnection();
+    public String login(String p, String user){
+         //Conexion a la base de datos
         String pass = udao.login(conn,user);
         try {
             if(pass == null){
@@ -43,7 +35,7 @@ public class UsuarioBO {
     }
     
     public int getIdUser(Usuario user){
-        Connection conn = Conexion.getConnection();
+        
         int id = udao.getIdUser(conn,user);
         try {           
             conn.close();
@@ -54,7 +46,7 @@ public class UsuarioBO {
     }
     
     public char getTipoUser(String user){
-        Connection conn = Conexion.getConnection();
+        
         char tipo = udao.getTipoUser(conn,user);
         try {           
             conn.close();
@@ -65,7 +57,7 @@ public class UsuarioBO {
     }
     
     public Administrador createAdm(Usuario user){
-        Connection conn = Conexion.getConnection();
+        
         Administrador adm = udao.createAdm(conn,user);
         try {   
             conn.close();
@@ -76,7 +68,7 @@ public class UsuarioBO {
     }
     
     public Medico createMed(Usuario user){
-        Connection conn = Conexion.getConnection();
+        
         Medico med = udao.createMed(conn,user);
         try {   
             conn.close();
@@ -87,7 +79,7 @@ public class UsuarioBO {
     }
     
     public Enfermera createEnf(Usuario user){
-        Connection conn = Conexion.getConnection();
+        
         Enfermera enf = udao.createEnf(conn,user);
         try {   
             conn.close();
@@ -98,7 +90,7 @@ public class UsuarioBO {
     }
     
     public Farmaceutico createFarm(Usuario user){
-        Connection conn = Conexion.getConnection();
+        
         Farmaceutico farm = udao.createFarm(conn,user);
         try {   
             conn.close();
