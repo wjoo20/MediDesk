@@ -39,7 +39,7 @@ public class UsuarioDAO {
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, user.getCorreo());
+            pst.setString(1, user);
             rs = pst.executeQuery();
             if(rs.next()){
                 id = rs.getInt("US_IDUSUARIO");
