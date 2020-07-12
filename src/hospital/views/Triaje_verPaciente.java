@@ -5,8 +5,12 @@
  */
 package hospital.views;
 
+import hospital.bo.EnfermeraBO;
+import hospital.db.Conexion;
 import hospital.entity.Enfermera;
+import hospital.entity.Paciente;
 import java.awt.Image;
+import java.sql.DriverManager;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,15 +24,39 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_verPaciente
      */
+    private EnfermeraBO ebo = new EnfermeraBO();    
+    private Triaje_cita tc = new Triaje_cita();
     private static Enfermera enf;
-    public Triaje_verPaciente(Enfermera enf) {
+    private static String dni;
+    public Triaje_verPaciente(Enfermera enf, String dni) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-        this.enf = enf;
+        this.enf = enf;  
+        this.dni= dni;
+        listar_paciente();
+    }
+    
+    public Paciente listar_paciente() {
+        Paciente p = ebo.listarPaciente(dni);
+        txtDni.setText(String.valueOf(p.getDni()));
+        txtNombres.setText(p.getNombres());
+        txtApellidos.setText(p.getApellidos());
+        txtCorreo.setText(p.getCorreo());
+        txtTelefono.setText(String.valueOf(p.getTelefono()));
+        txtDireccion.setText(p.getDireccion());
+        txtGenero.setText(p.getGenero()+"");
+        txtEdad.setText(String.valueOf(p.getDni()));
+        txtTriaje.setText(p.getTriaje());
+        return p;
+        
+    }
+    
+    public Triaje_verPaciente() {
+        
     }
 
     /**
@@ -436,7 +464,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf);
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1MouseClicked
@@ -482,7 +510,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_verPaciente(enf).setVisible(true);
+                new Triaje_verPaciente(enf,dni).setVisible(true);
             }
         });
     }
