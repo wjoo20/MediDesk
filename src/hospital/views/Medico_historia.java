@@ -17,13 +17,13 @@ import javax.swing.JOptionPane;
  *
  * @author PC
  */
-public class Medico_cita extends javax.swing.JFrame {
+public class Medico_historia extends javax.swing.JFrame {
 
     /**
      * Creates new form Admision
      */
     private static Medico med;
-    public Medico_cita(Medico med) {
+    public Medico_historia(Medico med) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -32,7 +32,6 @@ public class Medico_cita extends javax.swing.JFrame {
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.med = med;
-        btnCrearHistoria.show(false);
     }
 
     /**
@@ -48,8 +47,9 @@ public class Medico_cita extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -58,12 +58,20 @@ public class Medico_cita extends javax.swing.JFrame {
         lblLogo1 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel5 = new javax.swing.JLabel();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        txtNombes = new javax.swing.JTextField();
+        txtApellidos = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
         btnCrearHistoria = new javax.swing.JButton();
-        btnAtender = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        txtFecha = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        jSeparator5 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -133,14 +141,28 @@ public class Medico_cita extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jButton4.setText("Buscar");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 150, -1));
+
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("USUARIO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("USUARIO");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,53 +227,54 @@ public class Medico_cita extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
-        jTable3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable3.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Hora", "Paciente", "DNI", "Nº de Historia", "Estado de Cita"
-            }
-        ));
-        jTable3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable3.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+        jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        jLabel5.setText("Creación de Historias");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, -1, -1));
+
+        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 320, 278, 10));
+
+        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 508, 10));
+
+        txtNombes.setEditable(false);
+        txtNombes.setBorder(null);
+        txtNombes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombesActionPerformed(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        getContentPane().add(txtNombes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 510, 30));
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 120, 490, 260));
+        txtApellidos.setEditable(false);
+        txtApellidos.setBorder(null);
+        txtApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 510, 30));
 
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel6.setText("Citas");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, 50, -1));
+        jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel15.setText("Apellidos:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, -1, 20));
 
-        jCalendar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jCalendar1.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 270, 200));
+        jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel22.setText("Nombres:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, 10));
+
+        jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel23.setText("DNI:");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
+
+        txtDni.setEditable(false);
+        txtDni.setBorder(null);
+        txtDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDniActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 280, 30));
 
         btnCrearHistoria.setBackground(new java.awt.Color(0, 51, 51));
         btnCrearHistoria.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
@@ -263,22 +286,47 @@ public class Medico_cita extends javax.swing.JFrame {
                 btnCrearHistoriaMouseClicked(evt);
             }
         });
-        getContentPane().add(btnCrearHistoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 80, 120, 30));
+        getContentPane().add(btnCrearHistoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 340, 30));
 
-        btnAtender.setBackground(new java.awt.Color(0, 51, 51));
-        btnAtender.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnAtender.setForeground(new java.awt.Color(255, 255, 255));
-        btnAtender.setText("Atender");
-        btnAtender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAtenderMouseClicked(evt);
+        jLabel26.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel26.setText("Fecha:");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, 20));
+
+        txtFecha.setEditable(false);
+        txtFecha.setBorder(null);
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 200, 30));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 280, 30));
+
+        jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 508, 10));
+
+        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 270, 278, 10));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        Medico_inicio r = new Medico_inicio(med);
+        r.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+        Medico_cita ac = new Medico_cita(med);
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        Medico_historia ap = new Medico_historia(med);
+        ap.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
         int dialog = JOptionPane.YES_NO_OPTION;
@@ -288,62 +336,42 @@ public class Medico_cita extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jLabel17MouseClicked
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable3MouseClicked
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel4MouseMoved
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Medico_inicio r = new Medico_inicio(med);
-        r.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
-    }//GEN-LAST:event_jLabel4MouseExited
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseMoved
         jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel10MouseMoved
 
-    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
-        Medico_cita ac = new Medico_cita(med);
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel10MouseClicked
-
-    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
-        jLabel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
-    }//GEN-LAST:event_jLabel10MouseExited
+    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
+        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_jLabel14MouseExited
 
     private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel14MouseMoved
 
-    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Medico_paciente ap = new Medico_paciente(med);
-        ap.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel14MouseClicked
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseClicked
 
-    private void jLabel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseExited
-        jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
-    }//GEN-LAST:event_jLabel14MouseExited
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
 
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Login lo = new Login();
-        lo.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel11MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         Medico_inicio m = new Medico_inicio(med);
@@ -351,13 +379,31 @@ public class Medico_cita extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
-    private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
-       
-    }//GEN-LAST:event_btnAtenderMouseClicked
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void txtNombesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombesActionPerformed
+
+    private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidosActionPerformed
+
+    private void txtDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDniActionPerformed
 
     private void btnCrearHistoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearHistoriaMouseClicked
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_btnCrearHistoriaMouseClicked
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -376,14 +422,22 @@ public class Medico_cita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Medico_cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Medico_historia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Medico_cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Medico_historia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Medico_cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Medico_historia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Medico_cita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Medico_historia.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -396,31 +450,40 @@ public class Medico_cita extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Medico_cita(med).setVisible(true);
+                new Medico_historia(med).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton btnAtender;
     private javax.swing.JButton btnCrearHistoria;
-    private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtFecha;
+    private javax.swing.JTextField txtNombes;
     // End of variables declaration//GEN-END:variables
 }

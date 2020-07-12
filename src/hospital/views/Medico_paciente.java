@@ -58,20 +58,31 @@ public class Medico_paciente extends javax.swing.JFrame {
         lblLogo1 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel23 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel25 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        btnAtender = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -227,105 +238,128 @@ public class Medico_paciente extends javax.swing.JFrame {
 
         getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
-        jLabel2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel2.setText("Nombres:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, 20));
-
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel5.setText("Catálago de Pacientes");
+        jLabel5.setText("Atención de Pacientes");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 72, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel6.setText("Nº de Exp");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, 20));
+        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel3.setText("Talla:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 216, -1, 10));
 
-        jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel7.setText("A. Paterno:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, 20));
-
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setText("A. Materno:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, -1, 20));
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jTextField6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 110, -1));
+        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 114, 280, 30));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                jTextField7ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 110, -1));
+        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 280, 30));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jTextField9ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 110, -1));
+        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 206, 90, 30));
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel12.setText("Patología:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 120, -1, 20));
+
+        jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel15.setText("Apellidos:");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 163, -1, 20));
+
+        jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel19.setText("Peso:");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 216, -1, 10));
+
+        jLabel20.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel20.setText("Temp:");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 257, -1, 20));
+
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jTextField10ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 110, -1));
+        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 252, 90, 30));
 
-        jTable3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable3.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Nº de Exp", "Nombres", "Apellidos", "DNI", "Sexo"
+        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField11ActionPerformed(evt);
             }
-        ));
-        jTable3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable3.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable3.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        });
+        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 206, 90, 30));
+
+        jLabel21.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel21.setText("Presión:");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 257, -1, 20));
+
+        jTextField12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField12ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 252, 90, 30));
+
+        jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel22.setText("Nombres:");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 125, -1, 10));
+
+        jComboBox1.setEditable(true);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 114, 280, 30));
+
+        jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel23.setText("Historia:");
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 303, -1, 20));
+
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 298, 280, 30));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 350, 100));
+
+        jLabel24.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel24.setText("Indicaciones:");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 200, -1, 20));
+
+        jComboBox2.setEditable(true);
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 250, 30));
+
+        jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        jLabel25.setText("Medicamento:");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 165, -1, 20));
+
+        jScrollPane1.setViewportView(jTextPane1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 370, 180));
+
+        btnAtender.setBackground(new java.awt.Color(0, 51, 51));
+        btnAtender.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        btnAtender.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtender.setText("Terminar");
+        btnAtender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                btnAtenderMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(jTable3);
-
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 760, 90));
-
-        jButton2.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jButton2.setText("VER HISTORIAL");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
-
-        jButton3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jButton3.setText("BUSCAR");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 140, -1, -1));
-
-        jButton5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jButton5.setText("CREAR HISTORIAL");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 410, -1, -1));
+        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 340, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -380,26 +414,6 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel14MouseMoved
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable3MouseClicked
-
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseClicked
@@ -413,18 +427,6 @@ public class Medico_paciente extends javax.swing.JFrame {
         setExtendedState(ICONIFIED );
     }//GEN-LAST:event_MinimizarMouseClicked
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
         Medico_inicio m = new Medico_inicio(med);
         m.setVisible(true);
@@ -436,6 +438,38 @@ public class Medico_paciente extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
+
+    }//GEN-LAST:event_btnAtenderMouseClicked
 
     /**
      * @param args the command line arguments
@@ -481,32 +515,43 @@ public class Medico_paciente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAtender;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
     // End of variables declaration//GEN-END:variables
