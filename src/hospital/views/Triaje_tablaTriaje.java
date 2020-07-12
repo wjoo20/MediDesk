@@ -5,8 +5,10 @@
  */
 package hospital.views;
 
+import hospital.bo.EnfermeraBO;
 import hospital.entity.Enfermera;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -20,6 +22,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_tablaTriaje
      */
+    private EnfermeraBO ebo = new EnfermeraBO();
     private static Enfermera enf;
     public Triaje_tablaTriaje(Enfermera enf) {
         initComponents();
@@ -29,6 +32,10 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.enf = enf;
+    }
+    
+    public void listarTriaje(String especialidad, String date) {
+        ebo.listarTriaje(tbTriaje, especialidad, date);    
     }
 
     /**
@@ -57,10 +64,11 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnEliminar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        tbTriaje = new javax.swing.JTable();
+        cboEspecialidad = new javax.swing.JComboBox<>();
         btnModificar = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
+        btnVerTriaje = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -216,37 +224,37 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         });
         jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 110, -1));
 
-        jTable1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTable1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbTriaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tbTriaje.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        tbTriaje.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "DNI", "Nombres", "Apellidos", "Talla", "Peso", "Temperatura", "Presión Arterial"
+
             }
         ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setSelectionBackground(new java.awt.Color(102, 102, 102));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbTriaje.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tbTriaje.setGridColor(new java.awt.Color(255, 255, 255));
+        tbTriaje.setSelectionBackground(new java.awt.Color(102, 102, 102));
+        tbTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                tbTriajeMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tbTriaje);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 770, 90));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(0, 0, 0));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
-        jComboBox1.setBorder(null);
-        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, -1));
+        cboEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
+        cboEspecialidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
+        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cboEspecialidad.setBorder(null);
+        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
 
         btnModificar.setBackground(new java.awt.Color(51, 51, 51));
         btnModificar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
@@ -258,8 +266,21 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
                 btnModificarMouseClicked(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 120, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 160, 30));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 120, -1));
+
+        jDateChooser.setDateFormatString("dd/MM/yy");
+        jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 160, 30));
+
+        btnVerTriaje.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnVerTriaje.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerTriaje.setText("VER");
+        btnVerTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnVerTriajeMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnVerTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 100, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -327,10 +348,10 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnEliminarMouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void tbTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseClicked
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_tbTriajeMouseClicked
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
@@ -351,6 +372,15 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel12MouseClicked
 
+    private void btnVerTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerTriajeMouseClicked
+        // TODO add your handling code here:        
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(jDateChooser.getDate());
+        String especialidad = String.valueOf(cboEspecialidad.getSelectedItem());           
+        listarTriaje(especialidad, date);
+    }//GEN-LAST:event_btnVerTriajeMouseClicked
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -390,8 +420,9 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     private javax.swing.JLabel Minimizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnModificar;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private javax.swing.JButton btnVerTriaje;
+    private javax.swing.JComboBox<String> cboEspecialidad;
+    private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -406,7 +437,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JTable tbTriaje;
     // End of variables declaration//GEN-END:variables
 }

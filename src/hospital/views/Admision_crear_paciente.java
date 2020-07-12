@@ -311,6 +311,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
                 String mensaje = Apbo.agregarPaciente(pac);
                   //limpiar();
                     JOptionPane.showMessageDialog(null, mensaje);
+                     limpiar();   
         Admision_generar_cita r = new Admision_generar_cita(adm);
         r.setVisible(true);
         this.setVisible(false);                      
@@ -318,7 +319,16 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
   }   
 
     }//GEN-LAST:event_btnRegistrarMouseClicked
-
+public void limpiar(){
+txtDni.setText("");
+txtNombres.setText("");
+txtApellidos.setText("");
+btgrGenero.clearSelection();
+txtEdad.setText("");
+txtCorreo.setText("");
+txtDireccion.setText("");
+txtTelefono.setText("");
+}   
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
@@ -342,14 +352,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarMouseClicked
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
-        txtDni.setText("");
-        txtNombres.setText("");
-        txtApellidos.setText("");
-        btgrGenero.clearSelection();
-        txtEdad.setText("");
-        txtCorreo.setText("");
-        txtDireccion.setText("");
-        txtTelefono.setText("");        // TODO add your handling code here:
+        limpiar();         // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**

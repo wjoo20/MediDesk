@@ -21,13 +21,15 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
      * Creates new form Triaje_formularioTriaje
      */
     private static Enfermera enf;
-    public Triaje_formularioTriaje(Enfermera enf) {
+    private static String dni;
+    public Triaje_formularioTriaje(Enfermera enf, String dni) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        this.dni = dni;
         this.enf = enf;
     }
 
@@ -375,7 +377,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_verPaciente r = new Triaje_verPaciente(enf);
+        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
@@ -433,7 +435,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_formularioTriaje(enf).setVisible(true);
+                new Triaje_formularioTriaje(enf, dni).setVisible(true);
             }
         });
     }
