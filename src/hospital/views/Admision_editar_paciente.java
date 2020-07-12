@@ -7,6 +7,7 @@ package hospital.views;
 
 import hospital.entity.Administrador;
 import javax.swing.JOptionPane;
+import hospital.views.Admision_paciente;
 
 
 /**
@@ -27,8 +28,8 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
        
          this.setLocationRelativeTo(null);
          this.adm = adm;
-     
-        
+  
+       
     }
 
     /**
@@ -49,22 +50,22 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         btnLimpiar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        txtDni = new javax.swing.JTextField();
+        txtDniEditar = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
-        txtNombres = new javax.swing.JTextField();
+        txtNombresEditar = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
-        txtApellidos = new javax.swing.JTextField();
+        txtApellidosEditar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        rbtFemenino = new javax.swing.JRadioButton();
-        rbtMasculino = new javax.swing.JRadioButton();
+        rbtFemeninoEditar = new javax.swing.JRadioButton();
+        rbtMasculinoEditar = new javax.swing.JRadioButton();
         jLabel25 = new javax.swing.JLabel();
-        txtEdad = new javax.swing.JTextField();
+        txtEdadEditar = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        txtCorreo = new javax.swing.JTextField();
+        txtCorreoEditar = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
-        txtDireccion = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
+        txtDireccionEditar = new javax.swing.JTextField();
+        txtTelefonoEditar = new javax.swing.JTextField();
         jSeparator5 = new javax.swing.JSeparator();
         jLabel24 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
@@ -150,43 +151,43 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jLabel1.setText("EDITAR PACIENTE");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
-        txtDni.setBackground(new java.awt.Color(28, 28, 28));
-        txtDni.setForeground(new java.awt.Color(255, 255, 255));
-        txtDni.setBorder(null);
-        jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 350, 30));
+        txtDniEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtDniEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtDniEditar.setBorder(null);
+        jPanel2.add(txtDniEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 350, 30));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 350, 10));
 
-        txtNombres.setBackground(new java.awt.Color(28, 28, 28));
-        txtNombres.setForeground(new java.awt.Color(255, 255, 255));
-        txtNombres.setBorder(null);
-        jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 350, 30));
+        txtNombresEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtNombresEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtNombresEditar.setBorder(null);
+        jPanel2.add(txtNombresEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 350, 30));
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 350, 10));
 
-        txtApellidos.setBackground(new java.awt.Color(28, 28, 28));
-        txtApellidos.setForeground(new java.awt.Color(255, 255, 255));
-        txtApellidos.setBorder(null);
-        jPanel2.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 350, 30));
+        txtApellidosEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtApellidosEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtApellidosEditar.setBorder(null);
+        jPanel2.add(txtApellidosEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 350, 30));
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 350, 10));
 
-        rbtFemenino.setBackground(new java.awt.Color(51, 51, 51));
-        btgrGenero.add(rbtFemenino);
-        rbtFemenino.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        rbtFemenino.setForeground(new java.awt.Color(255, 255, 255));
-        rbtFemenino.setText("FEMENINO");
-        jPanel2.add(rbtFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, 30));
+        rbtFemeninoEditar.setBackground(new java.awt.Color(51, 51, 51));
+        btgrGenero.add(rbtFemeninoEditar);
+        rbtFemeninoEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        rbtFemeninoEditar.setForeground(new java.awt.Color(255, 255, 255));
+        rbtFemeninoEditar.setText("FEMENINO");
+        jPanel2.add(rbtFemeninoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 210, -1, 30));
 
-        rbtMasculino.setBackground(new java.awt.Color(51, 51, 51));
-        btgrGenero.add(rbtMasculino);
-        rbtMasculino.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        rbtMasculino.setForeground(new java.awt.Color(255, 255, 255));
-        rbtMasculino.setText("MASCULINO");
-        jPanel2.add(rbtMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 30));
+        rbtMasculinoEditar.setBackground(new java.awt.Color(51, 51, 51));
+        btgrGenero.add(rbtMasculinoEditar);
+        rbtMasculinoEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        rbtMasculinoEditar.setForeground(new java.awt.Color(255, 255, 255));
+        rbtMasculinoEditar.setText("MASCULINO");
+        jPanel2.add(rbtMasculinoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, -1, 30));
 
         jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
@@ -194,18 +195,18 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jLabel25.setText("EDAD:");
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 90, 30));
 
-        txtEdad.setBackground(new java.awt.Color(28, 28, 28));
-        txtEdad.setForeground(new java.awt.Color(255, 255, 255));
-        txtEdad.setBorder(null);
-        jPanel2.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 50, 30));
+        txtEdadEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtEdadEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtEdadEditar.setBorder(null);
+        jPanel2.add(txtEdadEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 50, 30));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 50, 10));
 
-        txtCorreo.setBackground(new java.awt.Color(28, 28, 28));
-        txtCorreo.setForeground(new java.awt.Color(255, 255, 255));
-        txtCorreo.setBorder(null);
-        jPanel2.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 350, 30));
+        txtCorreoEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtCorreoEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtCorreoEditar.setBorder(null);
+        jPanel2.add(txtCorreoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 350, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 10));
@@ -213,15 +214,15 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 350, 10));
 
-        txtDireccion.setBackground(new java.awt.Color(28, 28, 28));
-        txtDireccion.setForeground(new java.awt.Color(255, 255, 255));
-        txtDireccion.setBorder(null);
-        jPanel2.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 350, 30));
+        txtDireccionEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtDireccionEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtDireccionEditar.setBorder(null);
+        jPanel2.add(txtDireccionEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 350, 30));
 
-        txtTelefono.setBackground(new java.awt.Color(28, 28, 28));
-        txtTelefono.setForeground(new java.awt.Color(255, 255, 255));
-        txtTelefono.setBorder(null);
-        jPanel2.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 350, 30));
+        txtTelefonoEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtTelefonoEditar.setForeground(new java.awt.Color(255, 255, 255));
+        txtTelefonoEditar.setBorder(null);
+        jPanel2.add(txtTelefonoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 350, 30));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 350, 10));
@@ -363,14 +364,14 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JRadioButton rbtFemenino;
-    private javax.swing.JRadioButton rbtMasculino;
-    private javax.swing.JTextField txtApellidos;
-    private javax.swing.JTextField txtCorreo;
-    private javax.swing.JTextField txtDireccion;
-    private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtTelefono;
+    private javax.swing.JRadioButton rbtFemeninoEditar;
+    private javax.swing.JRadioButton rbtMasculinoEditar;
+    private javax.swing.JTextField txtApellidosEditar;
+    public static javax.swing.JTextField txtCorreoEditar;
+    private javax.swing.JTextField txtDireccionEditar;
+    public javax.swing.JTextField txtDniEditar;
+    private javax.swing.JTextField txtEdadEditar;
+    private javax.swing.JTextField txtNombresEditar;
+    private javax.swing.JTextField txtTelefonoEditar;
     // End of variables declaration//GEN-END:variables
 }

@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/dao/Admision_pacienteDAO.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_formularioTriaje.java</file>
@@ -11,5 +12,8 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/views/Triaje_tablaTriaje.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/MediDesk/MediDesk/src/hospital/dao/EnfermeraDAO.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> cc81681199391fdffc2a64cebd806025fad84bd1
     </open-files>
 </project-private>

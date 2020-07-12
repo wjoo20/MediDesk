@@ -8,9 +8,12 @@ package hospital.views;
 import hospital.bo.Admision_pacienteBO;
 import hospital.entity.Administrador;
 import java.awt.Image;
+import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -243,6 +246,11 @@ public void listarPaciente(){
                 tbPacienteMouseClicked(evt);
             }
         });
+        tbPaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                tbPacienteKeyPressed(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbPaciente);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 670, 90));
@@ -374,9 +382,14 @@ public void listarPaciente(){
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-       Admision_editar_paciente r = new Admision_editar_paciente(adm);
-        r.setVisible(true);
-        this.setVisible(false);  // TODO add your handling code here:
+    
+        Admision_editar_paciente r = new Admision_editar_paciente(adm);
+       r.setVisible(true);
+        this.setVisible(false);  
+        //int selection =  tbPaciente.getSelectedRow();
+       // r.txtDniEditar.setText(tbPaciente.getValueAt(selection,0 )+"");
+       
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -388,7 +401,11 @@ public void listarPaciente(){
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
+        int fila = tbPaciente.getSelectedRow();
+        if (fila >= 0) {
+            dtm.removeRow(fila);
+        }         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
@@ -402,9 +419,16 @@ public void listarPaciente(){
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void tbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacienteMouseClicked
-        // TODO add your handling code here:
+    
+        
+      // TODO add your handling code here:
     }//GEN-LAST:event_tbPacienteMouseClicked
 
+  
+
+    private void tbPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacienteKeyPressed
+         // TODO add your handling code here:
+    }//GEN-LAST:event_tbPacienteKeyPressed
 
     /**
      * @param args the command line arguments
