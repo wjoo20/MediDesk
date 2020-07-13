@@ -52,7 +52,7 @@ public final class Farmacia_medicamentos extends javax.swing.JFrame {
        tabla.addColumn("Nombre");
        tabla.addColumn("Unidades");
        tablemedicamentos.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM medicamentos";
+        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM medicamento";
         String datos[] =new String [3];
         try {
             pst = conn.prepareStatement(sql);
@@ -82,7 +82,7 @@ void Buscar_Medicamentos(String buscar){
        tabla.addColumn("Nombre");
        tabla.addColumn("Unidades");
        tablemedicamentos.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTOS where me_nombre LIKE '%"+buscar+"%'";
+        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTO where me_nombre LIKE '%"+buscar+"%'";
         String datos[] =new String [3];
         try {
             pst = conn.prepareStatement(sql);
