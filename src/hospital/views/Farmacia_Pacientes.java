@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author PROPIETARIO
  */
-public class Farmacia_Pacientes extends javax.swing.JFrame {
+public final class Farmacia_Pacientes extends javax.swing.JFrame {
         Connection conn = Conexion.getConnection();
     /**
      * Creates new form Farmacia_Pacientes
@@ -38,6 +38,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
+        Mostrar_Pacientes();
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.farm = farm;
     }
@@ -54,13 +55,14 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
        tabla.addColumn("Nombres");
        tabla.addColumn("Apellidos");
        tabla.addColumn("Edad");
-        tabla.addColumn("Cantidad");
         tabla.addColumn("Codigo");
         tabla.addColumn("Medicamento");
-        tabla.addColumn("Entega");
+        //tabla.addColumn("Entega");
        tablepacientes.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTOS";
-        String datos[] =new String [3];
+
+        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
+        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni)";
+        String datos[] =new String [6];
         try {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -71,6 +73,47 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);     
                 datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                
+                tabla.addRow(datos);
+            }
+             tablepacientes.setModel(tabla);
+             pst.close();
+             rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+}
+    void Buscar_Pacientes(String buscar){
+        DefaultTableModel tabla =new DefaultTableModel();
+       tabla.addColumn("DNI");
+       tabla.addColumn("Nombres");
+       tabla.addColumn("Apellidos");
+       tabla.addColumn("Edad");
+        tabla.addColumn("Codigo");
+        tabla.addColumn("Medicamento");
+        //tabla.addColumn("Entega");
+       tablepacientes.setModel(tabla);
+
+        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
+        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni ) where paciente_pac_dni LIKE '%"+buscar+"%'";
+        String datos[] =new String [6];
+        try {
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+
+
+            
+            while (rs.next()){
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);     
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
                 
                 tabla.addRow(datos);
             }
@@ -83,7 +126,6 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
 
 }
 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -95,7 +137,7 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        text = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
@@ -135,9 +177,14 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 270, 30));
+        text.setBackground(new java.awt.Color(255, 255, 255));
+        text.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        text.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                textKeyReleased(evt);
+            }
+        });
+        getContentPane().add(text, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 270, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, 20, 30));
@@ -283,36 +330,36 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 120, 50));
 
         tablepacientes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tablepacientes.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        tablepacientes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         tablepacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null,  new Boolean(false)},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "DNI", "Nombres", "Apellidos", "Edad", "Cantidad", "Codigo", "Medicamento", "Entrega"
+                "DNI", "Nombres", "Apellidos", "Edad"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Short.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Short.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, true
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -334,6 +381,10 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablepacientes);
         tablepacientes.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        if (tablepacientes.getColumnModel().getColumnCount() > 0) {
+            tablepacientes.getColumnModel().getColumn(1).setResizable(false);
+            tablepacientes.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 260));
 
@@ -426,6 +477,10 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
         jLabel5.setBackground(new Color(102,102,102));
     }//GEN-LAST:event_jLabel5MouseEntered
 
+    private void textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textKeyReleased
+        Buscar_Pacientes(text.getText());
+    }//GEN-LAST:event_textKeyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -480,9 +535,9 @@ public class Farmacia_Pacientes extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo2;
     private javax.swing.JTable tablepacientes;
+    private javax.swing.JTextField text;
     // End of variables declaration//GEN-END:variables
 }
