@@ -271,7 +271,7 @@ public class Medico_historia extends javax.swing.JFrame {
 
         jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel23.setText("DNI:");
-        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, 20));
+        getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 248, -1, 20));
 
         txtDni.setEditable(false);
         txtDni.setBorder(null);
@@ -402,7 +402,7 @@ public class Medico_historia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniActionPerformed
 
     private void btnCrearHistoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearHistoriaMouseClicked
-
+        
     }//GEN-LAST:event_btnCrearHistoriaMouseClicked
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
