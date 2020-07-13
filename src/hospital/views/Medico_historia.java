@@ -23,7 +23,10 @@ public class Medico_historia extends javax.swing.JFrame {
      * Creates new form Admision
      */
     private static Medico med;
-    public Medico_historia(Medico med) {
+    private static String nom;
+    private static String ape;
+    private static String dni;
+    public Medico_historia(Medico med, String nom, String ape, String dni) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -32,6 +35,9 @@ public class Medico_historia extends javax.swing.JFrame {
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.med = med;
+        this.nom = nom;
+        this.ape = ape;
+        this.dni = dni;
     }
 
     /**
@@ -323,9 +329,7 @@ public class Medico_historia extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Medico_historia ap = new Medico_historia(med);
-        ap.setVisible(true);
-        this.setVisible(false);
+
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
@@ -450,7 +454,7 @@ public class Medico_historia extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Medico_historia(med).setVisible(true);
+                new Medico_historia(med, nom, ape, dni).setVisible(true);
             }
         });
     }

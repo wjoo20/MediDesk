@@ -391,7 +391,15 @@ public class Medico_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVerCitasMouseClicked
 
     private void btnCrearHistoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearHistoriaMouseClicked
-        // TODO add your handling code here:
+        // Llamar a Medico_historia
+        int row = jTableMedCita.getSelectedRow();
+        String nombres = jTableMedCita.getModel().getValueAt(row, 2).toString();
+        String apellidos = jTableMedCita.getModel().getValueAt(row, 1).toString();
+        String dni = jTableMedCita.getModel().getValueAt(row, 3).toString();
+        Medico_historia m = new Medico_historia(med, nombres, apellidos, dni);
+        System.out.println(nombres+apellidos+dni);
+        m.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCrearHistoriaMouseClicked
 
     /**
