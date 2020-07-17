@@ -5,6 +5,8 @@
  */
 package hospital.entity;
 
+import java.util.Objects;
+
 /**
  *
  * @author Jordan
@@ -33,6 +35,11 @@ public class Medico extends Usuario {
         this.edad = edad;
         this.cmp = cmp;
         this.idEspecialidad = idEspecialidad;
+    }
+
+    public Medico(int idMedico, String apellidos) {
+        this.idMedico = idMedico;
+        this.apellidos = apellidos;
     }
 
     public int getIdMedico() {
@@ -98,5 +105,8 @@ public class Medico extends Usuario {
     public void setIdEspecialidad(int idEspecialidad) {
         this.idEspecialidad = idEspecialidad;
     }
+        public String toString(){
         
+        return this.apellidos;
+        }
 }

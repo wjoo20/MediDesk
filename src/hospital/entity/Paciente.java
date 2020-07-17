@@ -23,14 +23,12 @@ public class Paciente{
     private double temperatura;
     private double presion;
     private String triaje;
-    private int idTriaje;
-    private int idHistoria;
     private int idAdministrador;
-
+    
     public Paciente() {
     }
 
-    public Paciente(int dni, String nombres, String apellidos, String correo, int telefono, String direccion, char genero, int edad, double talla, double peso, double temperatura, double presion,String triaje, int idTriaje, int idHistoria, int idAdministrador) {
+    public Paciente(int dni, String nombres, String apellidos, String correo, int telefono, String direccion, char genero, int edad, double talla, double peso, double temperatura, double presion,String triaje, int idAdministrador) {
         this.dni = dni;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -44,8 +42,6 @@ public class Paciente{
         this.temperatura = temperatura;
         this.presion = presion;
         this.triaje = triaje;
-        this.idTriaje = idTriaje;
-        this.idHistoria = idHistoria;
         this.idAdministrador = idAdministrador;
     }
 
@@ -95,14 +91,6 @@ public class Paciente{
 
     public double getPresion() {
         return presion;
-    }
-
-    public int getIdTriaje() {
-        return idTriaje;
-    }
-
-    public int getIdHistoria() {
-        return idHistoria;
     }
 
     public int getIdAdministrador() {
@@ -157,14 +145,6 @@ public class Paciente{
         this.presion = presion;
     }
 
-    public void setIdTriaje(int idTriaje) {
-        this.idTriaje = idTriaje;
-    }
-
-    public void setIdHistoria(int idHistoria) {
-        this.idHistoria = idHistoria;
-    }
-
     public void setIdAdministrador(int idAdministrador) {
         this.idAdministrador = idAdministrador;
     }
@@ -176,8 +156,5 @@ public class Paciente{
     public void setTriaje(String triaje) {
         this.triaje = triaje;
     }
-    
-    
-    
-    
+     
 }
