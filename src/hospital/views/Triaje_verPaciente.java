@@ -28,8 +28,10 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     public Triaje_cita tc = new Triaje_cita();
     private static Enfermera enf;
     public static String dni;
+    public static String especialidad;
+    public static String date;
     private static int dniE;
-    public Triaje_verPaciente(Enfermera enf, String dni) {
+    public Triaje_verPaciente(Enfermera enf, String dni, String especialidad, String date) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -39,7 +41,10 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         lblCorreoUsuario.setText(enf.getCorreo());
         this.enf = enf;  
         this.dni= dni;
-        listar_paciente();
+        this.especialidad = especialidad;
+        this.date = date;
+        this.listar_paciente(); 
+        this.showbtnRealizarTriaje();
     }
     
     public Paciente listar_paciente() {
@@ -423,7 +428,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita(enf);
+        Triaje_cita ac = new Triaje_cita(enf, especialidad, date );
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -455,7 +460,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_cita r = new Triaje_cita(enf);
+        Triaje_cita r = new Triaje_cita(enf, especialidad, date);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
@@ -463,7 +468,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private void btnRealizarTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRealizarTriajeMouseClicked
         // TODO add your handling code here:    
         this.dni = txtDni.getText();
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni, dniE);
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni, dniE, especialidad, date);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRealizarTriajeMouseClicked
@@ -480,7 +485,12 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel28MouseClicked
     
     public void showbtnRealizarTriaje() {
-        
+        if(txtTriaje.getText().charAt(0) == 'N') {
+            btnRealizarTriaje.show(true);
+        }
+        else {
+            btnRealizarTriaje.show(false);
+        }
     }
     
     /**
@@ -513,7 +523,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_verPaciente(enf,dni).setVisible(true);
+                new Triaje_verPaciente(enf,dni, especialidad, date).setVisible(true);
             }
         });
     }

@@ -8,6 +8,8 @@ package hospital.views;
 import hospital.bo.EnfermeraBO;
 import hospital.entity.Enfermera;
 import hospital.entity.Paciente;
+import static hospital.views.Triaje_formularioTriaje.date;
+import static hospital.views.Triaje_formularioTriaje.especialidad;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -15,20 +17,25 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Fiorella
+ * @author user
  */
-public class Triaje_formularioTriaje extends javax.swing.JFrame {
+
+public class Triaje_modifcarTriaje extends javax.swing.JFrame {
 
     /**
-     * Creates new form Triaje_formularioTriaje
+     * Creates new form Triaje_modifcarTriaje
      */
     private EnfermeraBO ebo = new EnfermeraBO();  
     private static Enfermera enf;
     private static String dni;
     public static String especialidad;
     public static String date;
+    public static String talla;
+    public static String peso;
+    public static String temperatura;
+    public static String presion;
     private static int dniE;
-    public Triaje_formularioTriaje(Enfermera enf, String dni, Integer dniE, String especialidad, String date) {
+    public Triaje_modifcarTriaje(Enfermera enf, String dni, Integer dniE, String especialidad, String date, String talla, String peso, String temperatura, String presion) {        
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -41,22 +48,29 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         this.dniE = dniE;
         this.especialidad = especialidad;
         this.date = date;
-        
+        this.talla = talla;
+        this.peso = peso;
+        this.temperatura = temperatura;
+        this.presion = presion;        
         this.mandarDniPaciente();
         this.mandarDniEnfermera();
-        
+        this.mandarDatosTriaje();
     }
     
     public void mandarDniPaciente() {
         txtDniPaciente.setText(dni);
-    }
+    }    
+    
     public void mandarDniEnfermera() {
         txtDniEnfermera.setText(String.valueOf(enf.getDni()));
     }
     
-    
-    
-    
+    public void mandarDatosTriaje() {
+        txtTalla.setText(talla);
+        txtPeso.setText(peso);
+        txtTemperatura.setText(temperatura);
+        txtPresionArterial.setText(presion);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +81,12 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel4 = new javax.swing.JPanel();
+        lblLogo = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        Minimizar = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -74,12 +94,6 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         lblCorreoUsuario = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        Minimizar = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -100,11 +114,55 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         txtTalla = new javax.swing.JTextField();
         txtPeso = new javax.swing.JTextField();
         txtTemperatura = new javax.swing.JTextField();
-        btnFinalizarTriaje = new javax.swing.JButton();
+        btnModificarTriaje = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel4.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("MediDesk");
+        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
+        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel18MouseClicked(evt);
+            }
+        });
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
+
+        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizarMouseClicked(evt);
+            }
+        });
+        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -193,50 +251,6 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
-        jPanel4.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel4.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
-
-        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("MediDesk");
-        jPanel4.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
-        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-        });
-        jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
-        jLabel18.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel18.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel18MouseClicked(evt);
-            }
-        });
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
-
-        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MinimizarMouseClicked(evt);
-            }
-        });
-        jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
-
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -260,7 +274,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Maiandra GD", 0, 16)); // NOI18N
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/height_(16).png"))); // NOI18N
         jLabel9.setText("Talla (cm)");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 110, 20));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, 20));
 
         jSeparator4.setBackground(new java.awt.Color(204, 204, 204));
         jSeparator4.setForeground(new java.awt.Color(204, 204, 204));
@@ -330,27 +344,46 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         txtTemperatura.setBorder(null);
         jPanel1.add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 210, -1));
 
-        btnFinalizarTriaje.setBackground(new java.awt.Color(51, 51, 51));
-        btnFinalizarTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnFinalizarTriaje.setForeground(new java.awt.Color(255, 255, 255));
-        btnFinalizarTriaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/balance_color_(16).png"))); // NOI18N
-        btnFinalizarTriaje.setText("FINALIZAR TRIAJE");
-        btnFinalizarTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnModificarTriaje.setBackground(new java.awt.Color(51, 51, 51));
+        btnModificarTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnModificarTriaje.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificarTriaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/balance_color_(16).png"))); // NOI18N
+        btnModificarTriaje.setText("MODIFICAR TRIAJE");
+        btnModificarTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnFinalizarTriajeMouseClicked(evt);
+                btnModificarTriajeMouseClicked(evt);
             }
         });
-        btnFinalizarTriaje.addActionListener(new java.awt.event.ActionListener() {
+        btnModificarTriaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFinalizarTriajeActionPerformed(evt);
+                btnModificarTriajeActionPerformed(evt);
             }
         });
-        jPanel1.add(btnFinalizarTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 210, -1));
+        jPanel1.add(btnModificarTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 210, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
+        if(result==0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        ap.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel18MouseClicked
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
 
     private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
         jLabel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
@@ -394,21 +427,13 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
     }//GEN-LAST:event_jLabel14MouseExited
 
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
-        if(result==0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jLabel17MouseClicked
-
-    private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni, especialidad, date);
-        r.setVisible(true);
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        Login lo = new Login();
+        lo.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jLabel18MouseClicked
+    }//GEN-LAST:event_jLabel15MouseClicked
 
-    private void btnFinalizarTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnFinalizarTriajeMouseClicked
+    private void btnModificarTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarTriajeMouseClicked
         // TODO add your handling code here:
         if(txtTalla.getText().isEmpty() || txtPeso.getText().isEmpty() || txtTemperatura.getText().isEmpty() || txtPresionArterial.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Asegúrese de llenar todos los campos.");
@@ -416,39 +441,24 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         else {
             this.dni = txtDniPaciente.getText();
             this.dniE = Integer.valueOf(txtDniEnfermera.getText());
-            Paciente pac = new Paciente();   
+            Paciente pac = new Paciente();
             Enfermera enf = new Enfermera();
             pac.setTalla(Double.valueOf(txtTalla.getText()));
             pac.setPeso(Double.valueOf(txtPeso.getText()));
             pac.setTemperatura(Double.valueOf(txtTemperatura.getText()));
-            pac.setPresion(Double.valueOf(txtPresionArterial.getText()));            
-            String mensaje1 = "Triaje realizado con éxito" + ebo.agregarTriajePaciente(pac,dni);            
-            String mensaje2 = ebo.agregarTablaTriaje(enf,ebo.getIdEnf(enf, dniE));        
+            pac.setPresion(Double.valueOf(txtPresionArterial.getText()));
+            String mensaje1 = "Triaje modificado con éxito" + ebo.agregarTriajePaciente(pac,dni);
             JOptionPane.showMessageDialog(null, mensaje1);
-            System.out.println(mensaje2);
-            String mensaje3 = ebo.updateTablaCita(ebo.getIdTriaje(), ebo.getIdCita(pac,Integer.valueOf(dni), especialidad, date));
-            System.out.println(mensaje3);
             Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf);
             r.setVisible(true);
             this.setVisible(false);
-            
+
         }
-    }//GEN-LAST:event_btnFinalizarTriajeMouseClicked
+    }//GEN-LAST:event_btnModificarTriajeMouseClicked
 
-    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
-
-        setExtendedState(ICONIFIED );
-    }//GEN-LAST:event_MinimizarMouseClicked
-
-    private void btnFinalizarTriajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFinalizarTriajeActionPerformed
+    private void btnModificarTriajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarTriajeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnFinalizarTriajeActionPerformed
-
-    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
-        Login lo = new Login();
-        lo.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel15MouseClicked
+    }//GEN-LAST:event_btnModificarTriajeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -467,27 +477,27 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Triaje_formularioTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Triaje_modifcarTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Triaje_formularioTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Triaje_modifcarTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Triaje_formularioTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Triaje_modifcarTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Triaje_formularioTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Triaje_modifcarTriaje.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_formularioTriaje(enf, dni, dniE, especialidad, date).setVisible(true);
+                new Triaje_modifcarTriaje(enf, dni, dniE, especialidad, date, talla, peso, temperatura, presion).setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton btnFinalizarTriaje;
+    private javax.swing.JButton btnModificarTriaje;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

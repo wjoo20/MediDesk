@@ -25,13 +25,17 @@ public class Triaje_cita extends javax.swing.JFrame {
      */
     private EnfermeraBO ebo = new EnfermeraBO();
         private static Enfermera enf;
-    public Triaje_cita(Enfermera enf) {
+        public static String especialidad;
+        public static String date;
+    public Triaje_cita(Enfermera enf, String especialidad, String date) {
         initComponents();        
           this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());   
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage()); 
+        this.especialidad = especialidad;
+        this.date = date;
         this.enf = enf;
         lblCorreoUsuario.setText(enf.getCorreo());
     }
@@ -212,9 +216,9 @@ public class Triaje_cita extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnVerPaciente.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerPaciente.setBackground(new java.awt.Color(0, 0, 0));
         btnVerPaciente.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnVerPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerPaciente.setForeground(new java.awt.Color(0, 0, 0));
         btnVerPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
         btnVerPaciente.setText("VER PACIENTE");
         btnVerPaciente.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -259,19 +263,24 @@ public class Triaje_cita extends javax.swing.JFrame {
                 cboEspecialidadItemStateChanged(evt);
             }
         });
-        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, -1));
+        cboEspecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cboEspecialidadMouseClicked(evt);
+            }
+        });
+        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
 
         jDateChooser.setBackground(new java.awt.Color(255, 255, 255));
         jDateChooser.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, 30));
+        jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 220, 30));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel1.setText("Citas");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 180, 30));
 
-        btnVerCitas.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerCitas.setBackground(new java.awt.Color(0, 0, 0));
         btnVerCitas.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnVerCitas.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerCitas.setForeground(new java.awt.Color(0, 0, 0));
         btnVerCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
         btnVerCitas.setText("VER CITAS");
         btnVerCitas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -305,7 +314,7 @@ public class Triaje_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita(enf);
+        Triaje_cita ac = new Triaje_cita(enf, especialidad, date);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -349,8 +358,9 @@ public class Triaje_cita extends javax.swing.JFrame {
     private void btnVerPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerPacienteMouseClicked
         // TODO add your handling code here:
         String dni = this.obtenerDni();
-
-        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni);
+        this.especialidad = this.obtenerEspecialidad();
+        this.date = this.obtenerDate();
+        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni, especialidad, date);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVerPacienteMouseClicked
@@ -368,9 +378,8 @@ public class Triaje_cita extends javax.swing.JFrame {
 
     private void btnVerCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerCitasMouseClicked
         //metodo listar cita
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String date = sdf.format(jDateChooser.getDate());
-        String especialidad = String.valueOf(cboEspecialidad.getSelectedItem());
+        String date = this.obtenerDate();
+        String especialidad = this.obtenerEspecialidad();
         listarCita(especialidad, date);
         
     }//GEN-LAST:event_btnVerCitasMouseClicked
@@ -378,12 +387,25 @@ public class Triaje_cita extends javax.swing.JFrame {
     private void cboEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboEspecialidadItemStateChanged
         
     }//GEN-LAST:event_cboEspecialidadItemStateChanged
+
+    private void cboEspecialidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboEspecialidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboEspecialidadMouseClicked
+    public String obtenerEspecialidad() {
+        return String.valueOf(cboEspecialidad.getSelectedItem());
+    }
+    
     public String obtenerDni() {
         int column = 3;
         int row = tbCita.getSelectedRow();
         String value = tbCita.getModel().getValueAt(row, column).toString();
-        return value;
-        
+        return value;        
+    }
+    
+    public String obtenerDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(jDateChooser.getDate());
+        return date;
     }
     
     /**
@@ -416,7 +438,7 @@ public class Triaje_cita extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_cita(enf).setVisible(true);
+                new Triaje_cita(enf, especialidad, date).setVisible(true);
             }
         });
     }
