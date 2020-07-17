@@ -131,7 +131,7 @@ public class Medico_historia extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/paciente-16(blanco).png"))); // NOI18N
-        jLabel14.setText("Pacientes");
+        jLabel14.setText("Atenciones");
         jLabel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel14MouseMoved(evt);
@@ -329,7 +329,9 @@ public class Medico_historia extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-
+        Medico_atenciones ma = new Medico_atenciones(med);
+        ma.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
@@ -378,8 +380,8 @@ public class Medico_historia extends javax.swing.JFrame {
     }//GEN-LAST:event_MinimizarMouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Medico_inicio m = new Medico_inicio(med);
-        m.setVisible(true);
+        Medico_cita ac = new Medico_cita(med);
+        ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 

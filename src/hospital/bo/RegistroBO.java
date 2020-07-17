@@ -12,7 +12,14 @@ import hospital.entity.Enfermera;
 import hospital.entity.Farmaceutico;
 import hospital.entity.Medico;
 import hospital.entity.Usuario;
+import java.security.MessageDigest;
 import java.sql.Connection;
+import java.util.Arrays;
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
+import javax.swing.JOptionPane;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  *
@@ -162,5 +169,30 @@ public class RegistroBO {
             System.out.println(e.getMessage());      
         }
         return id;
+    }
+    
+    public String encrypt(String pass){
+        String secretKey = "MediDesk";
+        String epass = this.ecnode(secretKey, pass);
+        return epass;
+    }
+    
+    public String ecnode(String secretKey, String cadena) {
+        String encriptacion = "";
+        try {
+            MessageDigest md5 = MessageDigest.getInstance("MD5");
+            byte[] llavePassword = md5.digest(secretKey.getBytes("utf-8"));
+            byte[] BytesKey = Arrays.copyOf(llavePassword, 24);
+            SecretKey key = new SecretKeySpec(BytesKey, "DESede");
+            Cipher cifrado = Cipher.getInstance("DESede");
+            cifrado.init(Cipher.ENCRYPT_MODE, key);
+            byte[] plainTextBytes = cadena.getBytes("utf-8");
+            byte[] buf = cifrado.doFinal(plainTextBytes);
+            byte[] base64Bytes = Base64.encodeBase64(buf);
+            encriptacion = new String(base64Bytes);
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Algo salió mal");
+        }
+        return encriptacion;
     }
 }

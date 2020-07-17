@@ -94,6 +94,53 @@ public class EnfermeraBO {
         return id;
     }
     
+    //Obtener el idCita
+    public int getIdCita(Paciente pac, Integer dni, String especialidad, String date) {
+        Connection conn = Conexion.getConnection();
+        int id = edao.getIdCita(conn, pac, dni, especialidad, date);
+        try {
+            conn.close();
+        } 
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+    //Obtener el idTriaje
+    public int getIdTriaje() {
+        Connection conn = Conexion.getConnection();
+        int id = edao.getidTriaje(conn);
+        try {
+            conn.close();
+        } 
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return id;
+    }
+    
+    //Update tabla cita 
+    public String updateTablaCita(Integer idTriaje, Integer idCita) {
+        Connection conn = Conexion.getConnection();
+        try {
+            mensaje = edao.updateTablaCita(conn, idTriaje, idCita);
+        } 
+        catch (Exception e) {
+            mensaje = mensaje + " " + e.getMessage();
+        }
+        finally {
+            try {
+                if(conn != null) {
+                    conn.close();
+                }
+            } 
+            catch (SQLException e) {
+                mensaje = mensaje + " " + e.getMessage();
+            }
+        }
+        return mensaje;
+    }
+    
     //Insertar tabla Triaje
     public String agregarTablaTriaje(Enfermera enf, Integer id) {
         Connection conn = Conexion.getConnection();
@@ -115,6 +162,7 @@ public class EnfermeraBO {
         }
         return mensaje;
     }
+    
     
     
     
