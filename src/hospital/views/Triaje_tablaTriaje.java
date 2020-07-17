@@ -26,6 +26,8 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     private static Enfermera enf;
     private static String dni;
     private static int dniE;
+    public static String especialidad;
+    public static String date;
     public Triaje_tablaTriaje(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -217,7 +219,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
 
         btnEliminar.setBackground(new java.awt.Color(51, 51, 51));
         btnEliminar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(255, 255, 255));
+        btnEliminar.setForeground(new java.awt.Color(0, 0, 0));
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/deleteIcon_(16).png"))); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,7 +227,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
                 btnEliminarMouseClicked(evt);
             }
         });
-        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, 110, -1));
+        jPanel1.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 60, 120, -1));
 
         tbTriaje.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tbTriaje.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
@@ -257,11 +259,11 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
         cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
         cboEspecialidad.setBorder(null);
-        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 260, -1));
+        jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, -1));
 
         btnModificar.setBackground(new java.awt.Color(51, 51, 51));
         btnModificar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnModificar.setForeground(new java.awt.Color(255, 255, 255));
+        btnModificar.setForeground(new java.awt.Color(0, 0, 0));
         btnModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/pencil_(16).png"))); // NOI18N
         btnModificar.setText("MODIFICAR");
         btnModificar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -269,21 +271,21 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
                 btnModificarMouseClicked(evt);
             }
         });
-        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 60, 120, -1));
+        jPanel1.add(btnModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, 120, -1));
 
         jDateChooser.setDateFormatString("dd/MM/yy");
         jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 160, 30));
 
         btnVerTriaje.setBackground(new java.awt.Color(51, 51, 51));
         btnVerTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        btnVerTriaje.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerTriaje.setForeground(new java.awt.Color(0, 0, 0));
         btnVerTriaje.setText("VER");
         btnVerTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnVerTriajeMouseClicked(evt);
             }
         });
-        jPanel1.add(btnVerTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 100, 30));
+        jPanel1.add(btnVerTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 80, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -309,7 +311,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita(enf);
+        Triaje_cita ac = new Triaje_cita(enf, especialidad, date);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -353,15 +355,24 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
 
     private void tbTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseClicked
         // TODO add your handling code here:
+        this.obtenerDni();
+        this.obtenerTalla();
+        this.obtenerPeso();
+        this.obtenerTemperatura();
+        this.obtenerPresion();
 
     }//GEN-LAST:event_tbTriajeMouseClicked
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
+        String dni = this.obtenerDni();
+        String talla = this.obtenerTalla();
+        String peso = this.obtenerPeso();
+        String temperatura = this.obtenerTemperatura();
+        String presion = this.obtenerPresion();
         
-        
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni, dniE);
-        r.setVisible(true);
+        Triaje_modifcarTriaje mr = new Triaje_modifcarTriaje(enf, dni, dniE, especialidad, date, talla, peso, temperatura, presion);
+        mr.setVisible(true);
         this.setVisible(false);
         
     }//GEN-LAST:event_btnModificarMouseClicked
@@ -385,6 +396,40 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         listarTriaje(especialidad, date);
     }//GEN-LAST:event_btnVerTriajeMouseClicked
     
+    public String obtenerDni() {
+        int column = 0;
+        int row = tbTriaje.getSelectedRow();
+        String value = tbTriaje.getModel().getValueAt(row, column).toString();
+        return value;        
+    }
+    
+    public String obtenerTalla() {
+        int column = 3;
+        int row = tbTriaje.getSelectedRow();
+        String talla = tbTriaje.getModel().getValueAt(row, column).toString();
+        return talla;        
+    }
+    
+    public String obtenerPeso() {
+        int column = 4;
+        int row = tbTriaje.getSelectedRow();
+        String peso = tbTriaje.getModel().getValueAt(row, column).toString();
+        return peso;        
+    }
+    
+    public String obtenerTemperatura() {
+        int column = 5;
+        int row = tbTriaje.getSelectedRow();
+        String temperatura = tbTriaje.getModel().getValueAt(row, column).toString();
+        return temperatura;         
+    }
+    
+    public String obtenerPresion() {
+        int column = 6;
+        int row = tbTriaje.getSelectedRow();
+        String presion = tbTriaje.getModel().getValueAt(row, column).toString();
+        return presion;        
+    }
     
     /**
      * @param args the command line arguments

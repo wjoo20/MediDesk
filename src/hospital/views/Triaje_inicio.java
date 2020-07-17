@@ -20,6 +20,8 @@ public class Triaje_inicio extends javax.swing.JFrame {
      * Creates new form Triaje_inicio
      */
     private static Enfermera enf;
+    public static String especialidad;
+    public static String date;
     public Triaje_inicio(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -257,7 +259,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel11MouseMoved
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        Triaje_cita ac = new Triaje_cita(enf);
+        Triaje_cita ac = new Triaje_cita(enf, especialidad, date);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
@@ -289,7 +291,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        Triaje_cita tc = new Triaje_cita(enf);
+        Triaje_cita tc = new Triaje_cita(enf, especialidad, date);
         tc.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
@@ -301,7 +303,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        Triaje_cita ac = new Triaje_cita(enf);
+        Triaje_cita ac = new Triaje_cita(enf, especialidad, date);
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
