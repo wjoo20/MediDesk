@@ -7,6 +7,7 @@ package hospital.views;
 
 import hospital.bo.Admision_pacienteBO;
 import hospital.entity.Administrador;
+import hospital.entity.Medico;
 import hospital.entity.Paciente;
 import javax.swing.JOptionPane;
 
@@ -295,10 +296,9 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
             }else{
                 genero = 'F';
             }
-                
+             
                 Paciente pac  = new Paciente();
             
-                pac.setIdAdministrador(31);
                 pac.setDni(Integer.parseInt(txtDni.getText()));
                 pac.setNombres(txtNombres.getText());
                 pac.setApellidos(txtApellidos.getText());
@@ -308,8 +308,9 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
                 pac.setDireccion(txtDireccion.getText());
                 pac.setTelefono(Integer.parseInt(txtTelefono.getText()));
                 pac.setTriaje("N");
+                pac.setIdAdministrador(adm.getIdAdministrador());
                 String mensaje = Apbo.agregarPaciente(pac);
-                  //limpiar();
+         
                     JOptionPane.showMessageDialog(null, mensaje);
                      limpiar();   
         Admision_generar_cita r = new Admision_generar_cita(adm);

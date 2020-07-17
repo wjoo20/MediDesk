@@ -115,7 +115,7 @@ public class Medico_inicio extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/paciente-16(blanco).png"))); // NOI18N
-        jLabel14.setText("Pacientes");
+        jLabel14.setText("Atenciones");
         jLabel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jLabel14MouseMoved(evt);
@@ -183,14 +183,14 @@ public class Medico_inicio extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(40, 240, 220));
-        jLabel1.setText("Pacientes");
+        jLabel1.setText("Atenciones");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
             }
         });
-        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 230, 90, -1));
+        fondo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(473, 230, 110, -1));
 
         jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 20)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(40, 240, 220));
@@ -259,18 +259,20 @@ public class Medico_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Medico_paciente mp = new Medico_paciente(med);
-        mp.setVisible(true);
+        Medico_atenciones ma = new Medico_atenciones(med);
+        ma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
-        
+        Medico_cita mc = new Medico_cita(med);
+        mc.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jLabel13MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        Medico_paciente ap = new Medico_paciente(med);
-        ap.setVisible(true);
+        Medico_atenciones ma = new Medico_atenciones(med);
+        ma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -315,8 +317,8 @@ public class Medico_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Medico_paciente ap = new Medico_paciente(med);
-        ap.setVisible(true);
+        Medico_atenciones ma = new Medico_atenciones(med);
+        ma.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
 

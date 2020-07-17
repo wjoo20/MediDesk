@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 package hospital.views;
+import hospital.bo.Admision_citaBO;
 import hospital.entity.Administrador;
+import hospital.entity.Cita;
 import java.awt.Image;
+import java.awt.event.ItemEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -19,6 +22,7 @@ public class Admision_cita extends javax.swing.JFrame {
      * Creates new form Admision
      */
     private static Administrador adm;
+    private Admision_citaBO Acbo=new Admision_citaBO();
     public Admision_cita(Administrador adm) {
         initComponents();
           this.setLocationRelativeTo(null);
@@ -29,9 +33,12 @@ public class Admision_cita extends javax.swing.JFrame {
 
         Admision_cita.adm = adm;
         lblUsuario.setText(adm.getCorreo());
+listarCita();
 
     }
-
+public void listarCita(){
+           Acbo.listarCita(tbCitas);
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,16 +56,15 @@ public class Admision_cita extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbCitas = new javax.swing.JTable();
+        buscarDni = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        cbEstado = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -161,17 +167,6 @@ public class Admision_cita extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Citas");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 20, 30));
-
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 270, 30));
-
         jButton3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton3.setText("Generar Cita");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,10 +179,10 @@ public class Admision_cita extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 150, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 150, -1));
 
         jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jButton4.setText("Borrar Cita");
+        jButton4.setText("Cancelar Cita");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton4MouseClicked(evt);
@@ -213,11 +208,6 @@ public class Admision_cita extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 150, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 130, -1));
-
-        jLabel3.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        jLabel3.setText("Fecha:");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 50, 40));
 
         tbCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -232,7 +222,39 @@ public class Admision_cita extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tbCitas);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 670, 90));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 670, 150));
+
+        buscarDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        buscarDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        buscarDni.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buscarDniMouseClicked(evt);
+            }
+        });
+        buscarDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buscarDniKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarDniKeyReleased(evt);
+            }
+        });
+        jPanel1.add(buscarDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 270, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 20, 30));
+
+        jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
+        jLabel10.setText("Citas");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 120, 50));
+
+        cbEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un estado:", "Cancelado", "Pendiente", "Realizado" }));
+        cbEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbEstadoItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(cbEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(266, 40, 130, 30));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -363,15 +385,37 @@ public class Admision_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+Cita cit=new Cita();
+        String mensaje = Acbo.cancelarCita(cit,citaid());
+         
+                    JOptionPane.showMessageDialog(null, mensaje);
+          Admision_cita adc= new Admision_cita(adm);
+        adc.setVisible(true);
+        this.setVisible(false);
+      
+            // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        Admision_editar_cita r = new Admision_editar_cita(adm);
+        Cita cit=new Cita();
+             int cita_id = this.citaid();
+             String ape_medico = this.apemedico();
+        Admision_editar_cita r = new Admision_editar_cita(adm,cita_id,ape_medico);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5MouseClicked
-
+public int citaid(){
+ int column = 0;
+        int row = tbCitas.getSelectedRow();
+        int cita_id = Integer.parseInt(tbCitas.getModel().getValueAt(row, column).toString());
+  return cita_id;
+}
+public String apemedico(){
+    int column=2;
+    int row=tbCitas.getSelectedRow();
+    String ape_medico=tbCitas.getModel().getValueAt(row, column).toString();
+    return ape_medico;
+}
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -381,6 +425,33 @@ public class Admision_cita extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void buscarDniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarDniMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniMouseClicked
+
+    private void buscarDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDniKeyPressed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniKeyPressed
+
+    private void buscarDniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDniKeyReleased
+        String buscar_dni=buscarDni.getText();
+        Acbo.buscarCita(tbCitas, buscar_dni);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniKeyReleased
+
+    private void cbEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEstadoItemStateChanged
+        if (evt.getStateChange()==ItemEvent.SELECTED) {
+            String estad=(String)cbEstado.getSelectedItem();
+            char est=estad.charAt(0);
+       
+          Acbo.listar_estado(tbCitas, est);
+            
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbEstadoItemStateChanged
 
 
     /**
@@ -421,18 +492,18 @@ public class Admision_cita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscarDni;
+    private javax.swing.JComboBox<String> cbEstado;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
@@ -441,7 +512,6 @@ public class Admision_cita extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JTable tbCitas;

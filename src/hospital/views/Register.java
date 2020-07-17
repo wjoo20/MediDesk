@@ -43,6 +43,10 @@ public class Register extends javax.swing.JFrame {
         jsCmp.setVisible(false);
     }
 
+    public String encrypt(String pass){
+        return rbo.encrypt(pass);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -601,7 +605,7 @@ public class Register extends javax.swing.JFrame {
         Login lo = new Login();
         Usuario user = new Usuario();
         user.setCorreo(txtEmail.getText());
-        user.setClave(txtContraseña.getText());
+        user.setClave(this.encrypt(txtContraseña.getText()));
         user.setTipo(tipo);
         rbo.regUser(user);
         user.setIdUsuario(lo.getIdUser(user));

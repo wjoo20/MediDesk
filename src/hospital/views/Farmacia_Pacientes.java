@@ -68,7 +68,7 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
             rs = pst.executeQuery();
 
 
-            
+
             while (rs.next()){
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);     
@@ -93,9 +93,8 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
        tabla.addColumn("Nombres");
        tabla.addColumn("Apellidos");
        tabla.addColumn("Edad");
-        tabla.addColumn("Codigo");
+        tabla.addColumn("Codigo de Receta");
         tabla.addColumn("Medicamento");
-        //tabla.addColumn("Entega");
        tablepacientes.setModel(tabla);
 
         String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
@@ -126,6 +125,8 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
 }
 
+
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -156,8 +157,8 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablepacientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         lblLogo2 = new javax.swing.JLabel();
+        btnconfirmar = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -388,13 +389,18 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 260));
 
-        jButton1.setText("Aceptar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
-
         lblLogo2.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
         lblLogo2.setForeground(new java.awt.Color(255, 255, 255));
         lblLogo2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(lblLogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 40, 40));
+
+        btnconfirmar.setText("Confirmar Entrega");
+        btnconfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnconfirmarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnconfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
@@ -458,7 +464,8 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void tablepacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepacientesMouseClicked
-        // TODO add your handling code here:
+                                           
+        //System.out.println("hola123");
     }//GEN-LAST:event_tablepacientesMouseClicked
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
@@ -480,6 +487,26 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     private void textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textKeyReleased
         Buscar_Pacientes(text.getText());
     }//GEN-LAST:event_textKeyReleased
+
+    private void btnconfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfirmarMouseClicked
+    int row = tablepacientes.getSelectedRow();
+        String var = tablepacientes.getModel().getValueAt(row, 5).toString();
+        System.out.println(var);
+
+        String sql = "update medicamento set me_cantidad=me_cantidad-1 where me_nombre=?";
+
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, var);
+            rs = pst.executeQuery();
+            conn.commit();
+             pst.close();
+             rs.close();
+        }catch (SQLException ex) {
+            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                //System.out.println(var);
+    }//GEN-LAST:event_btnconfirmarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -517,7 +544,7 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnconfirmar;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;

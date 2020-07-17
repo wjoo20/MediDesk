@@ -6,10 +6,16 @@
 package hospital.views;
 
 import hospital.bo.Admision_citaBO;
+import hospital.dao.Admision_citaDAO;
 import hospital.entity.Administrador;
 import hospital.entity.Cita;
+import hospital.entity.Especialidad;
+import hospital.entity.Medico;
+import java.awt.event.ItemEvent;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Vector;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,12 +26,16 @@ public class Admision_generar_cita extends javax.swing.JFrame {
 Admision_citaBO Adcibo = new Admision_citaBO();
     /**
      * Creates new form Admision_generar_cita
-     */
+     */Admision_citaDAO ss= new Admision_citaDAO();
+     Admision_citaBO rr=new Admision_citaBO();
+     Especialidad espe=new Especialidad();
     private  static Administrador adm; 
     public Admision_generar_cita(Administrador adm) {
         initComponents();
            this.setLocationRelativeTo(null);
            this.adm = adm;
+    rr.listar_especialidades(cbEspecialidad);
+        
     }
 
     /**
@@ -51,9 +61,9 @@ Admision_citaBO Adcibo = new Admision_citaBO();
         jLabel5 = new javax.swing.JLabel();
         cbEspecialidad = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        dFecha = new com.toedter.calendar.JDateChooser();
         jLabel7 = new javax.swing.JLabel();
         cbMedico = new javax.swing.JComboBox<>();
+        jSpinnerDateEditor1 = new com.toedter.calendar.JSpinnerDateEditor();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(950, 460));
@@ -111,6 +121,11 @@ Admision_citaBO Adcibo = new Admision_citaBO();
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
@@ -151,8 +166,12 @@ Admision_citaBO Adcibo = new Admision_citaBO();
         jLabel5.setText("ESPECIALIDAD:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, 30));
 
-        cbEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
         cbEspecialidad.setBorder(null);
+        cbEspecialidad.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbEspecialidadItemStateChanged(evt);
+            }
+        });
         jPanel2.add(cbEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 340, -1));
 
         jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
@@ -160,17 +179,23 @@ Admision_citaBO Adcibo = new Admision_citaBO();
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("MEDICO:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, 30));
-        jPanel2.add(dFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 150, -1));
 
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("FECHA:");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, -1, 30));
+        jLabel7.setText("FECHA Y HORA:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 270, -1, 30));
 
-        cbMedico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar Medico", "Medico1", "Medico2", "Medico3", "Medico4", "Medico5" }));
         cbMedico.setBorder(null);
-        jPanel2.add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 340, -1));
+        cbMedico.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbMedicoItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(cbMedico, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 340, -1));
+
+        jSpinnerDateEditor1.setModel(new javax.swing.SpinnerDateModel(new java.util.Date(1594833060473L), null, null, java.util.Calendar.YEAR));
+        jPanel2.add(jSpinnerDateEditor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 260, 150, 40));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 650, 460));
 
@@ -178,6 +203,9 @@ Admision_citaBO Adcibo = new Admision_citaBO();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
+        System.out.println("123");
+        
+        
         Admision_cita lo = new Admision_cita(adm);
         lo.setVisible(true);
         this.setVisible(false);
@@ -205,27 +233,49 @@ Admision_citaBO Adcibo = new Admision_citaBO();
                ){
             JOptionPane.showMessageDialog(null, "Llene todos los campos");
         }else{
-          String formato = dFecha.getDateFormatString();
-Date date = dFecha.getDate();
-SimpleDateFormat sdf = new SimpleDateFormat(formato);
-        String factual = String.valueOf(sdf.format(date));
-
-           String id = String.valueOf(cbEspecialidad.getSelectedItem()); 
-                
-                Cita cit  = new Cita();
+                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String date = sdf.format(jSpinnerDateEditor1.getDate());
+            Medico med=new Medico();
+      
+          Medico dep = (Medico)cbMedico.getSelectedItem();
+            int dato = dep.getIdMedico();
+ 
+                // String id1 = String.valueOf(cbMedico.getSelectedItem()); 
+            Cita cit  = new Cita();
             cit.setDni_paciente(Integer.parseInt(txtDni.getText()));
             cit.setTipo("N");
-            cit.setEstado("N");
-            cit.setFecha(factual);
-                    
-                String mensaje = Adcibo.agregarCita(cit);
-                  //limpiar();
+            cit.setEstado("P");
+            cit.setFecha(date);
+
+     
+                String mensaje = Adcibo.agregarCita(cit,dato);
+                  limpiar();
                     JOptionPane.showMessageDialog(null, mensaje);
          Admision_inicio r = new Admision_inicio(adm);
         r.setVisible(true);
         this.setVisible(false);                          
   }
     }//GEN-LAST:event_btnRegistrarMouseClicked
+public void limpiar(){
+txtDni.setText("");
+cbEspecialidad.setSelectedIndex(0);
+}
+    private void cbMedicoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbMedicoItemStateChanged
+    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbMedicoItemStateChanged
+
+    private void cbEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEspecialidadItemStateChanged
+Especialidad esper = (Especialidad)this.cbEspecialidad.getSelectedItem();
+        int id=esper.getId_especialidad();
+  
+         rr.listar_medicos(cbMedico,id);
+// TODO add your handling code here:
+    }//GEN-LAST:event_cbEspecialidadItemStateChanged
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        limpiar();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -259,7 +309,9 @@ SimpleDateFormat sdf = new SimpleDateFormat(formato);
             public void run() {
                 new Admision_generar_cita(adm).setVisible(true);
             }
-        });
+        }
+       
+        );
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,7 +320,6 @@ SimpleDateFormat sdf = new SimpleDateFormat(formato);
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JComboBox<String> cbEspecialidad;
     private javax.swing.JComboBox<String> cbMedico;
-    private com.toedter.calendar.JDateChooser dFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -279,6 +330,7 @@ SimpleDateFormat sdf = new SimpleDateFormat(formato);
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator2;
+    private com.toedter.calendar.JSpinnerDateEditor jSpinnerDateEditor1;
     private javax.swing.JTextField txtDni;
     // End of variables declaration//GEN-END:variables
 }

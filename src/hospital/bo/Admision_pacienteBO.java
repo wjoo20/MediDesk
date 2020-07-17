@@ -19,7 +19,6 @@ import javax.swing.JTable;
 public class Admision_pacienteBO {
         private String mensaje = "";
     private Admision_pacienteDAO Apdao = new Admision_pacienteDAO();
-    
     public String agregarPaciente(Paciente pac){
         Connection conn = Conexion.getConnection();
         try {
@@ -37,10 +36,10 @@ public class Admision_pacienteBO {
         }
         return mensaje;
     }
-    public String modificarPaciente(Paciente pac){
+    public String modificarPaciente(Paciente pac,String pac_dni){
         Connection conn = Conexion.getConnection();
         try {
-            mensaje = Apdao.modificarPaciente(conn, pac);
+            mensaje = Apdao.modificarPaciente(conn, pac,pac_dni);
         } catch (Exception e) {
             mensaje = mensaje + " " + e.getMessage();
         }finally{
@@ -54,10 +53,10 @@ public class Admision_pacienteBO {
         }
         return mensaje;
     }
-    public String eliminarPaciente(Paciente pac){
+    public String eliminarPaciente(String pac_dni){
         Connection conn = Conexion.getConnection();
         try {
-            mensaje = Apdao.eliminarPaciente(conn, pac);
+            mensaje = Apdao.eliminarPaciente(conn, pac_dni);
         } catch (Exception e) {
             mensaje = mensaje + " " + e.getMessage();
         }finally{
@@ -82,6 +81,25 @@ public class Admision_pacienteBO {
         }
     
     }
+       public Paciente listar_editar_paciente(String pac_dni) {
+        Connection conn  = Conexion.getConnection();
+        Paciente pac = Apdao.listar_editar_paciente(conn, pac_dni);  
+        try {
+            conn.close();
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return pac;
+    }
+           public void buscarPaciente(JTable tabla,String buscar_dni){
+    Connection conn = Conexion.getConnection();
+    Apdao.buscarPaciente(conn, tabla,buscar_dni);
+        try {
+            conn.close();
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     
-    
+    }
 }

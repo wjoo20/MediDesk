@@ -1,37 +1,47 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package hospital.views;
 
+import hospital.bo.Admision_pacienteBO;
 import hospital.entity.Administrador;
+import hospital.entity.Paciente;
 import javax.swing.JOptionPane;
-import hospital.views.Admision_paciente;
-
-
-/**
- *
- * @author daniel
- */
-
 
 public class Admision_editar_paciente extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Admision_crear_paciente
-     */
-    private static Administrador adm;
-    public Admision_editar_paciente(Administrador adm) {
-       
-      initComponents();
-       
-         this.setLocationRelativeTo(null);
-         this.adm = adm;
   
-       
-    }
+     Admision_pacienteBO Apbo = new Admision_pacienteBO();
+    private static Administrador adm;
+    private static String pac_dni;
 
+    public Admision_editar_paciente(Administrador adm, String pac_dni) {
+     
+      initComponents();
+         
+        this.setLocationRelativeTo(null);
+        this.adm = adm;
+        this.pac_dni=pac_dni;
+   
+        listar_editar_paciente();
+        
+    }
+    public void listar_editar_paciente() {
+        Paciente pac = Apbo.listar_editar_paciente(pac_dni);
+        txtDniEditar.setText(String.valueOf(pac.getDni()));
+        txtDniEditar.setEditable(false);
+        txtNombresEditar.setText(pac.getNombres());
+        txtApellidosEditar.setText(pac.getApellidos());
+        txtCorreoEditar.setText(pac.getCorreo());
+        txtTelefonoEditar.setText(String.valueOf(pac.getTelefono()));
+        txtDireccionEditar.setText(pac.getDireccion());
+        txtEdadEditar.setText(String.valueOf(pac.getEdad()));
+        char genero=pac.getGenero();
+        if (String.valueOf(genero).equals("M")){
+            rbtMasculinoEditar.setSelected(true);
+        } else {
+            rbtFemeninoEditar.setSelected(true);
+        }
+           
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -131,6 +141,11 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
         jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
@@ -298,10 +313,58 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
+         if(txtDniEditar.getText().isEmpty() || txtApellidosEditar.getText().isEmpty()
+                || txtNombresEditar.getText().isEmpty() || txtEdadEditar.getText().isEmpty()
+                || txtCorreoEditar.getText().isEmpty()  || txtDireccionEditar.getText().isEmpty() 
+              || txtTelefonoEditar.getText().isEmpty()
+               ){
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        }else{
+             
+            char genero;
+            if (rbtMasculinoEditar.isSelected()){
+                genero = 'M';
+            }else{
+                genero = 'F';
+            }
+      
+                Paciente pac  = new Paciente();
+            
+                
+                pac.setDni(Integer.parseInt(txtDniEditar.getText()));
+                pac.setNombres(txtNombresEditar.getText());
+                pac.setApellidos(txtApellidosEditar.getText());
+                pac.setGenero(genero);
+                pac.setEdad(Integer.parseInt(txtEdadEditar.getText()));
+                pac.setCorreo(txtCorreoEditar.getText());
+                pac.setDireccion(txtDireccionEditar.getText());
+                pac.setTelefono(Integer.parseInt(txtTelefonoEditar.getText()));
+                pac.setTriaje(pac.getTriaje());
+                pac.setIdAdministrador(adm.getIdAdministrador());
+              
+                String mensaje = Apbo.modificarPaciente(pac,pac_dni);
+                    JOptionPane.showMessageDialog(null, mensaje);
+                     limpiar();   
+                     
         Admision_paciente r = new Admision_paciente(adm);
         r.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(false);                      
+        
+  }  
+       
     }//GEN-LAST:event_btnRegistrarMouseClicked
+public void limpiar(){
+txtNombresEditar.setText("");
+txtApellidosEditar.setText("");
+btgrGenero.clearSelection();
+txtEdadEditar.setText("");
+txtCorreoEditar.setText("");
+txtDireccionEditar.setText("");
+txtTelefonoEditar.setText("");
+}
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+       limpiar(); // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,7 +397,7 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admision_editar_paciente(adm).setVisible(true);
+                new Admision_editar_paciente(adm,pac_dni).setVisible(true);
             }
         });
     }
@@ -367,9 +430,9 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbtFemeninoEditar;
     private javax.swing.JRadioButton rbtMasculinoEditar;
     private javax.swing.JTextField txtApellidosEditar;
-    public static javax.swing.JTextField txtCorreoEditar;
+    private javax.swing.JTextField txtCorreoEditar;
     private javax.swing.JTextField txtDireccionEditar;
-    public javax.swing.JTextField txtDniEditar;
+    private javax.swing.JTextField txtDniEditar;
     private javax.swing.JTextField txtEdadEditar;
     private javax.swing.JTextField txtNombresEditar;
     private javax.swing.JTextField txtTelefonoEditar;

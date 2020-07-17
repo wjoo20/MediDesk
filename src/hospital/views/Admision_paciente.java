@@ -6,9 +6,10 @@
 package hospital.views;
 
 import hospital.bo.Admision_pacienteBO;
+import hospital.db.Conexion;
 import hospital.entity.Administrador;
+
 import java.awt.Image;
-import java.awt.event.KeyEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,6 +29,7 @@ public class Admision_paciente extends javax.swing.JFrame {
     private Admision_pacienteBO Apbo = new Admision_pacienteBO();
     public Admision_paciente(Administrador adm) {
         initComponents();
+         
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
@@ -35,11 +37,8 @@ public class Admision_paciente extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.adm = adm;
         lblUsuario.setText(adm.getCorreo());
-                listarPaciente();
+        Apbo.listarPaciente(tbPaciente);      
     }
-public void listarPaciente(){
-           Apbo.listarPaciente(tbPaciente);
-}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -60,7 +59,7 @@ public void listarPaciente(){
         jPanel3 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        buscarDni = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -173,20 +172,27 @@ public void listarPaciente(){
 
         jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel8.setText("Pacientes");
-        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 120, 50));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 20, 30));
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, 20, 30));
 
-        jTextField1.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        jTextField1.setText("Ingrese el DNI");
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
-        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+        buscarDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        buscarDni.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        buscarDni.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField1MouseClicked(evt);
+                buscarDniMouseClicked(evt);
             }
         });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 270, 30));
+        buscarDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                buscarDniKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                buscarDniKeyReleased(evt);
+            }
+        });
+        jPanel3.add(buscarDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 270, 30));
 
         jButton3.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton3.setText("Crear Paciente");
@@ -200,7 +206,7 @@ public void listarPaciente(){
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 150, -1));
+        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 150, -1));
 
         jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton4.setText("Editar Paciente");
@@ -214,7 +220,7 @@ public void listarPaciente(){
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 150, -1));
+        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, 150, -1));
 
         jButton5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton5.setText("Borrar Paciente");
@@ -228,7 +234,7 @@ public void listarPaciente(){
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 150, -1));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 150, -1));
 
         tbPaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -253,7 +259,7 @@ public void listarPaciente(){
         });
         jScrollPane2.setViewportView(tbPaciente);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 670, 90));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 670, 140));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 400));
 
@@ -383,34 +389,49 @@ public void listarPaciente(){
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
     
-        Admision_editar_paciente r = new Admision_editar_paciente(adm);
-       r.setVisible(true);
+         String pac_dni = this.pacienteDni();
+  
+               
+        Admision_editar_paciente Ad_ed_pa = new Admision_editar_paciente(adm,pac_dni);
+       Ad_ed_pa.setVisible(true);
         this.setVisible(false);  
-        //int selection =  tbPaciente.getSelectedRow();
-       // r.txtDniEditar.setText(tbPaciente.getValueAt(selection,0 )+"");
-       
-        // TODO add your handling code here:
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton4MouseClicked
-
+public String pacienteDni(){
+        int column = 0;
+        int row = tbPaciente.getSelectedRow();
+        String pac_dni = tbPaciente.getModel().getValueAt(row, column).toString();
+        return pac_dni;
+}
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
+    
+        
+             String mensaje = Apbo.eliminarPaciente(pacienteDni());
+         
+                    JOptionPane.showMessageDialog(null, mensaje); 
+        DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
         int fila = tbPaciente.getSelectedRow();
         if (fila >= 0) {
             dtm.removeRow(fila);
-        }         // TODO add your handling code here:
+        } 
+ 
+                     // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
-        jTextField1.setText("");        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1MouseClicked
+    private void buscarDniMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buscarDniMouseClicked
+ 
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniMouseClicked
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         Login lo = new Login();
@@ -419,16 +440,26 @@ DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void tbPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbPacienteMouseClicked
-    
-        
+
       // TODO add your handling code here:
     }//GEN-LAST:event_tbPacienteMouseClicked
 
-  
+
 
     private void tbPacienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tbPacienteKeyPressed
          // TODO add your handling code here:
     }//GEN-LAST:event_tbPacienteKeyPressed
+
+    private void buscarDniKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDniKeyPressed
+   
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniKeyPressed
+
+    private void buscarDniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buscarDniKeyReleased
+         String buscar_dni=buscarDni.getText();
+       Apbo.buscarPaciente(tbPaciente, buscar_dni);    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarDniKeyReleased
 
     /**
      * @param args the command line arguments
@@ -469,6 +500,7 @@ DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField buscarDni;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -488,9 +520,8 @@ DefaultTableModel dtm = (DefaultTableModel) tbPaciente.getModel();
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JTable tbPaciente;
+    public static javax.swing.JTable tbPaciente;
     // End of variables declaration//GEN-END:variables
 }
