@@ -35,13 +35,14 @@ public class Login extends javax.swing.JFrame {
     }
     
     public boolean login(){
-        JOptionPane.showMessageDialog(null, ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()));
-        if(ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta")){
+        Register r = new Register();
+        String epass = r.encrypt(String.valueOf(jpassword.getPassword()));
+        JOptionPane.showMessageDialog(null, ubo.login(epass,juser.getText())); 
+        if(ubo.login(epass,juser.getText()).equals("Contraseña correcta")){
             return true;
         }else{
             return false;
-        }
-   
+        }   
     }
     
     public int getIdUser(Usuario user){
