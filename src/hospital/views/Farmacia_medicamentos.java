@@ -6,6 +6,7 @@
 package hospital.views;
 
 
+import hospital.bo.FarmaciaBO;
 import hospital.entity.Farmaceutico;
 import hospital.db.Conexion;
 import java.awt.Image;
@@ -27,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public final class Farmacia_medicamentos extends javax.swing.JFrame {
         Connection conn = Conexion.getConnection();
+        FarmaciaBO farmabo=new FarmaciaBO();
     /**
      * Creates new form Farmacia_medicamentos
      */
@@ -47,59 +49,12 @@ public final class Farmacia_medicamentos extends javax.swing.JFrame {
          PreparedStatement pst;
          ResultSet rs ; 
     void Mostrar_Medicamentos(){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("Codigo");
-       tabla.addColumn("Nombre");
-       tabla.addColumn("Unidades");
-       tablemedicamentos.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM medicamento";
-        String datos[] =new String [3];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-
-            
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                
-                tabla.addRow(datos);
-            }
-             tablemedicamentos.setModel(tabla);
-             pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        farmabo.Mostrar_Medicamento(tablemedicamentos);
 
 }
 
 void Buscar_Medicamentos(String buscar){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("Codigo");
-       tabla.addColumn("Nombre");
-       tabla.addColumn("Unidades");
-       tablemedicamentos.setModel(tabla);
-        String sql = "SELECT me_idMedicamento,me_nombre,me_cantidad FROM MEDICAMENTO where me_nombre LIKE '%"+buscar+"%'";
-        String datos[] =new String [3];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                
-                tabla.addRow(datos);
-            }
-             tablemedicamentos.setModel(tabla);
-               pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        farmabo.Buscar_Medicamento(tablemedicamentos, buscar);
 
 }
     public void actualizarPantalla(){

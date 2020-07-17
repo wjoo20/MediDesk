@@ -6,6 +6,7 @@
 package hospital.views;
 
 
+import hospital.bo.FarmaciaBO;
 import hospital.entity.Farmaceutico;
 import hospital.db.Conexion;
 import java.awt.Color;
@@ -48,81 +49,13 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     
           PreparedStatement pst;
          ResultSet rs ;    
-    
+    private FarmaciaBO farmabo= new FarmaciaBO();
     void Mostrar_Pacientes(){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("DNI");
-       tabla.addColumn("Nombres");
-       tabla.addColumn("Apellidos");
-       tabla.addColumn("Edad");
-        tabla.addColumn("Codigo");
-        tabla.addColumn("Medicamento");
-        //tabla.addColumn("Entega");
-       tablepacientes.setModel(tabla);
-
-        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
-        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni)";
-        String datos[] =new String [6];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-
-
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                
-                tabla.addRow(datos);
-            }
-             tablepacientes.setModel(tabla);
-             pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        farmabo.Mostrar_Pacientes(tablepacientes);
 }
+            DefaultTableModel tabla =new DefaultTableModel();
     void Buscar_Pacientes(String buscar){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("DNI");
-       tabla.addColumn("Nombres");
-       tabla.addColumn("Apellidos");
-       tabla.addColumn("Edad");
-        tabla.addColumn("Codigo de Receta");
-        tabla.addColumn("Medicamento");
-       tablepacientes.setModel(tabla);
-
-        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
-        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni ) where paciente_pac_dni LIKE '%"+buscar+"%'";
-        String datos[] =new String [6];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-
-            
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                
-                tabla.addRow(datos);
-            }
-             tablepacientes.setModel(tabla);
-             pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        farmabo.Buscar_Pacientes(tablepacientes, buscar);
 }
 
 
@@ -489,23 +422,14 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_textKeyReleased
 
     private void btnconfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfirmarMouseClicked
-    int row = tablepacientes.getSelectedRow();
-        String var = tablepacientes.getModel().getValueAt(row, 5).toString();
-        System.out.println(var);
+        farmabo.ConfirmarEntrega(tablepacientes);
+        Farmacia_Pacientes fp = new Farmacia_Pacientes(farm);
+        //System.out.println(farm.getIdFarmaceutico());
+        fp.setVisible(true);
+        this.setVisible(false);
+    }
 
-        String sql = "update medicamento set me_cantidad=me_cantidad-1 where me_nombre=?";
-
-        try {
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, var);
-            rs = pst.executeQuery();
-            conn.commit();
-             pst.close();
-             rs.close();
-        }catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                //System.out.println(var);
+       public void ActualizarMouseClicked(){
     }//GEN-LAST:event_btnconfirmarMouseClicked
 
     /**
