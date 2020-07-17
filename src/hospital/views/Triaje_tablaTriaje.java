@@ -24,6 +24,8 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
      */
     private EnfermeraBO ebo = new EnfermeraBO();
     private static Enfermera enf;
+    private static String dni;
+    private static int dniE;
     public Triaje_tablaTriaje(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -31,6 +33,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        lblCorreoUsuario.setText(enf.getCorreo());
         this.enf = enf;
     }
     
@@ -52,7 +55,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -141,11 +144,11 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("USUARIO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCorreoUsuario.setText("USUARIO");
+        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, 30));
 
         jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -355,7 +358,9 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
 
     private void btnModificarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModificarMouseClicked
         // TODO add your handling code here:
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf);
+        
+        
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni, dniE);
         r.setVisible(true);
         this.setVisible(false);
         
@@ -431,12 +436,12 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JTable tbTriaje;
     // End of variables declaration//GEN-END:variables

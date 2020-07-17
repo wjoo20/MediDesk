@@ -25,16 +25,18 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
      * Creates new form Triaje_verPaciente
      */
     private EnfermeraBO ebo = new EnfermeraBO();    
-    private Triaje_cita tc = new Triaje_cita();
+    public Triaje_cita tc = new Triaje_cita();
     private static Enfermera enf;
-    private static String dni;
+    public static String dni;
+    private static int dniE;
     public Triaje_verPaciente(Enfermera enf, String dni) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());        
+        lblCorreoUsuario.setText(enf.getCorreo());
         this.enf = enf;  
         this.dni= dni;
         listar_paciente();
@@ -54,10 +56,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         return p;
         
     }
-    
-    public Triaje_verPaciente() {
-        
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,7 +71,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -101,7 +99,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         jLabel25 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
-        jButton1 = new javax.swing.JButton();
+        btnRealizarTriaje = new javax.swing.JButton();
         txtDni = new javax.swing.JTextField();
         txtNombres = new javax.swing.JTextField();
         txtApellidos = new javax.swing.JTextField();
@@ -183,11 +181,11 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel27.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel27.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel27.setText("USUARIO");
-        jPanel2.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCorreoUsuario.setText("USUARIO");
+        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel28.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -335,17 +333,17 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jSeparator9.setForeground(new java.awt.Color(204, 204, 204));
         jPanel1.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, 210, 10));
 
-        jButton1.setBackground(new java.awt.Color(51, 51, 51));
-        jButton1.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/balance_color_(16).png"))); // NOI18N
-        jButton1.setText("REALIZAR TRIAJE");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnRealizarTriaje.setBackground(new java.awt.Color(51, 51, 51));
+        btnRealizarTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnRealizarTriaje.setForeground(new java.awt.Color(255, 255, 255));
+        btnRealizarTriaje.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/balance_color_(16).png"))); // NOI18N
+        btnRealizarTriaje.setText("REALIZAR TRIAJE");
+        btnRealizarTriaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnRealizarTriajeMouseClicked(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 210, -1));
+        jPanel1.add(btnRealizarTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, 210, -1));
 
         txtDni.setEditable(false);
         txtDni.setBackground(new java.awt.Color(255, 255, 255));
@@ -462,12 +460,13 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni);
+    private void btnRealizarTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRealizarTriajeMouseClicked
+        // TODO add your handling code here:    
+        this.dni = txtDni.getText();
+        Triaje_formularioTriaje r = new Triaje_formularioTriaje(enf, dni, dniE);
         r.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnRealizarTriajeMouseClicked
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
 
@@ -479,7 +478,11 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel28MouseClicked
-
+    
+    public void showbtnRealizarTriaje() {
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -517,7 +520,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnRealizarTriaje;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -531,7 +534,6 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -549,6 +551,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
+    private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
