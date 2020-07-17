@@ -4,6 +4,7 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
 <<<<<<< HEAD
+<<<<<<< HEAD
             <file>file:/C:/Users/daniel/Documents/NetBeansProjects/MediDesk/src/hospital/bo/Admision_citaBO.java</file>
             <file>file:/C:/Users/daniel/Documents/NetBeansProjects/MediDesk/src/hospital/dao/Admision_citaDAO.java</file>
             <file>file:/C:/Users/daniel/Documents/NetBeansProjects/MediDesk/src/hospital/views/Admision_cita.java</file>
@@ -30,6 +31,18 @@
             <file>file:/D:/TECSUP/Ciclo%20II/Proyecto%20Final/Proyecto%20Hospital/MediDesk/src/hospital/views/Medico_cita.java</file>
 >>>>>>> db3e41fb78b192239b677f78bf6823e7b5e355ff
 >>>>>>> 67974a4945d74170f005dbabc0dc77c5cd658564
+=======
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia_Pacientes.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Medico_cita.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Triaje_tablaTriaje.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/RegistroDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/MedicoDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/db/Conexion.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Triaje_inicio.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Triaje_cita.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia_medicamentos.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/Admision_citaDAO.java</file>
+>>>>>>> 881796e3c75c714063ee56715be26b2f2501eaa8
         </group>
     </open-files>
 </project-private>
