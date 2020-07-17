@@ -6,9 +6,11 @@
 package hospital.views;
 
 
-import hospital.bo.CitaBO;
+import hospital.bo.EnfermeraBO;
 import hospital.entity.Enfermera;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -21,7 +23,7 @@ public class Triaje_cita extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_cita
      */
-    private CitaBO cbo = new CitaBO();
+    private EnfermeraBO ebo = new EnfermeraBO();
         private static Enfermera enf;
     public Triaje_cita(Enfermera enf) {
         initComponents();        
@@ -31,10 +33,14 @@ public class Triaje_cita extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());   
         this.enf = enf;
+        lblCorreoUsuario.setText(enf.getCorreo());
+    }
+     public Triaje_cita() {
+        
     }
     
-    public void listarCita(String especialidad) {
-        cbo.listarCita(tbCita, especialidad);    
+    public void listarCita(String especialidad ,String date) {
+        ebo.listarCita(tbCita, especialidad, date);    
     }
 
     /**
@@ -51,7 +57,7 @@ public class Triaje_cita extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -64,7 +70,7 @@ public class Triaje_cita extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbCita = new javax.swing.JTable();
         cboEspecialidad = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser = new com.toedter.calendar.JDateChooser();
         jLabel1 = new javax.swing.JLabel();
         btnVerCitas = new javax.swing.JButton();
 
@@ -139,11 +145,11 @@ public class Triaje_cita extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("USUARIO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCorreoUsuario.setText("USUARIO");
+        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,7 +252,7 @@ public class Triaje_cita extends javax.swing.JFrame {
         cboEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cboEspecialidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
-        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
         cboEspecialidad.setBorder(null);
         cboEspecialidad.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -255,9 +261,9 @@ public class Triaje_cita extends javax.swing.JFrame {
         });
         jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 280, -1));
 
-        jDateChooser1.setBackground(new java.awt.Color(255, 255, 255));
-        jDateChooser1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, 30));
+        jDateChooser.setBackground(new java.awt.Color(255, 255, 255));
+        jDateChooser.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 200, 30));
 
         jLabel1.setFont(new java.awt.Font("Maiandra GD", 1, 18)); // NOI18N
         jLabel1.setText("Citas");
@@ -337,14 +343,14 @@ public class Triaje_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void tbCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCitaMouseClicked
-        
-        
-        
+        obtenerDni();        
     }//GEN-LAST:event_tbCitaMouseClicked
 
     private void btnVerPacienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerPacienteMouseClicked
         // TODO add your handling code here:
-        Triaje_verPaciente r = new Triaje_verPaciente(enf);
+        String dni = this.obtenerDni();
+
+        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVerPacienteMouseClicked
@@ -362,15 +368,23 @@ public class Triaje_cita extends javax.swing.JFrame {
 
     private void btnVerCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerCitasMouseClicked
         //metodo listar cita
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(jDateChooser.getDate());
         String especialidad = String.valueOf(cboEspecialidad.getSelectedItem());
-        listarCita(especialidad);
+        listarCita(especialidad, date);
         
     }//GEN-LAST:event_btnVerCitasMouseClicked
 
     private void cboEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboEspecialidadItemStateChanged
         
     }//GEN-LAST:event_cboEspecialidadItemStateChanged
-    
+    public String obtenerDni() {
+        int column = 3;
+        int row = tbCita.getSelectedRow();
+        String value = tbCita.getModel().getValueAt(row, column).toString();
+        return value;
+        
+    }
     
     /**
      * @param args the command line arguments
@@ -412,7 +426,7 @@ public class Triaje_cita extends javax.swing.JFrame {
     private javax.swing.JButton btnVerCitas;
     private javax.swing.JButton btnVerPaciente;
     private javax.swing.JComboBox<String> cboEspecialidad;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -421,12 +435,12 @@ public class Triaje_cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JTable tbCita;
     // End of variables declaration//GEN-END:variables

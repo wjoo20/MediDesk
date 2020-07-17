@@ -5,22 +5,22 @@
  */
 package hospital.bo;
 
-import hospital.dao.CitaDAO;
+import hospital.dao.MedicoDAO;
 import hospital.db.Conexion;
 import java.sql.Connection;
 import javax.swing.JTable;
 
 /**
  *
- * @author Fiorella
+ * @author PC
  */
-public class CitaBO {
-    private String mensaje = "";
-    private CitaDAO cdao = new CitaDAO();
+public class MedicoBO {
+    private MedicoDAO mdao = new MedicoDAO();
     
-    public void listarCita(JTable tabla, String especialidad) {
+    //Listar cita
+    public void mostrarCitas(JTable tabla, String date, int idMed) {
         Connection conn  = Conexion.getConnection();
-        cdao.listarCita(conn, tabla, especialidad);
+        mdao.mostrarCitas(conn, tabla, date, idMed);
         try {
             conn.close();
         } 

@@ -5,7 +5,9 @@
  */
 package hospital.views;
 
+import hospital.bo.EnfermeraBO;
 import hospital.entity.Enfermera;
+import hospital.entity.Paciente;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -20,16 +22,38 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     /**
      * Creates new form Triaje_formularioTriaje
      */
+    private EnfermeraBO ebo = new EnfermeraBO();  
     private static Enfermera enf;
-    public Triaje_formularioTriaje(Enfermera enf) {
+    private static String dni;
+    private static int dniE;
+    public Triaje_formularioTriaje(Enfermera enf, String dni, Integer dniE) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
-        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());  
+        lblCorreoUsuario.setText(enf.getCorreo());
+        this.dni = dni;
         this.enf = enf;
+        this.dniE = dniE;
+        
+        this.mandarDniPaciente();
+        this.mandarDniEnfermera();
+        
     }
+    
+    public void mandarDniPaciente() {
+        txtDniPaciente.setText(dni);
+    }
+    public void mandarDniEnfermera() {
+        txtDniEnfermera.setText(String.valueOf(enf.getDni()));
+    }
+    
+    
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -45,7 +69,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -146,11 +170,11 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("USUARIO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
+        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCorreoUsuario.setText("USUARIO");
+        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -282,6 +306,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         txtDniPaciente.setBorder(null);
         jPanel1.add(txtDniPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 210, -1));
 
+        txtDniEnfermera.setEditable(false);
         txtDniEnfermera.setBackground(new java.awt.Color(255, 255, 255));
         txtDniEnfermera.setForeground(new java.awt.Color(0, 0, 0));
         txtDniEnfermera.setBorder(null);
@@ -375,17 +400,34 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_verPaciente r = new Triaje_verPaciente(enf);
+        Triaje_verPaciente r = new Triaje_verPaciente(enf, dni);
         r.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null,"Triaje realizado con éxito.");
-        Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf);
-        r.setVisible(true);
-        this.setVisible(false);
+        if(txtTalla.getText().isEmpty() || txtPeso.getText().isEmpty() || txtTemperatura.getText().isEmpty() || txtPresionArterial.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Asegúrese de llenar todos los campos.");
+        }
+        else {
+            this.dni = txtDniPaciente.getText();
+            this.dniE = Integer.valueOf(txtDniEnfermera.getText());
+            Paciente pac = new Paciente();   
+            Enfermera enf = new Enfermera();
+            pac.setTalla(Double.valueOf(txtTalla.getText()));
+            pac.setPeso(Double.valueOf(txtPeso.getText()));
+            pac.setTemperatura(Double.valueOf(txtTemperatura.getText()));
+            pac.setPresion(Double.valueOf(txtPresionArterial.getText()));            
+            String mensaje1 = ebo.agregarTriajePaciente(pac,dni);            
+            String mensaje2 = ebo.agregarTablaTriaje(enf,ebo.getIdEnf(enf, dniE));
+            JOptionPane.showMessageDialog(null, mensaje1);
+            System.out.println(mensaje2);
+            Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf);
+            r.setVisible(true);
+            this.setVisible(false);
+            
+        }
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
@@ -433,7 +475,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_formularioTriaje(enf).setVisible(true);
+                new Triaje_formularioTriaje(enf, dni, dniE).setVisible(true);
             }
         });
     }
@@ -455,7 +497,6 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -466,6 +507,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JLabel lblCorreoUsuario;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JTextField txtDniEnfermera;
     private javax.swing.JTextField txtDniPaciente;
