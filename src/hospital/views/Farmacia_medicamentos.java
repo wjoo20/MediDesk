@@ -35,7 +35,7 @@ public final class Farmacia_medicamentos extends javax.swing.JFrame {
     private static Farmaceutico farm;
     public Farmacia_medicamentos(Farmaceutico farm) {
         initComponents();
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
@@ -72,13 +72,6 @@ void Buscar_Medicamentos(String buscar){
 
         txt_buscar = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        lblLogo = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        Minimizar = new javax.swing.JLabel();
-        lblLogo1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -90,6 +83,12 @@ void Buscar_Medicamentos(String buscar){
         tablemedicamentos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        Minimizar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -107,55 +106,6 @@ void Buscar_Medicamentos(String buscar){
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/search_Icon.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 80, 20, 30));
-
-        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel5.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
-
-        jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel19.setText("MediDesk");
-        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-
-        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
-        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel16MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
-
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
-        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel17MouseClicked(evt);
-            }
-        });
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
-
-        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
-        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                MinimizarMouseClicked(evt);
-            }
-        });
-        jPanel5.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
-
-        lblLogo1.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
-        lblLogo1.setForeground(new java.awt.Color(255, 255, 255));
-        lblLogo1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jPanel5.add(lblLogo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
-
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
         jPanel3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -303,22 +253,62 @@ void Buscar_Medicamentos(String buscar){
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
+        jPanel5.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel5MouseDragged(evt);
+            }
+        });
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel5MousePressed(evt);
+            }
+        });
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel19.setText("MediDesk");
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+
+        lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
+        lblLogo.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jPanel5.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 40, 40));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/back-32(blanco).png"))); // NOI18N
+        jLabel16.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 10, -1, 40));
+
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/close-32(blanco).png"))); // NOI18N
+        jLabel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel17MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
+
+        Minimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/minimize-32(blanco).png"))); // NOI18N
+        Minimizar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        Minimizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Minimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                MinimizarMouseClicked(evt);
+            }
+        });
+        jPanel5.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, -1, 40));
+
+        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 60));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        Farmacia farma = new Farmacia(farm);
-        farma.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
-        if(result==0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
@@ -362,11 +352,6 @@ void Buscar_Medicamentos(String buscar){
         jLabel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
     }//GEN-LAST:event_jLabel5MouseExited
 
-    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
-
-        setExtendedState(ICONIFIED );
-    }//GEN-LAST:event_MinimizarMouseClicked
-
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         Login lo = new Login();
         lo.setVisible(true);
@@ -376,6 +361,37 @@ void Buscar_Medicamentos(String buscar){
     private void txt_buscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_buscarKeyReleased
         Buscar_Medicamentos(txt_buscar.getText());
     }//GEN-LAST:event_txt_buscarKeyReleased
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        Farmacia farma = new Farmacia(farm);
+        farma.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
+        if(result==0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
+int xx,xy;
+    private void jPanel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+
+    }//GEN-LAST:event_jPanel5MouseDragged
+
+    private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
+        xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel5MousePressed
 
     /**
      * @param args the command line arguments
@@ -429,7 +445,6 @@ void Buscar_Medicamentos(String buscar){
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblLogo;
-    private javax.swing.JLabel lblLogo1;
     private javax.swing.JTable tablemedicamentos;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables
