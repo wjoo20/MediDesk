@@ -375,7 +375,7 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel18MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf,dni,date,especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel18MouseClicked
@@ -418,7 +418,7 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf,dni,date,especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -442,14 +442,13 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
             this.dni = txtDniPaciente.getText();
             this.dniE = Integer.valueOf(txtDniEnfermera.getText());
             Paciente pac = new Paciente();
-            Enfermera enf = new Enfermera();
             pac.setTalla(Double.valueOf(txtTalla.getText()));
             pac.setPeso(Double.valueOf(txtPeso.getText()));
             pac.setTemperatura(Double.valueOf(txtTemperatura.getText()));
             pac.setPresion(Double.valueOf(txtPresionArterial.getText()));
             String mensaje1 = "Triaje modificado con éxito" + ebo.agregarTriajePaciente(pac,dni);
             JOptionPane.showMessageDialog(null, mensaje1);
-            Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf);
+            Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf,dni,date,especialidad);
             r.setVisible(true);
             this.setVisible(false);
 

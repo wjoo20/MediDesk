@@ -139,8 +139,27 @@ public class EnfermeraDAO {
         return mensaje;
     }
     
+    //Eliminar triaje(Paciente)
+    public String eliminarTriajePaciente(Connection con, String dni) {
+        PreparedStatement pst = null;
+        String sql = "UPDATE PACIENTE SET PAC_TALLA = NULL, PAC_PESO = NULL, PAC_TEMPERATURA = NULL, PAC_PRESION = NULL, PAC_TRIAJE = 'N' WHERE PAC_DNI = ? ";
+                
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, Integer.valueOf(dni));
+            mensaje = "";
+            pst.execute();
+            pst.close();
+        } 
+        catch (SQLException e) {
+            mensaje = "No se pudo eliminar(update) en tabla paciente \n" + e.getMessage();
+        }
+        
+        return mensaje;
+    }
+    
     //Obtener el idEnfermera
-    public int getIdEnf(Connection con, Enfermera enf,Integer dni){        
+    public int getIdEnf(Connection con,Enfermera enf,Integer dni){        
         int id = 0;
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -162,7 +181,7 @@ public class EnfermeraDAO {
     }
     
     //Obtener el idCita
-    public int getIdCita(Connection con, Paciente pac, Integer dni, String especialidad, String date) {
+    public int getIdCita(Connection con, String dni, String especialidad, String date) {
         int id = 0; 
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -171,7 +190,7 @@ public class EnfermeraDAO {
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, especialidad);
-            pst.setInt(2, dni);
+            pst.setString(2, dni);
             pst.setString(3, date);
             rs = pst.executeQuery();
             if(rs.next()) {
@@ -182,6 +201,31 @@ public class EnfermeraDAO {
         } 
         catch (SQLException e) {
             System.out.println("Error en getIdCita DAO: " + e.getMessage());
+        }
+        return id;        
+    }
+    
+    //Obtener el idTriaje2.0
+    public int getIdTriaje2(Connection con, String dni, String especialidad, String date) {
+        int id = 0; 
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT C.TRIAJE_TRI_IDTRIAJE FROM CITA C JOIN MEDICO M ON (C.MEDICO_MED_IDMEDICO = M.MED_IDMEDICO) WHERE M.ESPE_ESPE_IDESPE = (SELECT ESPE_IDESPECIALIDAD FROM ESPECIALIDAD WHERE ESPE_NOMBRE = ?)\n" +
+        "AND PACIENTE_PAC_DNI = ? AND TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, especialidad);
+            pst.setString(2, dni);
+            pst.setString(3, date);
+            rs = pst.executeQuery();
+            if(rs.next()) {
+                id = rs.getInt("TRIAJE_TRI_IDTRIAJE");
+            }
+            rs.close();
+            pst.close();
+        } 
+        catch (SQLException e) {
+            System.out.println("Error en getIdTriaje2.0 DAO: " + e.getMessage());
         }
         return id;        
     }
@@ -225,10 +269,45 @@ public class EnfermeraDAO {
         return mensaje;
     }
     
-    //Insertar tabla Triaje 
-    public String agregarTablaTriaje(Connection con, Enfermera enf, Integer id) {
+    //EliminaridCita en tabla cita 
+    public String eliminarTablaCita(Connection con, Integer dni, String date, String especialidad) {
         PreparedStatement pst = null;
-        String sql = "INSERT INTO TRIAJE (TRI_IDTRIAJE, ENFERMERA_ENF_IDENFERMERA) VALUES (SEQ_TRIAJE.NEXTVAL, ?)";
+        String sql = "UPDATE CITA SET TRIAJE_TRI_IDTRIAJE = NULL WHERE (PACIENTE_PAC_DNI = ?) AND (TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')) AND (MEDICO_MED_IDMEDICO = (SELECT MED_IDMEDICO FROM MEDICO WHERE ESPE_ESPE_IDESPE = (SELECT ESPE_IDESPECIALIDAD FROM ESPECIALIDAD WHERE ESPE_NOMBRE  = ?)))";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, dni);
+            pst.setString(2, date);
+            pst.setString(3, especialidad);
+            mensaje = " ";
+            pst.execute();
+            pst.close();
+        } 
+        catch (SQLException e) {
+            mensaje = "No se pudo nullear el idTriaje en la tabla Cita." + e.getMessage();
+        }
+        return mensaje;
+    }
+    
+    //Eliminar registro en tabla triaje(por fin!!!)
+    public String eliminarTablaTriaje (Connection con, Integer idTriaje) {
+        PreparedStatement pst = null;
+        String sql = "DELETE FROM TRIAJE WHERE TRI_IDTRIAJE = ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idTriaje);
+            mensaje = "";
+            pst.execute();
+            pst.close();
+        } catch (SQLException e) {
+            mensaje = "No se pudo eliminar registro en la tabla triaje"+e.getMessage();
+        }
+        return mensaje;
+    }
+    
+    //Insertar tabla Triaje 
+    public String agregarTablaTriaje(Connection con,Enfermera enf,Integer id) {
+        PreparedStatement pst = null;
+        String sql = "INSERT INTO TRIAJE (ENFERMERA_ENF_IDENFERMERA) VALUES (?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);

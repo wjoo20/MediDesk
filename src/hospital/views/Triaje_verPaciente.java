@@ -30,6 +30,8 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     public static String dni;
     public static String especialidad;
     public static String date;
+    public static String temperatura;
+    public static String presion;
     private static int dniE;
     public Triaje_verPaciente(Enfermera enf, String dni, String especialidad, String date) {
         initComponents();
@@ -442,7 +444,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf,dni,date,especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
