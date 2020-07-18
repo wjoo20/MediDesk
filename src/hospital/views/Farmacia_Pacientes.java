@@ -213,6 +213,16 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel5MouseDragged(evt);
+            }
+        });
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel5MousePressed(evt);
+            }
+        });
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
@@ -340,20 +350,6 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        Farmacia farma = new Farmacia(farm);
-        farma.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
-        if(result==0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jLabel17MouseClicked
-
     private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
     }//GEN-LAST:event_jLabel14MouseMoved
@@ -401,11 +397,6 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         //System.out.println("hola123");
     }//GEN-LAST:event_tablepacientesMouseClicked
 
-    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
-
-        setExtendedState(ICONIFIED );
-    }//GEN-LAST:event_MinimizarMouseClicked
-
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         Login lo = new Login();
         lo.setVisible(true);
@@ -431,6 +422,37 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
        public void ActualizarMouseClicked(){
     }//GEN-LAST:event_btnconfirmarMouseClicked
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
+        if(result==0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        Farmacia farma = new Farmacia(farm);
+        farma.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel16MouseClicked
+int xx,xy;
+    private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
+                xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel5MousePressed
+
+    private void jPanel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+
+    }//GEN-LAST:event_jPanel5MouseDragged
 
     /**
      * @param args the command line arguments

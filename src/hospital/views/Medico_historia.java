@@ -7,8 +7,11 @@ package hospital.views;
  */
 
 
+import hospital.bo.MedicoBO;
 import hospital.entity.Medico;
 import java.awt.Image;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -26,6 +29,8 @@ public class Medico_historia extends javax.swing.JFrame {
     private static String nom;
     private static String ape;
     private static String dni;
+    private static String fecha;
+    private MedicoBO mbo = new MedicoBO();
     public Medico_historia(Medico med, String nom, String ape, String dni) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -38,6 +43,17 @@ public class Medico_historia extends javax.swing.JFrame {
         this.nom = nom;
         this.ape = ape;
         this.dni = dni;
+        txtNombes.setText(this.nom);
+        txtApellidos.setText(this.ape);
+        txtDni.setText(this.dni);
+        Date ahora = new Date();
+        SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        this.fecha = formateador.format(ahora);
+        txtFecha.setText(fecha);
+    }
+    
+    public String crearHistoria(String date, String dni){
+        return mbo.crearHistoria(date,dni);
     }
 
     /**
@@ -244,22 +260,26 @@ public class Medico_historia extends javax.swing.JFrame {
         getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 508, 10));
 
         txtNombes.setEditable(false);
+        txtNombes.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtNombes.setForeground(new java.awt.Color(102, 102, 102));
         txtNombes.setBorder(null);
         txtNombes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombesActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombes, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 510, 30));
+        getContentPane().add(txtNombes, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 120, 510, 30));
 
         txtApellidos.setEditable(false);
+        txtApellidos.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtApellidos.setForeground(new java.awt.Color(102, 102, 102));
         txtApellidos.setBorder(null);
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
             }
         });
-        getContentPane().add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 510, 30));
+        getContentPane().add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 180, 510, 30));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setText("Apellidos:");
@@ -274,13 +294,15 @@ public class Medico_historia extends javax.swing.JFrame {
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 248, -1, 20));
 
         txtDni.setEditable(false);
+        txtDni.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtDni.setForeground(new java.awt.Color(102, 102, 102));
         txtDni.setBorder(null);
         txtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDniActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, 280, 30));
+        getContentPane().add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 240, 280, 30));
 
         btnCrearHistoria.setBackground(new java.awt.Color(0, 51, 51));
         btnCrearHistoria.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
@@ -299,13 +321,15 @@ public class Medico_historia extends javax.swing.JFrame {
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, 20));
 
         txtFecha.setEditable(false);
+        txtFecha.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtFecha.setForeground(new java.awt.Color(102, 102, 102));
         txtFecha.setBorder(null);
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, 280, 30));
+        getContentPane().add(txtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 290, 280, 30));
 
         jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 508, 10));
@@ -404,7 +428,10 @@ public class Medico_historia extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDniActionPerformed
 
     private void btnCrearHistoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearHistoriaMouseClicked
-        
+        JOptionPane.showMessageDialog(null, this.crearHistoria(this.fecha,this.dni));
+        Medico_cita mc = new Medico_cita(med);
+        mc.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnCrearHistoriaMouseClicked
 
     private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed

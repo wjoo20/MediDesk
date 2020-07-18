@@ -204,6 +204,16 @@ public class Farmacia extends javax.swing.JFrame {
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
         jPanel4.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel4.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel4MouseDragged(evt);
+            }
+        });
+        jPanel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel4MousePressed(evt);
+            }
+        });
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblLogo.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
@@ -284,7 +294,7 @@ public class Farmacia extends javax.swing.JFrame {
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         Farmacia_medicamentos fm = new Farmacia_medicamentos(farm);
         fm.setVisible(true);
-        this.setVisible(false);
+        setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -329,6 +339,18 @@ public class Farmacia extends javax.swing.JFrame {
         lo.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
+int xx,xy;
+    private void jPanel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MousePressed
+                xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel4MousePressed
+
+    private void jPanel4MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel4MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+
+    }//GEN-LAST:event_jPanel4MouseDragged
 
     /**
      * @param args the command line arguments
