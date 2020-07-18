@@ -1,7 +1,7 @@
 
 package hospital.views;
 
-import hospital.bo.Admision_citaBO;
+import hospital.bo.AdmisionBO;
 import hospital.entity.Administrador;
 import hospital.entity.Cita;
 import hospital.entity.Especialidad;
@@ -9,41 +9,39 @@ import hospital.entity.Medico;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
 
 public class Admision_editar_cita extends javax.swing.JFrame {
 
-
-    private static Administrador adm;
-    Admision_citaBO Acbo=new Admision_citaBO();
-
+    private static Administrador adm; 
     private static int cita_id;
     private static String ape_medico;
-      Admision_citaBO rr=new Admision_citaBO();
+    AdmisionBO Abo=new AdmisionBO();
+    
     public Admision_editar_cita(Administrador adm,int cita_id,String ape_medico) {
-        initComponents();
-           this.setLocationRelativeTo(null);
-           this.adm = adm;
-           this.cita_id=cita_id;
-           this.ape_medico=ape_medico;
-
-            rr.listar_especialidades(cbEspecialidad);
-         
-            listar_editar_cita(new Medico());
         
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.adm = adm;
+        this.cita_id=cita_id;
+        this.ape_medico=ape_medico;
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        Abo.listar_especialidades(cbEspecialidad);    
+        listar_editar_cita(new Medico());
+        cbMedico.getModel().setSelectedItem(ape_medico); 
     }
  
     public Cita listar_editar_cita(Medico med) {
     
-       Cita cit=Acbo.listar_editar_cita(cita_id,med);
-
-        txtDni.setText(String.valueOf(cit.getDni_paciente()));
-        cbEspecialidad.setSelectedIndex(med.getIdEspecialidad());
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date fechaDate = null;
+       Cita cit=Abo.listar_editar_cita(cita_id,med);
+       txtDni.setText(String.valueOf(cit.getDni_paciente()));
+       txtDni.setEditable(false);
+       cbEspecialidad.setSelectedIndex(med.getIdEspecialidad());
+       SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+       Date fechaDate = null;
         
-         try {
+        try {
            fechaDate = sdf.parse(cit.getFecha()); 
            jSpinnerDateEditor1.setDate(fechaDate);
         } 
@@ -51,10 +49,8 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         {
             System.out.println(ex);
         }
-           
-       
- 
-          return cit;
+        return cit;
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -135,6 +131,11 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
         jPanel2.add(btnLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 370, -1, 30));
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
@@ -207,21 +208,27 @@ public class Admision_editar_cita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
+        
         Admision_cita lo = new Admision_cita(adm);
         lo.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnCancelarMouseClicked
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        
         int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
         if(result==0) {
             System.exit(0);
         }
+        
     }//GEN-LAST:event_jLabel12MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+      
         this.setState(Login.ICONIFIED);
+        
     }//GEN-LAST:event_jLabel11MouseClicked
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -230,49 +237,48 @@ public class Admision_editar_cita extends javax.swing.JFrame {
 
     private void btnRegistrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRegistrarMouseClicked
       
-         if( cbEspecialidad.getSelectedIndex()== 0 || cbMedico.getSelectedIndex()==0)
-               {
-            JOptionPane.showMessageDialog(null, "Llene todos los campos");
+        if( cbEspecialidad.getSelectedIndex()== 0 || cbMedico.getSelectedIndex()==0)
+               {                  
+            JOptionPane.showMessageDialog(null, "Llene todos los campos");          
         }else{
              
-           Medico dep = (Medico)cbMedico.getSelectedItem();
+            Medico dep = (Medico)cbMedico.getSelectedItem();
+            
             int dato = dep.getIdMedico();
-               SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String date = sdf.format(jSpinnerDateEditor1.getDate());
-        Cita cit=new Cita();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String date = sdf.format(jSpinnerDateEditor1.getDate());
+        
+            Cita cit=new Cita();
                 
-        cit.setDni_paciente(Integer.parseInt(txtDni.getText()));
-       
-        cit.setFecha(jSpinnerDateEditor1.getDate().toString());
-      
-              cit.setIdMedico(dato);
-              cit.setFecha(date);
+            cit.setDni_paciente(Integer.parseInt(txtDni.getText()));
+            cit.setFecha(jSpinnerDateEditor1.getDate().toString());
+            cit.setIdMedico(dato);
+            cit.setFecha(date);
               
-                String mensaje = Acbo.modificarCita(cit,cita_id);
-                    JOptionPane.showMessageDialog(null, mensaje);
+            String mensaje = Abo.modificarCita(cit,cita_id);
+            JOptionPane.showMessageDialog(null, mensaje);
                 //     limpiar();   
                      
-        Admision_cita r = new Admision_cita(adm);
-        r.setVisible(true);
-        this.setVisible(false);                      
-        
-  } 
-        
-    
-     
+            Admision_cita r = new Admision_cita(adm);
+            r.setVisible(true);
+            this.setVisible(false);                              
+        } 
+  
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     private void cbEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEspecialidadItemStateChanged
-Especialidad esper = (Especialidad)this.cbEspecialidad.getSelectedItem();
-        int id=esper.getId_especialidad();
-          
-         //cbMedico.setSelectedItem(ape_medico);
-         rr.listar_medicos(cbMedico,id);
-
-        cbMedico.getModel().setSelectedItem(ape_medico);
         
+        Especialidad esper = (Especialidad)this.cbEspecialidad.getSelectedItem();
+        int id=esper.getId_especialidad();         
+        Abo.listar_medicos(cbMedico,id);    
 // TODO add your handling code here:
     }//GEN-LAST:event_cbEspecialidadItemStateChanged
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+
+        cbEspecialidad.setSelectedIndex(0);
+        cbMedico.setSelectedIndex(0);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarMouseClicked
 
     /**
      * @param args the command line arguments
