@@ -35,13 +35,14 @@ public class Login extends javax.swing.JFrame {
     }
     
     public boolean login(){
-        JOptionPane.showMessageDialog(null, ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()));
-        if(ubo.login(String.valueOf(jpassword.getPassword()),juser.getText()).equals("Contraseña correcta")){
+        Register r = new Register();
+        String epass = r.encrypt(String.valueOf(jpassword.getPassword()));
+        JOptionPane.showMessageDialog(null, ubo.login(epass,juser.getText())); 
+        if(ubo.login(epass,juser.getText()).equals("Contraseña correcta")){
             return true;
         }else{
             return false;
-        }
-   
+        }   
     }
     
     public int getIdUser(Usuario user){
@@ -91,6 +92,7 @@ public class Login extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         showpass2 = new javax.swing.JCheckBox();
+        Forget = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         Minimizar = new javax.swing.JLabel();
@@ -103,6 +105,16 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel3MouseDragged(evt);
+            }
+        });
+        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel3MousePressed(evt);
+            }
+        });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -173,6 +185,25 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel3.add(showpass2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, 30));
 
+        Forget.setBackground(new java.awt.Color(255, 255, 255));
+        Forget.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        Forget.setForeground(new java.awt.Color(255, 255, 255));
+        Forget.setText("Olvide mi Contraseña");
+        Forget.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                ForgetMouseMoved(evt);
+            }
+        });
+        Forget.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ForgetMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ForgetMouseExited(evt);
+            }
+        });
+        jPanel3.add(Forget, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 460));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
@@ -198,6 +229,16 @@ public class Login extends javax.swing.JFrame {
         jPanel4.add(Minimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/Fondo-Login.PNG"))); // NOI18N
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jLabel1MouseDragged(evt);
+            }
+        });
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel1MousePressed(evt);
+            }
+        });
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
 
         btnRegistrar.setBackground(new java.awt.Color(62, 94, 106));
@@ -301,6 +342,40 @@ public class Login extends javax.swing.JFrame {
     private void showpass2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showpass2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_showpass2ActionPerformed
+int xx,xy;
+    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+
+
+    }//GEN-LAST:event_jLabel1MousePressed
+
+    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
+
+    }//GEN-LAST:event_jLabel1MouseDragged
+
+    private void jPanel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MousePressed
+                xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel3MousePressed
+
+    private void jPanel3MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel3MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+    }//GEN-LAST:event_jPanel3MouseDragged
+
+    private void ForgetMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgetMouseMoved
+        Forget.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
+    }//GEN-LAST:event_ForgetMouseMoved
+
+    private void ForgetMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgetMouseExited
+        Forget.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102,102,102)));
+    }//GEN-LAST:event_ForgetMouseExited
+
+    private void ForgetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgetMouseClicked
+        Recuperacion recu = new Recuperacion();
+        recu.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ForgetMouseClicked
 
     /**
      * @param args the command line arguments
@@ -336,6 +411,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Forget;
     private javax.swing.JLabel Minimizar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel jLabel1;

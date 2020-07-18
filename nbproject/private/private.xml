@@ -2,6 +2,25 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group/>
+=======
+        <group>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/RecuperacionBO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Register.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/FarmaciaDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/RegistroBO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/Admision_citaDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/UsuarioBO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia_Pacientes.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/bo/FarmaciaBO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/dao/RecuperacionDAO.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Recuperacion.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Login.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/correo/Main.java</file>
+            <file>file:/C:/Users/PROPIETARIO/OneDrive/Documentos/NetBeansProjects/MediDesk/src/hospital/views/Farmacia.java</file>
+        </group>
+>>>>>>> 2229a58dce534028bc46afe493228d43ce47fa9a
     </open-files>
 </project-private>

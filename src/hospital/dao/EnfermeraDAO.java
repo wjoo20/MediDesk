@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -127,7 +128,7 @@ public class EnfermeraDAO {
             pst.setDouble(3, pac.getTemperatura());
             pst.setDouble(4, pac.getPresion());
             pst.setInt(5, Integer.valueOf(dni));
-            mensaje = "Triaje realizado con éxito.";
+            mensaje = "";
             pst.execute();
             pst.close();
         } 
@@ -158,6 +159,70 @@ public class EnfermeraDAO {
         }
         System.out.println(id);
         return id;
+    }
+    
+    //Obtener el idCita
+    public int getIdCita(Connection con, Paciente pac, Integer dni, String especialidad, String date) {
+        int id = 0; 
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        String sql = "SELECT C.CITA_IDCITA FROM CITA C JOIN MEDICO M ON (C.MEDICO_MED_IDMEDICO = M.MED_IDMEDICO) WHERE M.ESPE_ESPE_IDESPE = (SELECT ESPE_IDESPECIALIDAD FROM ESPECIALIDAD WHERE ESPE_NOMBRE = ?)\n" +
+        "AND PACIENTE_PAC_DNI = ? AND TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setString(1, especialidad);
+            pst.setInt(2, dni);
+            pst.setString(3, date);
+            rs = pst.executeQuery();
+            if(rs.next()) {
+                id = rs.getInt("CITA_IDCITA");
+            }
+            rs.close();
+            pst.close();
+        } 
+        catch (SQLException e) {
+            System.out.println("Error en getIdCita DAO: " + e.getMessage());
+        }
+        return id;        
+    }
+    
+    //Obtener el idTriaje
+    public int getidTriaje(Connection con) {
+        int id = 0;
+        Statement st = null;
+        ResultSet rs = null;
+        String sql = "SELECT MAX(TRI_IDTRIAJE) FROM TRIAJE";
+        try {
+            st = con.createStatement();
+            rs = st.executeQuery(sql);
+            if(rs.next()) {
+                id = rs.getInt("MAX(TRI_IDTRIAJE)");
+            }
+            rs.close();
+            st.close();
+        } 
+        catch (SQLException e) {
+            System.out.println("Error en getIdTriaje " + e.getMessage());
+        }
+        return id;
+    }
+    
+    //Update tabla cita 
+    public String updateTablaCita(Connection con, Integer idTriaje, Integer idCita) {
+        PreparedStatement pst = null;
+        String sql = "UPDATE CITA SET TRIAJE_TRI_IDTRIAJE = ? WHERE CITA_IDCITA = ?";
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idTriaje);
+            pst.setInt(2, idCita);
+            mensaje = "Tabla cita actualizada correctamente.";
+            pst.execute();
+            pst.close();
+        } 
+        catch (SQLException e) {
+            mensaje = "No se pudo introducir el idTriaje en la tabla Cita." + e.getMessage();
+        }
+        return mensaje;
     }
     
     //Insertar tabla Triaje 

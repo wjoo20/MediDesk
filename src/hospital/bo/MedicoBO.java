@@ -28,4 +28,15 @@ public class MedicoBO {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void listarAtenciones(JTable tabla, String date, int idMed) {
+        Connection conn  = Conexion.getConnection();
+        mdao.listarAtenciones(conn, tabla, date, idMed);
+        try {
+            conn.close();
+        } 
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }

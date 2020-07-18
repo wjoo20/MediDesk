@@ -6,6 +6,7 @@
 package hospital.views;
 
 
+import hospital.bo.FarmaciaBO;
 import hospital.entity.Farmaceutico;
 import hospital.db.Conexion;
 import java.awt.Color;
@@ -48,84 +49,17 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     
           PreparedStatement pst;
          ResultSet rs ;    
-    
+    private FarmaciaBO farmabo= new FarmaciaBO();
     void Mostrar_Pacientes(){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("DNI");
-       tabla.addColumn("Nombres");
-       tabla.addColumn("Apellidos");
-       tabla.addColumn("Edad");
-        tabla.addColumn("Codigo");
-        tabla.addColumn("Medicamento");
-        //tabla.addColumn("Entega");
-       tablepacientes.setModel(tabla);
-
-        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
-        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni)";
-        String datos[] =new String [6];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-
-            
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                
-                tabla.addRow(datos);
-            }
-             tablepacientes.setModel(tabla);
-             pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        farmabo.Mostrar_Pacientes(tablepacientes);
 }
+            DefaultTableModel tabla =new DefaultTableModel();
     void Buscar_Pacientes(String buscar){
-        DefaultTableModel tabla =new DefaultTableModel();
-       tabla.addColumn("DNI");
-       tabla.addColumn("Nombres");
-       tabla.addColumn("Apellidos");
-       tabla.addColumn("Edad");
-        tabla.addColumn("Codigo");
-        tabla.addColumn("Medicamento");
-        //tabla.addColumn("Entega");
-       tablepacientes.setModel(tabla);
-
-        String sql = "select paciente_pac_dni,PAC_NOMBRES,PAC_APELLIDOS, PAC_EDAD,r.rec_idreceta,me_nombre from cita join receta r on (cita_idcita = r.cita_cita_idcita) \n" +
-        "join rec_me rm on (rm.receta_rec_idreceta =r.rec_idreceta)join medicamento on (me_idmedicamento =medicamento_me_idmedicamento) join paciente on (pac_dni = paciente_pac_dni ) where paciente_pac_dni LIKE '%"+buscar+"%'";
-        String datos[] =new String [6];
-        try {
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-
-
-            
-            while (rs.next()){
-                datos[0] = rs.getString(1);
-                datos[1] = rs.getString(2);     
-                datos[2] = rs.getString(3);
-                datos[3] = rs.getString(4);
-                datos[4] = rs.getString(5);
-                datos[5] = rs.getString(6);
-                
-                tabla.addRow(datos);
-            }
-             tablepacientes.setModel(tabla);
-             pst.close();
-             rs.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(Farmacia_medicamentos.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
+        farmabo.Buscar_Pacientes(tablepacientes, buscar);
 }
 
+
+       
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -156,8 +90,8 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablepacientes = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         lblLogo2 = new javax.swing.JLabel();
+        btnconfirmar = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -279,6 +213,16 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
         jPanel5.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel5.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel5MouseDragged(evt);
+            }
+        });
+        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel5MousePressed(evt);
+            }
+        });
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel19.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
@@ -388,32 +332,23 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 770, 260));
 
-        jButton1.setText("Aceptar");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, -1, -1));
-
         lblLogo2.setFont(new java.awt.Font("Maiandra GD", 1, 24)); // NOI18N
         lblLogo2.setForeground(new java.awt.Color(255, 255, 255));
         lblLogo2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jPanel1.add(lblLogo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 40, 40));
 
+        btnconfirmar.setText("Confirmar Entrega");
+        btnconfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnconfirmarMouseClicked(evt);
+            }
+        });
+        jPanel1.add(btnconfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, -1, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 800, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        Farmacia farma = new Farmacia(farm);
-        farma.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jLabel16MouseClicked
-
-    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-        int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
-        if(result==0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jLabel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseMoved
         jLabel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(40,240,220)));
@@ -458,13 +393,9 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void tablepacientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablepacientesMouseClicked
-        // TODO add your handling code here:
+                                           
+        //System.out.println("hola123");
     }//GEN-LAST:event_tablepacientesMouseClicked
-
-    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
-
-        setExtendedState(ICONIFIED );
-    }//GEN-LAST:event_MinimizarMouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         Login lo = new Login();
@@ -480,6 +411,48 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     private void textKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textKeyReleased
         Buscar_Pacientes(text.getText());
     }//GEN-LAST:event_textKeyReleased
+
+    private void btnconfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfirmarMouseClicked
+        farmabo.ConfirmarEntrega(tablepacientes);
+        Farmacia_Pacientes fp = new Farmacia_Pacientes(farm);
+        //System.out.println(farm.getIdFarmaceutico());
+        fp.setVisible(true);
+        this.setVisible(false);
+    }
+
+       public void ActualizarMouseClicked(){
+    }//GEN-LAST:event_btnconfirmarMouseClicked
+
+    private void MinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_MinimizarMouseClicked
+
+        setExtendedState(ICONIFIED );
+    }//GEN-LAST:event_MinimizarMouseClicked
+
+    private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
+        int dialog = JOptionPane.YES_NO_OPTION;
+        int result = JOptionPane.showConfirmDialog(null,"¿Desea Salir?","Exit",dialog);
+        if(result==0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        Farmacia farma = new Farmacia(farm);
+        farma.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jLabel16MouseClicked
+int xx,xy;
+    private void jPanel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MousePressed
+                xx = evt.getX();
+        xy = evt.getY();
+    }//GEN-LAST:event_jPanel5MousePressed
+
+    private void jPanel5MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x-xx,y-xy);
+
+    }//GEN-LAST:event_jPanel5MouseDragged
 
     /**
      * @param args the command line arguments
@@ -517,7 +490,7 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnconfirmar;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
