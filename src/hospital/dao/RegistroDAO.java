@@ -24,8 +24,9 @@ public class RegistroDAO {
     
     public void regUser(Connection con, Usuario user){
         PreparedStatement pst = null;
+
         String sql = "INSERT INTO USUARIO (US_IDUSUARIO, US_CORREO, US_CLAVE, US_TIPO) "
-                + "VALUES(SEQ_USUARIO.NEXTVAL,?,?,?)";
+                    + "VALUES(SEQ_USUARIO.NEXTVAL,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, user.getCorreo());
@@ -44,6 +45,7 @@ public class RegistroDAO {
         PreparedStatement pst = null;
         String sql = "INSERT INTO ADMINISTRADOR (ADM_IDADMINISTRADOR, ADM_DNI, ADM_NOMBRES, ADM_APELLIDOS, ADM_GENERO, ADM_EDAD, USUARIO_US_IDUSUARIO) "
                 + "VALUES(SEQ_ADM.NEXTVAL,?,?,?,?,?,?)";
+
         try {
             pst = con.prepareStatement(sql);
  

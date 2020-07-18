@@ -9,6 +9,7 @@ package hospital.views;
 
 import hospital.bo.MedicoBO;
 import hospital.entity.Medico;
+import hospital.entity.Paciente;
 import java.awt.Image;
 import java.text.SimpleDateFormat;
 import javax.swing.Icon;
@@ -36,6 +37,7 @@ public class Medico_cita extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.med = med;
         btnCrearHistoria.show(false);
+        btnAtender.show(false);
     }
     
     public void mostrarCitas(String date, int idMed) {
@@ -224,24 +226,24 @@ public class Medico_cita extends javax.swing.JFrame {
         jTableMedCita.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         jTableMedCita.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Hora", "Apellidos", "Nombres", "DNI", "Nº de Historia"
+                "ID", "Hora", "Apellidos", "Nombres", "DNI", "Nº de Historia"
             }
         ));
         jTableMedCita.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -285,6 +287,11 @@ public class Medico_cita extends javax.swing.JFrame {
                 btnAtenderMouseClicked(evt);
             }
         });
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 200, 30));
 
         btnCrearHistoria.setBackground(new java.awt.Color(0, 51, 51));
@@ -311,13 +318,15 @@ public class Medico_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel17MouseClicked
 
     private void jTableMedCitaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMedCitaMouseClicked
-        System.out.println("hola123");
+
         if(checkHistoria()){
-            System.out.println("ho");
             btnCrearHistoria.show(true);
+            btnAtender.show(false);
         }
-        else
+        else{
             btnCrearHistoria.show(false);
+            btnAtender.show(true);
+        }
     }//GEN-LAST:event_jTableMedCitaMouseClicked
 
     private void jLabel4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseMoved
@@ -380,11 +389,20 @@ public class Medico_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
-        Medico_paciente m = new Medico_paciente(med);
+        int row = jTableMedCita.getSelectedRow();
+        int idCita = Integer.parseInt(jTableMedCita.getModel().getValueAt(row, 0).toString());
+        String dni = jTableMedCita.getModel().getValueAt(row, 4).toString();
+        String historia = jTableMedCita.getModel().getValueAt(row, 5).toString();
+        Paciente pac = crearPaciente(dni);
+        Medico_paciente m = new Medico_paciente(med,idCita,pac,historia);
         m.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAtenderMouseClicked
 
+    public Paciente crearPaciente(String dni){
+        return mbo.crearPaciente(dni);
+    }
+    
     private void btnVerCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerCitasMouseClicked
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String date = sdf.format(jDateMedCita.getDate());
@@ -403,6 +421,10 @@ public class Medico_cita extends javax.swing.JFrame {
         m.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnCrearHistoriaMouseClicked
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        
+    }//GEN-LAST:event_btnAtenderActionPerformed
 
     /**
      * @param args the command line arguments
