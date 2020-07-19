@@ -109,6 +109,7 @@ public class Medico_paciente extends javax.swing.JFrame {
         jSeparator8 = new javax.swing.JSeparator();
         txtHistoria = new javax.swing.JTextField();
         jSeparator9 = new javax.swing.JSeparator();
+        btnAtender1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -297,6 +298,11 @@ public class Medico_paciente extends javax.swing.JFrame {
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 125, -1, 10));
 
         jboxPatologia.setEditable(true);
+        jboxPatologia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jboxPatologiaKeyReleased(evt);
+            }
+        });
         getContentPane().add(jboxPatologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 114, 280, 30));
 
         jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -314,7 +320,6 @@ public class Medico_paciente extends javax.swing.JFrame {
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 200, -1, 20));
 
         jboxMedicamentos.setEditable(true);
-        jboxMedicamentos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         getContentPane().add(jboxMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 250, 30));
 
         jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -327,7 +332,7 @@ public class Medico_paciente extends javax.swing.JFrame {
 
         btnAtender.setBackground(new java.awt.Color(0, 51, 51));
         btnAtender.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnAtender.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtender.setForeground(new java.awt.Color(102, 102, 102));
         btnAtender.setText("Terminar");
         btnAtender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -340,7 +345,7 @@ public class Medico_paciente extends javax.swing.JFrame {
                 btnAtenderActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 340, 30));
+        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 370, 30));
 
         txtNombres.setEditable(false);
         txtNombres.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
@@ -439,6 +444,23 @@ public class Medico_paciente extends javax.swing.JFrame {
 
         jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 280, 10));
+
+        btnAtender1.setBackground(new java.awt.Color(0, 51, 51));
+        btnAtender1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        btnAtender1.setForeground(new java.awt.Color(102, 102, 102));
+        btnAtender1.setText("Generar Interconsulta");
+        btnAtender1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAtender1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtender1MouseClicked(evt);
+            }
+        });
+        btnAtender1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtender1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 370, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -564,7 +586,24 @@ public class Medico_paciente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnAtenderActionPerformed
 
-    
+    private void btnAtender1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtender1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtender1MouseClicked
+
+    private void btnAtender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtender1ActionPerformed
+        Admision_generar_cita a = new Admision_generar_cita(med, id_cita, pac, his);
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAtender1ActionPerformed
+
+    private void jboxPatologiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jboxPatologiaKeyReleased
+        Buscar_Patologias(jboxPatologia.getEditor().getItem().toString());
+    }//GEN-LAST:event_jboxPatologiaKeyReleased
+
+    public void Buscar_Patologias(String search){
+        mbo.Buscar_Patologias(jboxPatologia, search);
+    }
+        
     /**
      * @param args the command line arguments
      */
@@ -610,6 +649,7 @@ public class Medico_paciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
     private javax.swing.JButton btnAtender;
+    private javax.swing.JButton btnAtender1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

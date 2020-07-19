@@ -9,10 +9,13 @@ import hospital.entity.Medicamentos;
 import hospital.entity.Paciente;
 import hospital.entity.Patologia;
 import hospital.entity.Receta;
+import hospital.views.Medico_paciente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -325,6 +328,26 @@ public class MedicoDAO {
         } 
         catch (SQLException e) {
             System.out.println("Error en crearRec_Med DAO: " + e.getMessage());        
+        }
+    }
+    
+    public void Buscar_Patologias(Connection conn, JComboBox pat, String buscar){
+        DefaultComboBoxModel modelo = new DefaultComboBoxModel();      
+        String sql = "SELECT * FROM PATOLOGIA WHERE PAT_DESCRIPCION LIKE '%"+buscar+"%'";
+        try {
+            PreparedStatement pst = null;
+            ResultSet rs = null;
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()){
+                System.out.println("1111");
+                modelo.addElement(rs.getString("PAT_DESCRIPCION"));
+            }
+            pat.setModel(modelo);
+            pst.close();
+            rs.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Medico_paciente.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
@@ -226,6 +227,17 @@ public class MedicoBO {
             catch (SQLException e) {
                 System.out.println(e.getMessage());
             }
+        }
+    }
+    
+    public void Buscar_Patologias(JComboBox pat, String buscar) {
+        Connection conn  = Conexion.getConnection();
+        mdao.Buscar_Patologias(conn, pat, buscar);    
+        try {
+            conn.close();
+        } 
+        catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
