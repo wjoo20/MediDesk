@@ -91,7 +91,7 @@ public class Recuperacion extends javax.swing.JFrame {
         btnCancelar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         btnCancelar.setForeground(new java.awt.Color(102, 102, 102));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/cancel-16(rojo).PNG"))); // NOI18N
-        btnCancelar.setText("CANCELAR");
+        btnCancelar.setText("Cancelar");
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -104,7 +104,7 @@ public class Recuperacion extends javax.swing.JFrame {
         btnRegistrar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         btnRegistrar.setForeground(new java.awt.Color(102, 102, 102));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
-        btnRegistrar.setText("Enviar Codigo");
+        btnRegistrar.setText("Enviar Código");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnRegistrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

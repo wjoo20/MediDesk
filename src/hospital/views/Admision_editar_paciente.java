@@ -20,6 +20,13 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         this.adm = adm;
         this.pac_dni=pac_dni;
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        txtDniEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtNombresEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtApellidosEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtEdadEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtCorreoEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtDireccionEditar.setBackground(new java.awt.Color(0,0,0,1));
+        txtTelefonoEditar.setBackground(new java.awt.Color(0,0,0,1));
         listar_editar_paciente();
         
     }
@@ -164,24 +171,30 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, -1, -1));
 
         txtDniEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtDniEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDniEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtDniEditar.setBorder(null);
+        txtDniEditar.setOpaque(false);
         jPanel2.add(txtDniEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 350, 30));
 
         jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 350, 10));
 
         txtNombresEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtNombresEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtNombresEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtNombresEditar.setBorder(null);
+        txtNombresEditar.setOpaque(false);
         jPanel2.add(txtNombresEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 350, 30));
 
         jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 350, 10));
 
         txtApellidosEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtApellidosEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtApellidosEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtApellidosEditar.setBorder(null);
+        txtApellidosEditar.setOpaque(false);
         jPanel2.add(txtApellidosEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 350, 30));
 
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,16 +221,20 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jPanel2.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 210, 90, 30));
 
         txtEdadEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtEdadEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtEdadEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtEdadEditar.setBorder(null);
+        txtEdadEditar.setOpaque(false);
         jPanel2.add(txtEdadEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 50, 30));
 
         jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 50, 10));
 
         txtCorreoEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtCorreoEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtCorreoEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtCorreoEditar.setBorder(null);
+        txtCorreoEditar.setOpaque(false);
         jPanel2.add(txtCorreoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 350, 30));
 
         jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,13 +244,17 @@ public class Admision_editar_paciente extends javax.swing.JFrame {
         jPanel2.add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 350, 10));
 
         txtDireccionEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtDireccionEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDireccionEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtDireccionEditar.setBorder(null);
+        txtDireccionEditar.setOpaque(false);
         jPanel2.add(txtDireccionEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 350, 30));
 
         txtTelefonoEditar.setBackground(new java.awt.Color(28, 28, 28));
+        txtTelefonoEditar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtTelefonoEditar.setForeground(new java.awt.Color(255, 255, 255));
         txtTelefonoEditar.setBorder(null);
+        txtTelefonoEditar.setOpaque(false);
         jPanel2.add(txtTelefonoEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, 350, 30));
 
         jSeparator5.setForeground(new java.awt.Color(255, 255, 255));

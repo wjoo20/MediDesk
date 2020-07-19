@@ -239,7 +239,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Olvide mi Contrase&#xf1;a"/>
+            <Property name="text" type="java.lang.String" value="Olvid&#xe9; mi Contrase&#xf1;a"/>
           </Properties>
           <Events>
             <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="ForgetMouseMoved"/>

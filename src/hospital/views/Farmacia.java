@@ -31,6 +31,8 @@ public class Farmacia extends javax.swing.JFrame {
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.farm = farm;
+        lblNombre.setText(farm.getNombres());
+        lblApellido.setText(farm.getApellidos());
     }
 
     /**
@@ -52,8 +54,9 @@ public class Farmacia extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -139,7 +142,7 @@ public class Farmacia extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, -1, 20));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,7 +161,7 @@ public class Farmacia extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -178,16 +181,10 @@ public class Farmacia extends javax.swing.JFrame {
                 jLabel5MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
-
-        jLabel8.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("USUARIO");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -200,6 +197,18 @@ public class Farmacia extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -400,11 +409,12 @@ int xx,xy;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

@@ -29,7 +29,8 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         Abo.listar_especialidades(cbEspecialidad);    
         listar_editar_cita(new Medico());
-        cbMedico.getModel().setSelectedItem(ape_medico); 
+        cbMedico.getModel().setSelectedItem(ape_medico);
+        txtDni.setBackground(new java.awt.Color(0,0,0,1));
     }
  
     public Cita listar_editar_cita(Medico med) {
@@ -43,6 +44,7 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         
         try {
            fechaDate = sdf.parse(cit.getFecha()); 
+           //fechaDate = sdf.parse(sdf.format(cit.getFecha())); 
            jSpinnerDateEditor1.setDate(fechaDate);
         } 
         catch (ParseException ex) 
@@ -160,8 +162,10 @@ public class Admision_editar_cita extends javax.swing.JFrame {
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 350, 10));
 
         txtDni.setBackground(new java.awt.Color(28, 28, 28));
+        txtDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDni.setForeground(new java.awt.Color(255, 255, 255));
         txtDni.setBorder(null);
+        txtDni.setOpaque(false);
         jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 350, 30));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N

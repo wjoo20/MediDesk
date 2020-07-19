@@ -33,7 +33,8 @@ public class Triaje_inicio extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.enf = enf;
-        lblCorreoUsuario.setText(enf.getCorreo());
+        lblNombre.setText(enf.getNombres());
+        lblApellido.setText(enf.getApellidos());
     }
 
     /**
@@ -50,8 +51,9 @@ public class Triaje_inicio extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
@@ -88,7 +90,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,7 +111,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
                 jLabel11MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -129,16 +131,10 @@ public class Triaje_inicio extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
-
-        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCorreoUsuario.setText("USUARIO");
-        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,6 +147,18 @@ public class Triaje_inicio extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -377,7 +385,8 @@ public class Triaje_inicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JLabel lblCorreoUsuario;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

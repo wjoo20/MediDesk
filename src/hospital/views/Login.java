@@ -38,7 +38,7 @@ public class Login extends javax.swing.JFrame {
         Register r = new Register();
         String epass = r.encrypt(String.valueOf(jpassword.getPassword()));
         JOptionPane.showMessageDialog(null, ubo.login(epass,juser.getText())); 
-        if(ubo.login(epass,juser.getText()).equals("Contraseña correcta")){
+        if(ubo.login(epass,juser.getText()).equals("BIENVENIDO(A)!")){
             return true;
         }else{
             return false;
@@ -188,7 +188,7 @@ public class Login extends javax.swing.JFrame {
         Forget.setBackground(new java.awt.Color(255, 255, 255));
         Forget.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
         Forget.setForeground(new java.awt.Color(255, 255, 255));
-        Forget.setText("Olvide mi Contraseña");
+        Forget.setText("Olvidé mi Contraseña");
         Forget.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 ForgetMouseMoved(evt);

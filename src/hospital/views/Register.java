@@ -36,6 +36,8 @@ public class Register extends javax.swing.JFrame {
         txtEmail.setBackground(new java.awt.Color(0,0,0,1));
         txtEdad.setBackground(new java.awt.Color(0,0,0,1));
         txtContraseña.setBackground(new java.awt.Color(0,0,0,1));
+        txtConfirmarContraseña.setBackground(new java.awt.Color(0,0,0,1));
+        txtCmp.setBackground(new java.awt.Color(0,0,0,1));
         lblEspecialidad.setVisible(false);
         lblCmp.setVisible(false);
         cbEspecialidad.setVisible(false);
@@ -93,7 +95,6 @@ public class Register extends javax.swing.JFrame {
         jSeparator7 = new javax.swing.JSeparator();
         Minimizar = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtCmp = new javax.swing.JTextField();
         jsCmp = new javax.swing.JSeparator();
         jsEdad = new javax.swing.JSeparator();
         lblEdad = new javax.swing.JLabel();
@@ -101,6 +102,7 @@ public class Register extends javax.swing.JFrame {
         cbEspecialidad = new javax.swing.JComboBox<>();
         txtContraseña = new javax.swing.JPasswordField();
         txtConfirmarContraseña = new javax.swing.JPasswordField();
+        txtCmp = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
 
@@ -159,7 +161,7 @@ public class Register extends javax.swing.JFrame {
 
         btnRegistrar.setBackground(new java.awt.Color(0, 51, 51));
         btnRegistrar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnRegistrar.setForeground(new java.awt.Color(102, 102, 102));
+        btnRegistrar.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
         btnRegistrar.setText("REGISTRAR");
         btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -190,12 +192,14 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, -1, 50));
 
         txtEmail.setBackground(new java.awt.Color(28, 28, 28));
+        txtEmail.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtEmail.setForeground(new java.awt.Color(255, 255, 255));
         txtEmail.setBorder(null);
         txtEmail.setOpaque(false);
         jPanel2.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 410, 30));
 
         txtEdad.setBackground(new java.awt.Color(28, 28, 28));
+        txtEdad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtEdad.setForeground(new java.awt.Color(255, 255, 255));
         txtEdad.setBorder(null);
         txtEdad.setOpaque(false);
@@ -281,12 +285,14 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(rbtFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, 30));
 
         txtNombres.setBackground(new java.awt.Color(28, 28, 28));
+        txtNombres.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtNombres.setForeground(new java.awt.Color(255, 255, 255));
         txtNombres.setBorder(null);
         txtNombres.setOpaque(false);
         jPanel2.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 410, 30));
 
         txtDni.setBackground(new java.awt.Color(28, 28, 28));
+        txtDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDni.setForeground(new java.awt.Color(255, 255, 255));
         txtDni.setBorder(null);
         txtDni.setOpaque(false);
@@ -303,7 +309,7 @@ public class Register extends javax.swing.JFrame {
 
         btnLimpiar.setBackground(new java.awt.Color(0, 51, 51));
         btnLimpiar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnLimpiar.setForeground(new java.awt.Color(102, 102, 102));
+        btnLimpiar.setForeground(new java.awt.Color(255, 255, 255));
         btnLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eraser-16.png"))); // NOI18N
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -316,7 +322,7 @@ public class Register extends javax.swing.JFrame {
 
         btnCancelar.setBackground(new java.awt.Color(0, 51, 51));
         btnCancelar.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnCancelar.setForeground(new java.awt.Color(102, 102, 102));
+        btnCancelar.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/cancel-16(rojo).PNG"))); // NOI18N
         btnCancelar.setText("CANCELAR");
         btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -328,6 +334,7 @@ public class Register extends javax.swing.JFrame {
         jPanel2.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 400, -1, 30));
 
         txtApellidos.setBackground(new java.awt.Color(28, 28, 28));
+        txtApellidos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtApellidos.setForeground(new java.awt.Color(255, 255, 255));
         txtApellidos.setBorder(null);
         txtApellidos.setOpaque(false);
@@ -366,12 +373,6 @@ public class Register extends javax.swing.JFrame {
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel11.setText("DNI:");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 30));
-
-        txtCmp.setBackground(new java.awt.Color(28, 28, 28));
-        txtCmp.setForeground(new java.awt.Color(255, 255, 255));
-        txtCmp.setBorder(null);
-        txtCmp.setOpaque(false);
-        jPanel2.add(txtCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 170, 30));
 
         jsCmp.setForeground(new java.awt.Color(255, 255, 255));
         jPanel2.add(jsCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 170, 10));
@@ -414,6 +415,13 @@ public class Register extends javax.swing.JFrame {
         txtConfirmarContraseña.setOpaque(false);
         jPanel2.add(txtConfirmarContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, 30));
 
+        txtCmp.setBackground(new java.awt.Color(28, 28, 28));
+        txtCmp.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        txtCmp.setForeground(new java.awt.Color(255, 255, 255));
+        txtCmp.setBorder(null);
+        txtCmp.setOpaque(false);
+        jPanel2.add(txtCmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 310, 170, 30));
+
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/Deep Space(650x460).png"))); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 460));
 
@@ -427,7 +435,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         int dialog = JOptionPane.YES_NO_OPTION;
-        int result = JOptionPane.showConfirmDialog(null, "Desea salir del Login?","Exit",dialog);
+        int result = JOptionPane.showConfirmDialog(null, "Desea salir del Register?","Exit",dialog);
         if(result == 0){
             System.exit(0);
         }

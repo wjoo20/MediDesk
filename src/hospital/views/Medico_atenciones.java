@@ -35,6 +35,9 @@ public class Medico_atenciones extends javax.swing.JFrame {
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.med = med;
+        txtTotal.setBackground(new java.awt.Color(0,0,0,1));
+        lblNombre.setText(med.getNombres());
+        lblApellido.setText(med.getApellidos());
     }
     
     public void listarAtenciones(String date, int idMed){
@@ -56,8 +59,9 @@ public class Medico_atenciones extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -100,7 +104,7 @@ public class Medico_atenciones extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -120,7 +124,7 @@ public class Medico_atenciones extends javax.swing.JFrame {
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,7 +143,7 @@ public class Medico_atenciones extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton4.setText("Buscar");
@@ -158,12 +162,6 @@ public class Medico_atenciones extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("USUARIO");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
-
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/exit-32(blanco).png"))); // NOI18N
@@ -175,6 +173,18 @@ public class Medico_atenciones extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -271,7 +281,7 @@ public class Medico_atenciones extends javax.swing.JFrame {
         jDateChooser.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(jDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, 200, 30));
 
-        btnVerCitas.setBackground(new java.awt.Color(51, 51, 51));
+        btnVerCitas.setBackground(new java.awt.Color(0, 51, 51));
         btnVerCitas.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         btnVerCitas.setForeground(new java.awt.Color(255, 255, 255));
         btnVerCitas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/eye_(16).png"))); // NOI18N
@@ -450,7 +460,6 @@ public class Medico_atenciones extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser jDateChooser;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -463,8 +472,10 @@ public class Medico_atenciones extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTableMedCita;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

@@ -42,7 +42,8 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());  
-        lblCorreoUsuario.setText(enf.getCorreo());
+        lblNombre.setText(enf.getNombres());
+        lblApellido.setText(enf.getApellidos());
         this.dni = dni;
         this.enf = enf;
         this.dniE = dniE;
@@ -92,8 +93,9 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -185,7 +187,7 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +208,7 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
                 jLabel11MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,16 +228,10 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
-
-        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCorreoUsuario.setText("USUARIO");
-        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel15.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,6 +244,18 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -313,33 +321,39 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
         jPanel1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 120, 20));
 
         txtPresionArterial.setBackground(new java.awt.Color(255, 255, 255));
+        txtPresionArterial.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtPresionArterial.setForeground(new java.awt.Color(0, 0, 0));
         txtPresionArterial.setBorder(null);
         jPanel1.add(txtPresionArterial, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 210, -1));
 
         txtDniPaciente.setEditable(false);
         txtDniPaciente.setBackground(new java.awt.Color(255, 255, 255));
+        txtDniPaciente.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDniPaciente.setForeground(new java.awt.Color(0, 0, 0));
         txtDniPaciente.setBorder(null);
         jPanel1.add(txtDniPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 210, -1));
 
         txtDniEnfermera.setEditable(false);
         txtDniEnfermera.setBackground(new java.awt.Color(255, 255, 255));
+        txtDniEnfermera.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDniEnfermera.setForeground(new java.awt.Color(0, 0, 0));
         txtDniEnfermera.setBorder(null);
         jPanel1.add(txtDniEnfermera, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 210, -1));
 
         txtTalla.setBackground(new java.awt.Color(255, 255, 255));
+        txtTalla.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtTalla.setForeground(new java.awt.Color(0, 0, 0));
         txtTalla.setBorder(null);
         jPanel1.add(txtTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 210, -1));
 
         txtPeso.setBackground(new java.awt.Color(255, 255, 255));
+        txtPeso.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtPeso.setForeground(new java.awt.Color(0, 0, 0));
         txtPeso.setBorder(null);
         jPanel1.add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 210, -1));
 
         txtTemperatura.setBackground(new java.awt.Color(255, 255, 255));
+        txtTemperatura.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtTemperatura.setForeground(new java.awt.Color(0, 0, 0));
         txtTemperatura.setBorder(null);
         jPanel1.add(txtTemperatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, 210, -1));
@@ -450,8 +464,7 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, mensaje1);
             Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf,dni,date,especialidad);
             r.setVisible(true);         
-            this.setVisible(false);
-            
+            this.setVisible(false);           
         }
     }//GEN-LAST:event_btnModificarTriajeMouseClicked
 
@@ -521,8 +534,9 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JLabel lblCorreoUsuario;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtDniEnfermera;
     private javax.swing.JTextField txtDniPaciente;
     private javax.swing.JTextField txtPeso;

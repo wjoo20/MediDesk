@@ -43,6 +43,8 @@ public final class Farmacia_medicamentos extends javax.swing.JFrame {
 
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.farm = farm;
+        lblNombre.setText(farm.getNombres());
+        lblApellido.setText(farm.getApellidos());
     }
         
         
@@ -77,8 +79,9 @@ void Buscar_Medicamentos(String buscar){
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablemedicamentos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
@@ -96,6 +99,7 @@ void Buscar_Medicamentos(String buscar){
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txt_buscar.setBackground(new java.awt.Color(255, 255, 255));
+        txt_buscar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txt_buscar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
         txt_buscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -128,7 +132,7 @@ void Buscar_Medicamentos(String buscar){
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -148,7 +152,7 @@ void Buscar_Medicamentos(String buscar){
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, 20));
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,16 +172,10 @@ void Buscar_Medicamentos(String buscar){
                 jLabel5MouseExited(evt);
             }
         });
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
-
-        jLabel6.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("USUARIO");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel7.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,6 +188,18 @@ void Buscar_Medicamentos(String buscar){
             }
         });
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel3.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel3.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -437,14 +447,15 @@ int xx,xy;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTable tablemedicamentos;
     private javax.swing.JTextField txt_buscar;
     // End of variables declaration//GEN-END:variables

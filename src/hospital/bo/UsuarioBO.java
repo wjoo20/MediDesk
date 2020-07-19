@@ -20,12 +20,12 @@ public class UsuarioBO {
         String pass = udao.login(conn,user);
         try {
             if(pass == null){
-                mensaje = "Usuario incorrecto";
+                mensaje = "Usuario y/o contraseña incorrecta";
             }
             else if(p.equals(pass)){
-                mensaje = "Contraseña correcta";
+                mensaje = "BIENVENIDO(A)!";
             }else{
-                mensaje = "Contraseña incorrecta";
+                mensaje = "Usuario y/o contraseña incorrecta";
             }
             conn.close();
         } catch (SQLException ex) {

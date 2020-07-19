@@ -27,7 +27,8 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.adm = adm;
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-        Abo.listar_especialidades(cbEspecialidad);       
+        Abo.listar_especialidades(cbEspecialidad);
+        txtDni.setBackground(new java.awt.Color(0,0,0,1));
     }
 
     public Admision_generar_cita(Medico med, int idCita, Paciente pac, String historia) {
@@ -35,6 +36,7 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         Abo.listar_especialidades(cbEspecialidad);
+        txtDni.setBackground(new java.awt.Color(0,0,0,1));
         this.med = med;
         this.ic = idCita;
         this.p = pac;
@@ -149,8 +151,10 @@ public class Admision_generar_cita extends javax.swing.JFrame {
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 350, 10));
 
         txtDni.setBackground(new java.awt.Color(28, 28, 28));
+        txtDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDni.setForeground(new java.awt.Color(255, 255, 255));
         txtDni.setBorder(null);
+        txtDni.setOpaque(false);
         jPanel2.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 350, 30));
 
         jLabel4.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N

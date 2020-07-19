@@ -50,6 +50,12 @@ public class Medico_historia extends javax.swing.JFrame {
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
         this.fecha = formateador.format(ahora);
         txtFecha.setText(fecha);
+        txtNombes.setBackground(new java.awt.Color(0,0,0,1));
+        txtApellidos.setBackground(new java.awt.Color(0,0,0,1));
+        txtDni.setBackground(new java.awt.Color(0,0,0,1));
+        txtFecha.setBackground(new java.awt.Color(0,0,0,1));
+        lblNombre.setText(med.getNombres());
+        lblApellido.setText(med.getApellidos());
     }
     
     public String crearHistoria(String date, String dni){
@@ -71,8 +77,9 @@ public class Medico_historia extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -122,7 +129,7 @@ public class Medico_historia extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -142,7 +149,7 @@ public class Medico_historia extends javax.swing.JFrame {
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +168,7 @@ public class Medico_historia extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton4.setText("Buscar");
@@ -180,12 +187,6 @@ public class Medico_historia extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("USUARIO");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
-
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/exit-32(blanco).png"))); // NOI18N
@@ -197,6 +198,18 @@ public class Medico_historia extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -263,6 +276,7 @@ public class Medico_historia extends javax.swing.JFrame {
         txtNombes.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         txtNombes.setForeground(new java.awt.Color(102, 102, 102));
         txtNombes.setBorder(null);
+        txtNombes.setOpaque(false);
         txtNombes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombesActionPerformed(evt);
@@ -274,6 +288,7 @@ public class Medico_historia extends javax.swing.JFrame {
         txtApellidos.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         txtApellidos.setForeground(new java.awt.Color(102, 102, 102));
         txtApellidos.setBorder(null);
+        txtApellidos.setOpaque(false);
         txtApellidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidosActionPerformed(evt);
@@ -297,6 +312,7 @@ public class Medico_historia extends javax.swing.JFrame {
         txtDni.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         txtDni.setForeground(new java.awt.Color(102, 102, 102));
         txtDni.setBorder(null);
+        txtDni.setOpaque(false);
         txtDni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDniActionPerformed(evt);
@@ -324,6 +340,7 @@ public class Medico_historia extends javax.swing.JFrame {
         txtFecha.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         txtFecha.setForeground(new java.awt.Color(102, 102, 102));
         txtFecha.setBorder(null);
+        txtFecha.setOpaque(false);
         txtFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFechaActionPerformed(evt);
@@ -494,7 +511,6 @@ public class Medico_historia extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -512,8 +528,10 @@ public class Medico_historia extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtFecha;

@@ -40,7 +40,8 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         Icon img = new ImageIcon(smile.getImage().getScaledInstance(lblLogo.getWidth(), lblLogo.getHeight(),Image.SCALE_DEFAULT));
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());        
-        lblCorreoUsuario.setText(enf.getCorreo());
+        lblNombre.setText(enf.getNombres());
+        lblApellido.setText(enf.getApellidos());
         this.enf = enf;  
         this.dni= dni;
         this.especialidad = especialidad;
@@ -78,8 +79,9 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        lblCorreoUsuario = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -142,7 +144,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -163,7 +165,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
                 jLabel11MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,16 +185,10 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
-
-        lblCorreoUsuario.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        lblCorreoUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblCorreoUsuario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCorreoUsuario.setText("USUARIO");
-        jPanel2.add(lblCorreoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
 
         jLabel28.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,6 +201,18 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -354,54 +362,63 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
 
         txtDni.setEditable(false);
         txtDni.setBackground(new java.awt.Color(255, 255, 255));
+        txtDni.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDni.setForeground(new java.awt.Color(0, 0, 0));
         txtDni.setBorder(null);
         jPanel1.add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 210, -1));
 
         txtNombres.setEditable(false);
         txtNombres.setBackground(new java.awt.Color(255, 255, 255));
+        txtNombres.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtNombres.setForeground(new java.awt.Color(0, 0, 0));
         txtNombres.setBorder(null);
         jPanel1.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 210, -1));
 
         txtApellidos.setEditable(false);
         txtApellidos.setBackground(new java.awt.Color(255, 255, 255));
+        txtApellidos.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtApellidos.setForeground(new java.awt.Color(0, 0, 0));
         txtApellidos.setBorder(null);
         jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 210, -1));
 
         txtCorreo.setEditable(false);
         txtCorreo.setBackground(new java.awt.Color(255, 255, 255));
+        txtCorreo.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtCorreo.setForeground(new java.awt.Color(0, 0, 0));
         txtCorreo.setBorder(null);
         jPanel1.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, -1));
 
         txtTelefono.setEditable(false);
         txtTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        txtTelefono.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(0, 0, 0));
         txtTelefono.setBorder(null);
         jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 210, -1));
 
         txtDireccion.setEditable(false);
         txtDireccion.setBackground(new java.awt.Color(255, 255, 255));
+        txtDireccion.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtDireccion.setForeground(new java.awt.Color(0, 0, 0));
         txtDireccion.setBorder(null);
         jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 210, -1));
 
         txtGenero.setEditable(false);
         txtGenero.setBackground(new java.awt.Color(255, 255, 255));
+        txtGenero.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtGenero.setForeground(new java.awt.Color(0, 0, 0));
         txtGenero.setBorder(null);
         jPanel1.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 150, 210, -1));
 
         txtEdad.setEditable(false);
         txtEdad.setBackground(new java.awt.Color(255, 255, 255));
+        txtEdad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtEdad.setForeground(new java.awt.Color(0, 0, 0));
         txtEdad.setBorder(null);
         jPanel1.add(txtEdad, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 190, 210, -1));
 
         txtTriaje.setEditable(false);
         txtTriaje.setBackground(new java.awt.Color(255, 255, 255));
+        txtTriaje.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         txtTriaje.setForeground(new java.awt.Color(0, 0, 0));
         txtTriaje.setBorder(null);
         jPanel1.add(txtTriaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, 210, -1));
@@ -563,8 +580,9 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JLabel lblCorreoUsuario;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;

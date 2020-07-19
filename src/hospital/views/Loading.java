@@ -52,6 +52,7 @@ public class Loading extends javax.swing.JFrame implements Runnable {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 9, 76, 85));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Cargando . . .");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 9, 267, 85));
 

@@ -42,6 +42,13 @@ public class Medico_paciente extends javax.swing.JFrame {
         this.pac = pac;
         this.his = historia;
         this.id_cita = idCita;
+        txtNombres.setBackground(new java.awt.Color(0,0,0,1));
+        txtApellidos.setBackground(new java.awt.Color(0,0,0,1));
+        txtTalla.setBackground(new java.awt.Color(0,0,0,1));
+        txtPeso.setBackground(new java.awt.Color(0,0,0,1));
+        txtTemp.setBackground(new java.awt.Color(0,0,0,1));
+        txtPresion.setBackground(new java.awt.Color(0,0,0,1));
+        txtHistoria.setBackground(new java.awt.Color(0,0,0,1));
         txtNombres.setText(pac.getNombres());
         txtApellidos.setText(pac.getApellidos());
         txtTalla.setText(String.valueOf(pac.getTalla()));
@@ -51,6 +58,8 @@ public class Medico_paciente extends javax.swing.JFrame {
         txtHistoria.setText(his);
         mbo.listarPatologia(jboxPatologia);
         mbo.listarMedicamentos(jboxMedicamentos);
+        lblNombre.setText(med.getNombres());
+        lblApellido.setText(med.getApellidos());
     }
 
     /**
@@ -68,8 +77,9 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        lblNombre = new javax.swing.JLabel();
+        lblApellido = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         lblLogo = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
@@ -138,7 +148,7 @@ public class Medico_paciente extends javax.swing.JFrame {
                 jLabel4MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, 20));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 185, -1, 20));
 
         jLabel10.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,7 +168,7 @@ public class Medico_paciente extends javax.swing.JFrame {
                 jLabel10MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 215, 70, -1));
 
         jLabel14.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,7 +187,7 @@ public class Medico_paciente extends javax.swing.JFrame {
                 jLabel14MouseExited(evt);
             }
         });
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 245, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jButton4.setText("Buscar");
@@ -196,12 +206,6 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/user-64(verde).png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, 70));
 
-        jLabel13.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel13.setText("USUARIO");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 90, -1));
-
         jLabel11.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/exit-32(blanco).png"))); // NOI18N
@@ -213,6 +217,18 @@ public class Medico_paciente extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
+
+        lblNombre.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblNombre.setForeground(new java.awt.Color(255, 255, 255));
+        lblNombre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblNombre.setText("USUARIO");
+        jPanel2.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 100, 140, -1));
+
+        lblApellido.setFont(new java.awt.Font("Maiandra GD", 3, 14)); // NOI18N
+        lblApellido.setForeground(new java.awt.Color(255, 255, 255));
+        lblApellido.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblApellido.setText("USUARIO");
+        jPanel2.add(lblApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 130, 140, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 150, 400));
 
@@ -310,6 +326,7 @@ public class Medico_paciente extends javax.swing.JFrame {
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 303, -1, 20));
 
         jtxtIndicaciones.setColumns(20);
+        jtxtIndicaciones.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         jtxtIndicaciones.setRows(5);
         jScrollPane2.setViewportView(jtxtIndicaciones);
 
@@ -326,13 +343,14 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel25.setText("Medicamento:");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 165, -1, 20));
 
+        jTextPane1.setBackground(new java.awt.Color(153, 153, 153));
         jScrollPane1.setViewportView(jTextPane1);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 370, 180));
 
         btnAtender.setBackground(new java.awt.Color(0, 51, 51));
         btnAtender.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnAtender.setForeground(new java.awt.Color(102, 102, 102));
+        btnAtender.setForeground(new java.awt.Color(255, 255, 255));
         btnAtender.setText("Terminar");
         btnAtender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -447,7 +465,7 @@ public class Medico_paciente extends javax.swing.JFrame {
 
         btnAtender1.setBackground(new java.awt.Color(0, 51, 51));
         btnAtender1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnAtender1.setForeground(new java.awt.Color(102, 102, 102));
+        btnAtender1.setForeground(new java.awt.Color(255, 255, 255));
         btnAtender1.setText("Generar Interconsulta");
         btnAtender1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtender1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -573,17 +591,21 @@ public class Medico_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_txtHistoriaActionPerformed
 
     private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
-        int idPat = mbo.getIdPat(String.valueOf(jboxPatologia.getSelectedItem()));
-        int idMed = mbo.getIdMed(String.valueOf(jboxMedicamentos.getSelectedItem()));
-        mbo.updatePaciente(pac.getDni());
-        mbo.updateCita(id_cita);
-        mbo.crearHis_Pat(his,idPat,id_cita);
-        mbo.crearReceta(id_cita,jtxtIndicaciones.getText());
-        mbo.crearRec_Med(mbo.getIdReceta(id_cita),idMed);
-        JOptionPane.showMessageDialog(null, "Atención Finalizada");
-        Medico_cita m = new Medico_cita(med);
-        m.setVisible(true);
-        this.setVisible(false);
+        if(jboxPatologia.getSelectedIndex()== 0 || jboxMedicamentos.getSelectedIndex()== 0){
+            JOptionPane.showMessageDialog(null, "Llene todos los campos"); 
+        }else{
+            int idPat = mbo.getIdPat(String.valueOf(jboxPatologia.getSelectedItem()));
+            int idMed = mbo.getIdMed(String.valueOf(jboxMedicamentos.getSelectedItem()));
+            mbo.updatePaciente(pac.getDni());
+            mbo.updateCita(id_cita);
+            mbo.crearHis_Pat(his,idPat,id_cita);
+            mbo.crearReceta(id_cita,jtxtIndicaciones.getText());
+            mbo.crearRec_Med(mbo.getIdReceta(id_cita),idMed);
+            JOptionPane.showMessageDialog(null, "Atención Finalizada");
+            Medico_cita m = new Medico_cita(med);
+            m.setVisible(true);
+            this.setVisible(false);
+        }   
     }//GEN-LAST:event_btnAtenderActionPerformed
 
     private void btnAtender1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtender1MouseClicked
@@ -654,7 +676,6 @@ public class Medico_paciente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -686,8 +707,10 @@ public class Medico_paciente extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jboxMedicamentos;
     private javax.swing.JComboBox<String> jboxPatologia;
     private javax.swing.JTextArea jtxtIndicaciones;
+    private javax.swing.JLabel lblApellido;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JLabel lblNombre;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtHistoria;
     private javax.swing.JTextField txtNombres;

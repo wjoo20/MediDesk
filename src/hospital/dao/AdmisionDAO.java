@@ -183,7 +183,7 @@ public class AdmisionDAO {
             pst.setString(3, cit.getFecha());
             pst.setInt(4, dato);
             pst.setInt(5, cit.getDni_paciente());
-            mensaje="CITA GUARDADO CORRECTAMENTE";
+            mensaje="CITA GUARDADA CORRECTAMENTE";
                 pst.execute();
                 pst.close();
         }catch(SQLException e){
@@ -202,7 +202,7 @@ public class AdmisionDAO {
             pst.setInt(2, cit.getIdMedico());
             pst.setInt(3, cit.getDni_paciente());
             pst.setInt(4, cita_id);
-            mensaje="CITA ACTUALIZADO CORRECTAMENTE";
+            mensaje="CITA ACTUALIZADA CORRECTAMENTE";
                 pst.execute();
                 pst.close();
         }catch(SQLException e){
@@ -285,7 +285,7 @@ public class AdmisionDAO {
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql="SELECT * FROM especialidad";
-        value.addElement(new Especialidad(0,"Selecciones una especialidad"));
+        value.addElement(new Especialidad(0,"Seleccione una especialidad"));
         
         try{      
             ps = conn.prepareStatement(sql);
@@ -304,7 +304,7 @@ public class AdmisionDAO {
         DefaultComboBoxModel value=new DefaultComboBoxModel();
         PreparedStatement pst = null;
         ResultSet rs = null; 
-        value.addElement(new Medico(0,"Selecciones un medico"));
+        value.addElement(new Medico(0,"Seleccione un médico"));
         try{
             pst=conn.prepareStatement("SELECT MED_IDMEDICO,MED_APELLIDOS FROM medico where ESPE_ESPE_IDESPE=?");
             pst.setInt(1, id);
