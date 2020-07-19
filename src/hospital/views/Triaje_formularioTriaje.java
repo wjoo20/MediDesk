@@ -27,6 +27,8 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     private static String dni;
     public static String especialidad;
     public static String date;
+    public static String temperatura;
+    public static String presion;
     private static int dniE;
     public Triaje_formularioTriaje(Enfermera enf, String dni, Integer dniE, String especialidad, String date) {
         initComponents();
@@ -385,7 +387,7 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf,dni, date, especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -415,20 +417,19 @@ public class Triaje_formularioTriaje extends javax.swing.JFrame {
         }
         else {
             this.dni = txtDniPaciente.getText();
-            this.dniE = Integer.valueOf(txtDniEnfermera.getText());
+            this.dniE = enf.getDni();
             Paciente pac = new Paciente();   
-            Enfermera enf = new Enfermera();
             pac.setTalla(Double.valueOf(txtTalla.getText()));
             pac.setPeso(Double.valueOf(txtPeso.getText()));
             pac.setTemperatura(Double.valueOf(txtTemperatura.getText()));
             pac.setPresion(Double.valueOf(txtPresionArterial.getText()));            
             String mensaje1 = "Triaje realizado con éxito" + ebo.agregarTriajePaciente(pac,dni);            
-            String mensaje2 = ebo.agregarTablaTriaje(enf,ebo.getIdEnf(enf, dniE));        
+            String mensaje2 = ebo.agregarTablaTriaje(enf,ebo.getIdEnf(enf,dniE));
             JOptionPane.showMessageDialog(null, mensaje1);
             System.out.println(mensaje2);
-            String mensaje3 = ebo.updateTablaCita(ebo.getIdTriaje(), ebo.getIdCita(pac,Integer.valueOf(dni), especialidad, date));
+            String mensaje3 = "Triaje insertado en cita" + ebo.updateTablaCita(ebo.getIdTriaje(), ebo.getIdCita(Integer.valueOf(dni), especialidad, date));
             System.out.println(mensaje3);
-            Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf);
+            Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf,dni,date, especialidad);
             r.setVisible(true);
             this.setVisible(false);
             

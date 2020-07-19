@@ -27,6 +27,9 @@ public class Triaje_cita extends javax.swing.JFrame {
         private static Enfermera enf;
         public static String especialidad;
         public static String date;
+        public static String temperatura;
+        public static Integer dni;
+        public static String presion;
     public Triaje_cita(Enfermera enf, String especialidad, String date) {
         initComponents();        
           this.setLocationRelativeTo(null);
@@ -328,7 +331,7 @@ public class Triaje_cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf, String.valueOf(dni), date, especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked

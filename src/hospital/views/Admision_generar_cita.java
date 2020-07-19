@@ -6,6 +6,7 @@ import hospital.entity.Administrador;
 import hospital.entity.Cita;
 import hospital.entity.Especialidad;
 import hospital.entity.Medico;
+import hospital.entity.Paciente;
 import java.text.SimpleDateFormat;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -14,17 +15,33 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     
     AdmisionBO Abo = new AdmisionBO();
     Especialidad espe=new Especialidad();
-    private  static Administrador adm; 
+    private static Administrador adm;
+    private static Medico med;
+    private static int ic;
+    private static Paciente p;
+    private static String h;
+    private static boolean flag = false;
     
     public Admision_generar_cita(Administrador adm) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.adm = adm;
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
-        Abo.listar_especialidades(cbEspecialidad);
-        
+        Abo.listar_especialidades(cbEspecialidad);       
     }
 
+    public Admision_generar_cita(Medico med, int idCita, Paciente pac, String historia) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
+        Abo.listar_especialidades(cbEspecialidad);
+        this.med = med;
+        this.ic = idCita;
+        this.p = pac;
+        this.h = historia;
+        this.flag = true;
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -227,18 +244,29 @@ public class Admision_generar_cita extends javax.swing.JFrame {
             
             Cita cit  = new Cita();
             cit.setDni_paciente(Integer.parseInt(txtDni.getText()));
-            cit.setTipo("N");
+            if(this.flag){
+                cit.setTipo("I");
+            }
+            else{
+                cit.setTipo("N");
+            }
             cit.setEstado("P");
             cit.setFecha(date);
    
             String mensaje = Abo.agregarCita(cit,dato);
             limpiar();
             JOptionPane.showMessageDialog(null, mensaje);
-        
-            Admision_inicio r = new Admision_inicio(adm);
-            r.setVisible(true);
-            this.setVisible(false);                          
-  }
+            if(flag){
+                Medico_paciente m = new Medico_paciente(med,ic, p, h);
+                m.setVisible(true);
+                this.setVisible(false);
+                this.flag = false;
+            }else{
+                Admision_inicio r = new Admision_inicio(adm);
+                r.setVisible(true);
+                this.setVisible(false);
+            }                                   
+        }     
         
     }//GEN-LAST:event_btnRegistrarMouseClicked
     

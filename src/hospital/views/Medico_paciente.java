@@ -7,7 +7,10 @@ package hospital.views;
  */
 
 
+import hospital.bo.MedicoBO;
 import hospital.entity.Medico;
+import hospital.entity.Paciente;
+import hospital.entity.Receta;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -22,8 +25,12 @@ public class Medico_paciente extends javax.swing.JFrame {
     /**
      * Creates new form Admision
      */
+    private static String his;
+    private static Paciente pac;
     private static Medico med;
-    public Medico_paciente(Medico med) {
+    private static int id_cita;
+    private MedicoBO mbo = new MedicoBO();
+    public Medico_paciente(Medico med, int idCita, Paciente pac, String historia) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -32,6 +39,18 @@ public class Medico_paciente extends javax.swing.JFrame {
         //rsscalelabel.RSScaleLabel.setScaleLabel(fondo,"src\\hospital\\views\\imagesa\\Deep Space.png");
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.med = med;
+        this.pac = pac;
+        this.his = historia;
+        this.id_cita = idCita;
+        txtNombres.setText(pac.getNombres());
+        txtApellidos.setText(pac.getApellidos());
+        txtTalla.setText(String.valueOf(pac.getTalla()));
+        txtPeso.setText(String.valueOf(pac.getPeso()));
+        txtTemp.setText(String.valueOf(pac.getTemperatura()));
+        txtPresion.setText(String.valueOf(pac.getPresion()));
+        txtHistoria.setText(his);
+        mbo.listarPatologia(jboxPatologia);
+        mbo.listarMedicamentos(jboxMedicamentos);
     }
 
     /**
@@ -60,29 +79,37 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jboxPatologia = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtxtIndicaciones = new javax.swing.JTextArea();
         jLabel24 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        jboxMedicamentos = new javax.swing.JComboBox<>();
         jLabel25 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextPane1 = new javax.swing.JTextPane();
         btnAtender = new javax.swing.JButton();
+        txtNombres = new javax.swing.JTextField();
+        jSeparator3 = new javax.swing.JSeparator();
+        txtApellidos = new javax.swing.JTextField();
+        jSeparator4 = new javax.swing.JSeparator();
+        txtTalla = new javax.swing.JTextField();
+        jSeparator5 = new javax.swing.JSeparator();
+        txtPeso = new javax.swing.JTextField();
+        jSeparator6 = new javax.swing.JSeparator();
+        txtTemp = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
+        txtPresion = new javax.swing.JTextField();
+        jSeparator8 = new javax.swing.JSeparator();
+        txtHistoria = new javax.swing.JTextField();
+        jSeparator9 = new javax.swing.JSeparator();
+        btnAtender1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -246,27 +273,6 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel3.setText("Talla:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 216, -1, 10));
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 114, 280, 30));
-
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 280, 30));
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 206, 90, 30));
-
         jLabel12.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel12.setText("Patología:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 120, -1, 20));
@@ -283,53 +289,29 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel20.setText("Temp:");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 257, -1, 20));
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 252, 90, 30));
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 206, 90, 30));
-
         jLabel21.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel21.setText("Presión:");
         getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 257, -1, 20));
-
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 252, 90, 30));
 
         jLabel22.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel22.setText("Nombres:");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 125, -1, 10));
 
-        jComboBox1.setEditable(true);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 114, 280, 30));
+        jboxPatologia.setEditable(true);
+        jboxPatologia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jboxPatologiaKeyReleased(evt);
+            }
+        });
+        getContentPane().add(jboxPatologia, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 114, 280, 30));
 
         jLabel23.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel23.setText("Historia:");
         getContentPane().add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 303, -1, 20));
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 298, 280, 30));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jtxtIndicaciones.setColumns(20);
+        jtxtIndicaciones.setRows(5);
+        jScrollPane2.setViewportView(jtxtIndicaciones);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 350, 100));
 
@@ -337,9 +319,8 @@ public class Medico_paciente extends javax.swing.JFrame {
         jLabel24.setText("Indicaciones:");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(575, 200, -1, 20));
 
-        jComboBox2.setEditable(true);
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 250, 30));
+        jboxMedicamentos.setEditable(true);
+        getContentPane().add(jboxMedicamentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 250, 30));
 
         jLabel25.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
         jLabel25.setText("Medicamento:");
@@ -351,7 +332,7 @@ public class Medico_paciente extends javax.swing.JFrame {
 
         btnAtender.setBackground(new java.awt.Color(0, 51, 51));
         btnAtender.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
-        btnAtender.setForeground(new java.awt.Color(255, 255, 255));
+        btnAtender.setForeground(new java.awt.Color(102, 102, 102));
         btnAtender.setText("Terminar");
         btnAtender.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAtender.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -359,7 +340,127 @@ public class Medico_paciente extends javax.swing.JFrame {
                 btnAtenderMouseClicked(evt);
             }
         });
-        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 380, 340, 30));
+        btnAtender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtenderActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtender, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, 370, 30));
+
+        txtNombres.setEditable(false);
+        txtNombres.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtNombres.setForeground(new java.awt.Color(102, 102, 102));
+        txtNombres.setBorder(null);
+        txtNombres.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombresActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 270, 30));
+
+        jSeparator3.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 280, 10));
+
+        txtApellidos.setEditable(false);
+        txtApellidos.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtApellidos.setForeground(new java.awt.Color(102, 102, 102));
+        txtApellidos.setBorder(null);
+        txtApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtApellidosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 270, 30));
+
+        jSeparator4.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 280, 10));
+
+        txtTalla.setEditable(false);
+        txtTalla.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtTalla.setForeground(new java.awt.Color(102, 102, 102));
+        txtTalla.setBorder(null);
+        txtTalla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTallaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTalla, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 80, 30));
+
+        jSeparator5.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 90, 10));
+
+        txtPeso.setEditable(false);
+        txtPeso.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtPeso.setForeground(new java.awt.Color(102, 102, 102));
+        txtPeso.setBorder(null);
+        txtPeso.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPesoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 200, 80, 30));
+
+        jSeparator6.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, 90, 10));
+
+        txtTemp.setEditable(false);
+        txtTemp.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtTemp.setForeground(new java.awt.Color(102, 102, 102));
+        txtTemp.setBorder(null);
+        txtTemp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTempActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 80, 30));
+
+        jSeparator7.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 280, 90, 10));
+
+        txtPresion.setEditable(false);
+        txtPresion.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtPresion.setForeground(new java.awt.Color(102, 102, 102));
+        txtPresion.setBorder(null);
+        txtPresion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPresionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtPresion, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 250, 80, 30));
+
+        jSeparator8.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 280, 90, 10));
+
+        txtHistoria.setEditable(false);
+        txtHistoria.setFont(new java.awt.Font("Maiandra GD", 1, 14)); // NOI18N
+        txtHistoria.setForeground(new java.awt.Color(102, 102, 102));
+        txtHistoria.setBorder(null);
+        txtHistoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtHistoriaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtHistoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 300, 270, 30));
+
+        jSeparator9.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 280, 10));
+
+        btnAtender1.setBackground(new java.awt.Color(0, 51, 51));
+        btnAtender1.setFont(new java.awt.Font("Maiandra GD", 1, 12)); // NOI18N
+        btnAtender1.setForeground(new java.awt.Color(102, 102, 102));
+        btnAtender1.setText("Generar Interconsulta");
+        btnAtender1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAtender1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAtender1MouseClicked(evt);
+            }
+        });
+        btnAtender1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAtender1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAtender1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 350, 370, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -439,38 +540,70 @@ public class Medico_paciente extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jLabel11MouseClicked
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
     private void btnAtenderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtenderMouseClicked
 
     }//GEN-LAST:event_btnAtenderMouseClicked
 
+    private void txtNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombresActionPerformed
+
+    private void txtApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtApellidosActionPerformed
+
+    private void txtTallaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTallaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTallaActionPerformed
+
+    private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPesoActionPerformed
+
+    private void txtTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTempActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTempActionPerformed
+
+    private void txtPresionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPresionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPresionActionPerformed
+
+    private void txtHistoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHistoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHistoriaActionPerformed
+
+    private void btnAtenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtenderActionPerformed
+        int idPat = mbo.getIdPat(String.valueOf(jboxPatologia.getSelectedItem()));
+        int idMed = mbo.getIdMed(String.valueOf(jboxMedicamentos.getSelectedItem()));
+        mbo.updatePaciente(pac.getDni());
+        mbo.updateCita(id_cita);
+        mbo.crearHis_Pat(his,idPat,id_cita);
+        mbo.crearReceta(id_cita,jtxtIndicaciones.getText());
+        mbo.crearRec_Med(mbo.getIdReceta(id_cita),idMed);
+        JOptionPane.showMessageDialog(null, "Atención Finalizada");
+        Medico_cita m = new Medico_cita(med);
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAtenderActionPerformed
+
+    private void btnAtender1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAtender1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAtender1MouseClicked
+
+    private void btnAtender1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtender1ActionPerformed
+        Admision_generar_cita a = new Admision_generar_cita(med, id_cita, pac, his);
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnAtender1ActionPerformed
+
+    private void jboxPatologiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jboxPatologiaKeyReleased
+        Buscar_Patologias(jboxPatologia.getEditor().getItem().toString());
+    }//GEN-LAST:event_jboxPatologiaKeyReleased
+
+    public void Buscar_Patologias(String search){
+        mbo.Buscar_Patologias(jboxPatologia, search);
+    }
+        
     /**
      * @param args the command line arguments
      */
@@ -508,7 +641,7 @@ public class Medico_paciente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Medico_paciente(med).setVisible(true);
+                new Medico_paciente(med,id_cita, pac, his).setVisible(true);
             }
         });
     }
@@ -516,9 +649,8 @@ public class Medico_paciente extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Minimizar;
     private javax.swing.JButton btnAtender;
+    private javax.swing.JButton btnAtender1;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -543,16 +675,25 @@ public class Medico_paciente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JSeparator jSeparator4;
+    private javax.swing.JSeparator jSeparator5;
+    private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JSeparator jSeparator7;
+    private javax.swing.JSeparator jSeparator8;
+    private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JComboBox<String> jboxMedicamentos;
+    private javax.swing.JComboBox<String> jboxPatologia;
+    private javax.swing.JTextArea jtxtIndicaciones;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblLogo1;
+    private javax.swing.JTextField txtApellidos;
+    private javax.swing.JTextField txtHistoria;
+    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtPeso;
+    private javax.swing.JTextField txtPresion;
+    private javax.swing.JTextField txtTalla;
+    private javax.swing.JTextField txtTemp;
     // End of variables declaration//GEN-END:variables
 }

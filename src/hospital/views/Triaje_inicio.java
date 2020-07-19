@@ -22,6 +22,9 @@ public class Triaje_inicio extends javax.swing.JFrame {
     private static Enfermera enf;
     public static String especialidad;
     public static String date;
+    public static Integer dni;
+    public static String temperatura;
+    public static String presion;
     public Triaje_inicio(Enfermera enf) {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -273,7 +276,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje tt = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje tt = new Triaje_tablaTriaje(enf,String.valueOf(dni),date, especialidad);
         tt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -297,7 +300,7 @@ public class Triaje_inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        Triaje_tablaTriaje tt = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje tt = new Triaje_tablaTriaje(enf,String.valueOf(dni), date, especialidad);
         tt.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked

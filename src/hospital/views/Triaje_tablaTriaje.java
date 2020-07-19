@@ -27,8 +27,10 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     private static String dni;
     private static int dniE;
     public static String especialidad;
+    public static String temperatura;
+    public static String presion;
     public static String date;
-    public Triaje_tablaTriaje(Enfermera enf) {
+    public Triaje_tablaTriaje(Enfermera enf, String dni, String date, String especialidad) {
         initComponents();
         this.setLocationRelativeTo(null);
         ImageIcon smile = new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png"));
@@ -36,7 +38,12 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         lblLogo.setIcon(img);
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         lblCorreoUsuario.setText(enf.getCorreo());
+        System.out.println(enf.getCorreo());
         this.enf = enf;
+        this.dni = dni;
+        this.date = date;
+        this.especialidad = especialidad;
+        
     }
     
     public void listarTriaje(String especialidad, String date) {
@@ -259,6 +266,11 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
         cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
         cboEspecialidad.setBorder(null);
+        cboEspecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cboEspecialidadMouseClicked(evt);
+            }
+        });
         jPanel1.add(cboEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 250, -1));
 
         btnModificar.setBackground(new java.awt.Color(51, 51, 51));
@@ -325,7 +337,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel14MouseMoved
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf);
+        Triaje_tablaTriaje ap = new Triaje_tablaTriaje(enf, dni, date, especialidad);
         ap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jLabel14MouseClicked
@@ -349,6 +361,17 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel18MouseClicked
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+        this.dni = this.obtenerDni();
+        this.date = this.obtenerDate();
+        this.especialidad = this.obtenerEspecialidad();
+        int idTriaje = ebo.getIdTriaje2(dni,especialidad, date);
+        System.out.println(idTriaje);
+        String mensaje = "Triaje eliminado(update Paciente) con exito"+ebo.eliminarTriajePaciente(String.valueOf(dni));        
+        String mensaje2 = "Triaje eliminado (update cita) con exito "+ebo.eliminarTablaCita(String.valueOf(dni), date, especialidad);
+        String mensaje3 = "Triaje eliminado de triaje "+ebo.eliminarTablaTriaje(idTriaje);
+        System.out.println(mensaje3);
+        System.out.println(mensaje);
+        System.out.println(mensaje2);
         JOptionPane.showMessageDialog(null, "Triaje eliminado con éxito.");
         
     }//GEN-LAST:event_btnEliminarMouseClicked
@@ -371,6 +394,8 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         String temperatura = this.obtenerTemperatura();
         String presion = this.obtenerPresion();
         
+        
+        
         Triaje_modifcarTriaje mr = new Triaje_modifcarTriaje(enf, dni, dniE, especialidad, date, talla, peso, temperatura, presion);
         mr.setVisible(true);
         this.setVisible(false);
@@ -390,11 +415,24 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
 
     private void btnVerTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnVerTriajeMouseClicked
         // TODO add your handling code here:        
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-        String date = sdf.format(jDateChooser.getDate());
-        String especialidad = String.valueOf(cboEspecialidad.getSelectedItem());           
+        String date = this.obtenerDate();    
+        String especialidad = this.obtenerEspecialidad();
         listarTriaje(especialidad, date);
     }//GEN-LAST:event_btnVerTriajeMouseClicked
+
+    private void cboEspecialidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cboEspecialidadMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboEspecialidadMouseClicked
+    
+    public String obtenerEspecialidad() {
+        return String.valueOf(cboEspecialidad.getSelectedItem());
+    }
+    
+    public String obtenerDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String date = sdf.format(jDateChooser.getDate());
+        return date;
+    }
     
     public String obtenerDni() {
         int column = 0;
@@ -461,7 +499,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Triaje_tablaTriaje(enf).setVisible(true);
+                new Triaje_tablaTriaje(enf, dni, date, especialidad).setVisible(true);
             }
         });
     }
