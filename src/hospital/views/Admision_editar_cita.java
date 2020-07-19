@@ -241,7 +241,6 @@ public class Admision_editar_cita extends javax.swing.JFrame {
                {                  
             JOptionPane.showMessageDialog(null, "Llene todos los campos");          
         }else{
-             
             Medico dep = (Medico)cbMedico.getSelectedItem();
             
             int dato = dep.getIdMedico();
@@ -263,7 +262,7 @@ public class Admision_editar_cita extends javax.swing.JFrame {
             r.setVisible(true);
             this.setVisible(false);                              
         } 
-  
+
     }//GEN-LAST:event_btnRegistrarMouseClicked
 
     private void cbEspecialidadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbEspecialidadItemStateChanged

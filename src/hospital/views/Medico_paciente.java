@@ -597,7 +597,7 @@ public class Medico_paciente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtender1ActionPerformed
 
     private void jboxPatologiaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jboxPatologiaKeyReleased
-        Buscar_Patologias(jboxPatologia.getEditor().getItem().toString());
+        //Buscar_Patologias(jboxPatologia.getEditor().getItem().toString());
     }//GEN-LAST:event_jboxPatologiaKeyReleased
 
     public void Buscar_Patologias(String search){

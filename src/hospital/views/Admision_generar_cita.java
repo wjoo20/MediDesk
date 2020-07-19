@@ -202,10 +202,17 @@ public class Admision_generar_cita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelarMouseClicked
-      
-        Admision_cita lo = new Admision_cita(adm);
-        lo.setVisible(true);
-        this.setVisible(false);
+        if(flag){
+            Medico_paciente m = new Medico_paciente(med,ic, p, h);
+            m.setVisible(true);
+            this.setVisible(false);
+            this.flag = false;
+        }else{
+            Admision_cita lo = new Admision_cita(adm);
+            lo.setVisible(true);
+            this.setVisible(false);
+        }
+        
         
     }//GEN-LAST:event_btnCancelarMouseClicked
 

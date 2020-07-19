@@ -283,7 +283,7 @@ public class Admision_crear_paciente extends javax.swing.JFrame {
             }    
             
             Paciente pac  = new Paciente();
-                    
+                pac.setDni(Integer.parseInt(txtDni.getText()));
                 pac.setNombres(txtNombres.getText());
                 pac.setApellidos(txtApellidos.getText());
                 pac.setGenero(genero);

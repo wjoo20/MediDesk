@@ -43,7 +43,6 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         this.dni = dni;
         this.date = date;
         this.especialidad = especialidad;
-        
     }
     
     public void listarTriaje(String especialidad, String date) {
@@ -264,7 +263,7 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         cboEspecialidad.setBackground(new java.awt.Color(255, 255, 255));
         cboEspecialidad.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
         cboEspecialidad.setForeground(new java.awt.Color(0, 0, 0));
-        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología ", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
+        cboEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar especialidad", "Cardiología", "Dermatología", "Endocrinología", "Gastroenterología", "Geriatría", "Ginecología", "Nefrología", "Neumología", "Neurocirugía", "Nutrición", "Obstetricía", "Odontología", "Oftalmología", "Oncología", "Otorrinolaringología", "Pediatría", "Psicología", "Psiquiatría", "Reumatología", "Urología", " ", " " }));
         cboEspecialidad.setBorder(null);
         cboEspecialidad.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -373,7 +372,9 @@ public class Triaje_tablaTriaje extends javax.swing.JFrame {
         System.out.println(mensaje);
         System.out.println(mensaje2);
         JOptionPane.showMessageDialog(null, "Triaje eliminado con éxito.");
-        
+        String date = this.obtenerDate();    
+        String especialidad = this.obtenerEspecialidad();
+        listarTriaje(especialidad, date);
     }//GEN-LAST:event_btnEliminarMouseClicked
 
     private void tbTriajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbTriajeMouseClicked

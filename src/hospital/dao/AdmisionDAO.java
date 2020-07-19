@@ -173,8 +173,8 @@ public class AdmisionDAO {
     public String agregarCita(Connection con, Cita cit,int dato){
         
         PreparedStatement pst =null;
-        String sql ="INSERT INTO CITA (CITA_IDCITA,CITA_TIPO,CITA_ESTADO,CITA_FECHA,MEDICO_MED_IDMEDICO,PACIENTE_PAC_DNI)"+
-                "VALUES(SEQ_CITA.NEXTVAL,?,?,TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),?,?)";
+        String sql ="INSERT INTO CITA (CITA_TIPO,CITA_ESTADO,CITA_FECHA,MEDICO_MED_IDMEDICO,PACIENTE_PAC_DNI)"+
+                "VALUES(?,?,TO_DATE(?, 'YYYY-MM-DD HH24:MI:SS'),?,?)";
         
         try{
             pst=con.prepareStatement(sql);

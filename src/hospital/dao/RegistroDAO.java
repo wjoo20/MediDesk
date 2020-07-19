@@ -25,8 +25,8 @@ public class RegistroDAO {
     public void regUser(Connection con, Usuario user){
         PreparedStatement pst = null;
 
-        String sql = "INSERT INTO USUARIO (US_IDUSUARIO, US_CORREO, US_CLAVE, US_TIPO) "
-                    + "VALUES(SEQ_USUARIO.NEXTVAL,?,?,?)";
+        String sql = "INSERT INTO USUARIO (US_CORREO, US_CLAVE, US_TIPO) "
+                    + "VALUES(?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, user.getCorreo());
@@ -43,8 +43,8 @@ public class RegistroDAO {
     
     public String regAdm(Connection con, Administrador adm){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO ADMINISTRADOR (ADM_IDADMINISTRADOR, ADM_DNI, ADM_NOMBRES, ADM_APELLIDOS, ADM_GENERO, ADM_EDAD, USUARIO_US_IDUSUARIO) "
-                + "VALUES(SEQ_ADM.NEXTVAL,?,?,?,?,?,?)";
+        String sql = "INSERT INTO ADMINISTRADOR (ADM_DNI, ADM_NOMBRES, ADM_APELLIDOS, ADM_GENERO, ADM_EDAD, USUARIO_US_IDUSUARIO) "
+                + "VALUES(?,?,?,?,?,?)";
 
         try {
             pst = con.prepareStatement(sql);
@@ -66,8 +66,8 @@ public class RegistroDAO {
     
     public String regMed(Connection con, Medico med){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO MEDICO (MED_IDMEDICO, MED_DNI, MED_NOMBRES, MED_APELLIDOS, MED_GENERO, MED_EDAD, MED_CMP, USUARIO_US_IDUSUARIO, ESPE_ESPE_IDESPE) "
-                + "VALUES(SEQ_MED.NEXTVAL,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO MEDICO (MED_DNI, MED_NOMBRES, MED_APELLIDOS, MED_GENERO, MED_EDAD, MED_CMP, USUARIO_US_IDUSUARIO, ESPE_ESPE_IDESPE) "
+                + "VALUES(?,?,?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
 
@@ -90,8 +90,8 @@ public class RegistroDAO {
     
     public String regFarm(Connection con, Farmaceutico farm){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO FARMACEUTICO (FARM_IDFARMACEUTICO, FARM_DNI, FARM_NOMBRES, FARM_APELLIDOS, FARM_GENERO, FARM_EDAD, USUARIO_US_IDUSUARIO) "
-                + "VALUES(SEQ_FARM.NEXTVAL,?,?,?,?,?,?)";
+        String sql = "INSERT INTO FARMACEUTICO (FARM_DNI, FARM_NOMBRES, FARM_APELLIDOS, FARM_GENERO, FARM_EDAD, USUARIO_US_IDUSUARIO) "
+                + "VALUES(?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, farm.getDni());
@@ -111,8 +111,8 @@ public class RegistroDAO {
     
     public String regEnf(Connection con, Enfermera enf){
         PreparedStatement pst = null;
-        String sql = "INSERT INTO ENFERMERA (ENF_IDENFERMERA, ENF_DNI, ENF_NOMBRES, ENF_APELLIDOS, ENF_GENERO, ENF_EDAD, USUARIO_US_IDUSUARIO) "
-                + "VALUES(SEQ_ENF.NEXTVAL,?,?,?,?,?,?)";
+        String sql = "INSERT INTO ENFERMERA (ENF_DNI, ENF_NOMBRES, ENF_APELLIDOS, ENF_GENERO, ENF_EDAD, USUARIO_US_IDUSUARIO) "
+                + "VALUES(?,?,?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, enf.getDni());
