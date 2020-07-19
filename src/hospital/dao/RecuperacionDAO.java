@@ -22,13 +22,14 @@ import javax.swing.table.DefaultTableModel;
 public class RecuperacionDAO {
     PreparedStatement pst;
     ResultSet rs;
-    public void Recuperar_pass(Connection conn, String nueva_clave){
+    public void Recuperar_pass(Connection conn, String nueva_clave, String correo){
 
-        String sql = "update usuario set us_clave = ? where us_correo ='reg3@medidesk.com'";
+        String sql = "update usuario set us_clave = ? where us_correo = ?";
 
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, nueva_clave);
+            pst.setString(2, correo);
             rs = pst.executeQuery();
             conn.commit();
 
