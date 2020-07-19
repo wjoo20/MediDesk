@@ -18,9 +18,9 @@ import javax.swing.JTable;
 public class RecuperacionBO {
     private String mensaje = "";
     private RecuperacionDAO recu = new RecuperacionDAO();
-    public void Recuperar_pass(String nueva_clave) {
+    public void Recuperar_pass(String nueva_clave, String correo) {
         Connection conn  = Conexion.getConnection();
-        recu.Recuperar_pass(conn, nueva_clave);
+        recu.Recuperar_pass(conn, nueva_clave, correo);
         try {
             conn.close();
         } 

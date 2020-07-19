@@ -192,7 +192,7 @@ public class Recuperacion extends javax.swing.JFrame {
 
 
 
-        //Main recu=new Main(txtCorreo.getText());
+        Main recu = new Main(txtCorreo.getText());
         
         
         //recu.main1(txtCorreo.getText());
