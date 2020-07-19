@@ -23,9 +23,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author PROPIETARIO
  */
+
 public class FarmaciaDAO {
             PreparedStatement pst = null;
         ResultSet rs = null;
+
 public void Mostrar_Pacientes(Connection conn, JTable tablepacientes){
         DefaultTableModel tabla =new DefaultTableModel();
        tabla.addColumn("DNI");
@@ -108,7 +110,7 @@ public void Buscar_Pacientes(Connection conn,JTable tablepacientes,String buscar
         }
 
 }
-    public void ConfirmarEntrega(Connection conn,JTable tablepacientes) {                                
+    public void ConfirmarEntrega(Connection conn,JTable tablepacientes, Farmaceutico farm) {                                
     int row = tablepacientes.getSelectedRow();
         String var = tablepacientes.getModel().getValueAt(row, 5).toString();
 
@@ -127,13 +129,13 @@ public void Buscar_Pacientes(Connection conn,JTable tablepacientes,String buscar
        int dialog = JOptionPane.YES_NO_OPTION;
         int result = JOptionPane.showConfirmDialog(null,"Entrega Confimada","Exit",dialog);
         if(result==0) {
-                        Actualizar(conn,tablepacientes);
+                        Actualizar(conn,tablepacientes, farm);
       
 
         }
     }
 
-public void Actualizar(Connection conn,JTable tablepacientes){
+public void Actualizar(Connection conn,JTable tablepacientes, Farmaceutico farm){
              int row = tablepacientes.getSelectedRow();
         String var2= tablepacientes.getModel().getValueAt(row,4).toString();
         String sql2= "INSERT INTO TRANSACCION_RECETA (RECETA_REC_IDRECETA, FARM_FARM_IDFARM) VALUES (?, ?)";
@@ -142,7 +144,7 @@ public void Actualizar(Connection conn,JTable tablepacientes){
         try {
             pst = conn.prepareStatement(sql2);
             pst.setInt(1, Integer.parseInt(var2));
-            pst.setInt(2, 2);
+            pst.setInt(2, farm.getIdFarmaceutico());
 
             rs = pst.executeQuery();
             conn.commit();

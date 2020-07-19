@@ -46,7 +46,7 @@ public class Medico_cita extends javax.swing.JFrame {
     
     public boolean checkHistoria() {
         int row = jTableMedCita.getSelectedRow();
-        if(Integer.parseInt(jTableMedCita.getModel().getValueAt(row, 4).toString())== 0)
+        if(Integer.parseInt(jTableMedCita.getModel().getValueAt(row, 5).toString())== 0)
             return true;
         else
             return false;
@@ -413,9 +413,9 @@ public class Medico_cita extends javax.swing.JFrame {
     private void btnCrearHistoriaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCrearHistoriaMouseClicked
         // Llamar a Medico_historia
         int row = jTableMedCita.getSelectedRow();
-        String nombres = jTableMedCita.getModel().getValueAt(row, 2).toString();
-        String apellidos = jTableMedCita.getModel().getValueAt(row, 1).toString();
-        String dni = jTableMedCita.getModel().getValueAt(row, 3).toString();
+        String nombres = jTableMedCita.getModel().getValueAt(row, 3).toString();
+        String apellidos = jTableMedCita.getModel().getValueAt(row, 2).toString();
+        String dni = jTableMedCita.getModel().getValueAt(row, 4).toString();
         Medico_historia m = new Medico_historia(med, nombres, apellidos, dni);
         System.out.println(nombres+apellidos+dni);
         m.setVisible(true);

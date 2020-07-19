@@ -7,6 +7,7 @@ package hospital.bo;
 
 import hospital.dao.FarmaciaDAO;
 import hospital.db.Conexion;
+import hospital.entity.Farmaceutico;
 import java.sql.Connection;
 import java.sql.SQLException;
 import javax.swing.JTable;
@@ -38,9 +39,9 @@ public class FarmaciaBO {
             System.out.println(e.getMessage());
         }
     }
-    public void ConfirmarEntrega(JTable tablepacientes) {
+    public void ConfirmarEntrega(JTable tablepacientes, Farmaceutico farm) {
         Connection conn  = Conexion.getConnection();
-        farma.ConfirmarEntrega(conn, tablepacientes);
+        farma.ConfirmarEntrega(conn, tablepacientes, farm);
 
         try {
 

@@ -31,7 +31,7 @@ public class EnfermeraDAO {
         String [] columnas = {"ID","NOMBRES","APELLIDOS","DNI","MEDICO","TIPO","ESTADO"};
         model = new DefaultTableModel(null,columnas);
         //Sentencia SQL
-        String sql = "SELECT C.CITA_IDCITA, P.PAC_NOMBRES, P.PAC_APELLIDOS, P.PAC_DNI, M.MED_APELLIDOS, C.CITA_TIPO, C.CITA_ESTADO FROM CITA C JOIN PACIENTE P ON(C.PACIENTE_PAC_DNI=P.PAC_DNI) JOIN MEDICO M ON (C.MEDICO_MED_IDMEDICO=M.MED_IDMEDICO) WHERE M.MED_IDMEDICO = (SELECT E.ESPE_IDESPECIALIDAD FROM ESPECIALIDAD E JOIN MEDICO M ON (E.ESPE_IDESPECIALIDAD=M.ESPE_ESPE_IDESPE) WHERE E.ESPE_NOMBRE = ?) AND TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')";
+        String sql = "SELECT C.CITA_IDCITA, P.PAC_NOMBRES, P.PAC_APELLIDOS, P.PAC_DNI, M.MED_APELLIDOS, C.CITA_TIPO, C.CITA_ESTADO FROM CITA C JOIN PACIENTE P ON(C.PACIENTE_PAC_DNI=P.PAC_DNI) JOIN MEDICO M ON (C.MEDICO_MED_IDMEDICO=M.MED_IDMEDICO) WHERE M.ESPE_ESPE_IDESPE IN (SELECT E.ESPE_IDESPECIALIDAD FROM ESPECIALIDAD E JOIN MEDICO M ON (E.ESPE_IDESPECIALIDAD=M.ESPE_ESPE_IDESPE) WHERE E.ESPE_NOMBRE = ?) AND TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY') AND C.CITA_ESTADO = 'P'";
         //filas
         String [] filas = new String[7];
         //conexion
@@ -46,6 +46,7 @@ public class EnfermeraDAO {
             while (rs.next()) {
                 for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
+                    System.out.println(rs.getString(i+1));
                 }
                 model.addRow(filas);
             }
@@ -62,7 +63,14 @@ public class EnfermeraDAO {
         String [] columnas = {"DNI","NOMBRES","APELLIDOS","TALLA","PESO","TEMPERATURA","PRESIÓN ARTERIAL"};
         model = new DefaultTableModel(null,columnas);
         //Sentencia SQL
-        String sql = "SELECT P.PAC_DNI, P.PAC_NOMBRES, P.PAC_APELLIDOS, P.PAC_TALLA, P.PAC_PESO, P.PAC_TEMPERATURA, P.PAC_PRESION FROM PACIENTE P JOIN CITA C ON (P.PAC_DNI = C.PACIENTE_PAC_DNI) WHERE C.MEDICO_MED_IDMEDICO = (SELECT M.MED_IDMEDICO FROM MEDICO M JOIN ESPECIALIDAD E ON (M.ESPE_ESPE_IDESPE = E.ESPE_IDESPECIALIDAD)WHERE E.ESPE_NOMBRE = ?) AND P.PAC_TRIAJE = 'S'";
+        String sql = "SELECT P.PAC_DNI, P.PAC_NOMBRES, P.PAC_APELLIDOS, P.PAC_TALLA, P.PAC_PESO, P.PAC_TEMPERATURA, P.PAC_PRESION \n" +
+                    "FROM PACIENTE P JOIN CITA C ON (P.PAC_DNI = C.PACIENTE_PAC_DNI) \n" +
+                    "WHERE C.MEDICO_MED_IDMEDICO IN \n" +
+                    "    (SELECT M.MED_IDMEDICO \n" +
+                    "    FROM MEDICO M JOIN ESPECIALIDAD E ON (M.ESPE_ESPE_IDESPE = E.ESPE_IDESPECIALIDAD)\n" +
+                    "    WHERE E.ESPE_NOMBRE = ?)\n" +
+                    "AND TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY') \n" +
+                    "AND P.PAC_TRIAJE = 'S'";
         //filas
         String [] filas = new String[7];
         //conexion
@@ -72,10 +80,12 @@ public class EnfermeraDAO {
         try {
             pst = conn.prepareStatement(sql);
             pst.setString(1, especialidad);
+            pst.setString(2, date);
             rs = pst.executeQuery();
             while (rs.next()) {
                 for (int i = 0; i < 7; i++) {
                     filas[i] = rs.getString(i+1);
+                    System.out.println(rs.getString(i+1));
                 }
                 model.addRow(filas);
             }
@@ -272,7 +282,7 @@ public class EnfermeraDAO {
     //EliminaridCita en tabla cita 
     public String eliminarTablaCita(Connection con, Integer dni, String date, String especialidad) {
         PreparedStatement pst = null;
-        String sql = "UPDATE CITA SET TRIAJE_TRI_IDTRIAJE = NULL WHERE (PACIENTE_PAC_DNI = ?) AND (TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')) AND (MEDICO_MED_IDMEDICO = (SELECT MED_IDMEDICO FROM MEDICO WHERE ESPE_ESPE_IDESPE = (SELECT ESPE_IDESPECIALIDAD FROM ESPECIALIDAD WHERE ESPE_NOMBRE  = ?)))";
+        String sql = "UPDATE CITA SET TRIAJE_TRI_IDTRIAJE = NULL WHERE (PACIENTE_PAC_DNI = ?) AND (TO_DATE(CITA_FECHA, 'DD/MM/YY') = TO_DATE(?, 'DD/MM/YY')) AND (MEDICO_MED_IDMEDICO IN(SELECT MED_IDMEDICO FROM MEDICO WHERE ESPE_ESPE_IDESPE = (SELECT ESPE_IDESPECIALIDAD FROM ESPECIALIDAD WHERE ESPE_NOMBRE  = ?)))";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, dni);

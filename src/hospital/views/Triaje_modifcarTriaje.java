@@ -449,9 +449,9 @@ public class Triaje_modifcarTriaje extends javax.swing.JFrame {
             String mensaje1 = "Triaje modificado con éxito" + ebo.agregarTriajePaciente(pac,dni);
             JOptionPane.showMessageDialog(null, mensaje1);
             Triaje_tablaTriaje r = new Triaje_tablaTriaje(enf,dni,date,especialidad);
-            r.setVisible(true);
+            r.setVisible(true);         
             this.setVisible(false);
-
+            
         }
     }//GEN-LAST:event_btnModificarTriajeMouseClicked
 

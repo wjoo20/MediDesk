@@ -43,20 +43,17 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/hospital/views/images/logo-64.png")).getImage());
         this.farm = farm;
     }
-    
-    
-    
-    
-          PreparedStatement pst;
-         ResultSet rs ;    
+  
+    PreparedStatement pst;
+    ResultSet rs ;    
     private FarmaciaBO farmabo= new FarmaciaBO();
     void Mostrar_Pacientes(){
         farmabo.Mostrar_Pacientes(tablepacientes);
-}
-            DefaultTableModel tabla =new DefaultTableModel();
+    }
+    DefaultTableModel tabla =new DefaultTableModel();
     void Buscar_Pacientes(String buscar){
         farmabo.Buscar_Pacientes(tablepacientes, buscar);
-}
+    }
 
 
        
@@ -413,7 +410,7 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
     }//GEN-LAST:event_textKeyReleased
 
     private void btnconfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnconfirmarMouseClicked
-        farmabo.ConfirmarEntrega(tablepacientes);
+        farmabo.ConfirmarEntrega(tablepacientes, this.farm);
         Farmacia_Pacientes fp = new Farmacia_Pacientes(farm);
         //System.out.println(farm.getIdFarmaceutico());
         fp.setVisible(true);
