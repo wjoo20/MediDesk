@@ -59,7 +59,7 @@ public class Triaje_verPaciente extends javax.swing.JFrame {
         txtTelefono.setText(String.valueOf(p.getTelefono()));
         txtDireccion.setText(p.getDireccion());
         txtGenero.setText(p.getGenero()+"");
-        txtEdad.setText(String.valueOf(p.getDni()));
+        txtEdad.setText(String.valueOf(p.getEdad()));
         txtTriaje.setText(p.getTriaje());
         return p;
         
