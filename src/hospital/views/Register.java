@@ -5,6 +5,7 @@
  */
 package hospital.views;
 
+import hospital.bo.AdmisionBO;
 import hospital.bo.RegistroBO;
 import hospital.entity.Administrador;
 import hospital.entity.Enfermera;
@@ -43,6 +44,8 @@ public class Register extends javax.swing.JFrame {
         cbEspecialidad.setVisible(false);
         txtCmp.setVisible(false);
         jsCmp.setVisible(false);
+        AdmisionBO a = new AdmisionBO();
+        a.listar_especialidades(cbEspecialidad);
     }
 
     public String encrypt(String pass){

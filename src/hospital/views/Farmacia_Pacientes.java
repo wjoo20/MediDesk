@@ -346,6 +346,7 @@ public final class Farmacia_Pacientes extends javax.swing.JFrame {
 
         btnconfirmar.setBackground(new java.awt.Color(0, 51, 51));
         btnconfirmar.setFont(new java.awt.Font("Maiandra GD", 0, 12)); // NOI18N
+        btnconfirmar.setForeground(new java.awt.Color(255, 255, 255));
         btnconfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hospital/views/images/check-16(verde).png"))); // NOI18N
         btnconfirmar.setText("Confirmar Entrega");
         btnconfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
